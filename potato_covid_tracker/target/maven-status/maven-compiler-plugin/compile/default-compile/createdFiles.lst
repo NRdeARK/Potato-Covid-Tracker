@@ -1,4 +1,3 @@
 com\openjfx\App.class
 com\openjfx\LoginController.class
-com\openjfx\PrimaryController.class
-com\openjfx\SecondaryController.class
+com\openjfx\UserData.class
