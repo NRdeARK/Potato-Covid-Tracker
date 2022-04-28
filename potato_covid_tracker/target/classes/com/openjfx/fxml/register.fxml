@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="164.0" layoutY="117.0" text="username" />
+      <Label layoutX="164.0" layoutY="147.0" text="password" />
+      <Label layoutX="164.0" layoutY="178.0" text="re-enter password" />
+      <Label layoutX="164.0" layoutY="211.0" text="realname" />
+      <Label layoutX="164.0" layoutY="241.0" text="surename" />
+      <PasswordField fx:id="passwordPasswordField" layoutX="288.0" layoutY="143.0" />
+      <PasswordField fx:id="rePasswordPasswordField" layoutX="288.0" layoutY="174.0" />
+      <Button layoutX="378.0" layoutY="309.0" mnemonicParsing="false" text="create new account" />
+      <Label fx:id="passwordWarningLabel" layoutX="469.0" layoutY="178.0" />
+      <TextField fx:id="usernameTextField" layoutX="288.0" layoutY="113.0" />
+      <TextField fx:id="realnameTextField" layoutX="288.0" layoutY="207.0" />
+      <TextField fx:id="surenameTextField" layoutX="288.0" layoutY="237.0" />
+   </children>
+</AnchorPane>
