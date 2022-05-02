@@ -27,10 +27,12 @@ public class LoginController {
         int userID = userData.verifyLogin(username, password);
         if(userID == -1){
             System.out.println("username or password are invalid");
+            LogManager.writeLog(0,"login unsuccessful");
         }
         else{
             String userInfo = userData.getUserInfo(userID);
-            System.out.println(userInfo);
+            LogManager.writeLog(userID,"login successful");
         }
+
     }
 }

@@ -1,0 +1,7 @@
+TimeStamp=2022-05-02T17:37:15.032272400::UserID=999::Log=login
+TimeStamp=2022-05-02T17:37:14.868272900::UserID=999::Log=login
+TimeStamp=2022-05-02T17:37:14.700273400::UserID=999::Log=login
+TimeStamp=2022-05-02T17:37:14.544273900::UserID=999::Log=login
+TimeStamp=2022-05-02T17:37:08.896206900::UserID=999::Log=login
+
+
