@@ -5,10 +5,14 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class LoginController {
+
+    @FXML
+    private Label cautionLabel;
 
     @FXML
     private Button loginButton;
@@ -28,6 +32,7 @@ public class LoginController {
         if(userID == -1){
             System.out.println("username or password are invalid");
             LogManager.writeLog(0,"login unsuccessful");
+            cautionLabel.setText("username or password are invalid");
         }
         else{
             String userInfo = userData.getUserInfo(userID);
