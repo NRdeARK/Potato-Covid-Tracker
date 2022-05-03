@@ -3,16 +3,19 @@ package com.openjfx;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class WelcomeController {
+public class WelcomeController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -21,21 +24,22 @@ public class WelcomeController {
     @FXML
     private Label usernameLabel;
 
-    @FXML
-    public void displayUsername() throws IOException {
-        String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
-		usernameLabel.setText("username: " + username);
-        System.out.println("display!");
-	}
+    public void initialize(URL url ,ResourceBundle  resourceBundle){
+        displayUsername();
+    }
 
     @FXML
-    public void ContinueButton(ActionEvent event) throws IOException{
-        root = FXMLLoader.load(getClass().getResource("fxml/login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    public void displayUsername(){
+        try {
+            String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
+		    usernameLabel.setText("username: " + username);
+            System.out.println("display!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+	}
+    
 
 
 }
