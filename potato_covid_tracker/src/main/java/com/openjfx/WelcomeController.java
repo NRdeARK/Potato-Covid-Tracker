@@ -24,19 +24,8 @@ public class WelcomeController implements Initializable {
     @FXML
     private Label usernameLabel;
 
-    public void initialize(URL url ,ResourceBundle  resourceBundle){
-    }
-
     @FXML
-<<<<<<< Updated upstream
-    public void displayUsername(){
-        try {
-            String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
-		    usernameLabel.setText("username: " + username);
-=======
-    public void initialize(URL url ,ResourceBundle resourceBundle){
-        //displayUsername();
-        usernameLabel.setText("guest");
+    public void initialize(URL url ,ResourceBundle  resourceBundle){
     }
 
     @FXML
@@ -44,16 +33,10 @@ public class WelcomeController implements Initializable {
         try {
             String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
             usernameLabel.setText("username: " + username);
->>>>>>> Stashed changes
             System.out.println("display!");
         } catch (Exception e) {
             e.printStackTrace();
         }
-<<<<<<< Updated upstream
-        
-=======
-
->>>>>>> Stashed changes
 	}
 
 
