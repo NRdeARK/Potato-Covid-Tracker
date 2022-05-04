@@ -14,37 +14,22 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class WelcomeController implements Initializable{
+public class TutorialController implements Initializable{
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     @FXML
-    private Button noButton;
-
-    @FXML
-    private Button yesButton;
+    private Button finishButton;
 
     public void initialize(URL url ,ResourceBundle  resourceBundle){
     
     }
 
-    public void yesButton(ActionEvent event) throws IOException {
-        System.out.println("old guest user");
+    public void finishButton(ActionEvent event) throws IOException {
+        System.out.println("new guest user finish tutorial");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/main.fxml"));
-        root = loader.load();
-        MainController mainController = loader.getController();
-        mainController.displayUsername();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();    
-    }
-
-    public void noButton(ActionEvent event) throws IOException {
-        System.out.println("new guest user");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/tutorial.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
