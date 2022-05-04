@@ -27,6 +27,7 @@ public class LaunchController {
 
     public void loginAsGuest(ActionEvent event) throws IOException {
         LogManager.writeLog(0, "login as guest successful");
+<<<<<<< Updated upstream
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/welcome.fxml"));
         root = (Parent) loader.load();
@@ -36,6 +37,13 @@ public class LaunchController {
         Stage newStage = new Stage();
         newStage.setScene(newScene);
         newStage.show();
+=======
+        root = FXMLLoader.load(getClass().getResource("fxml/welcome.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+>>>>>>> Stashed changes
         // stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         // scene = new Scene(root);
         // stage.setScene(scene);

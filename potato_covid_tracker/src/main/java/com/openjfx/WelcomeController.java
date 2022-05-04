@@ -28,15 +28,32 @@ public class WelcomeController implements Initializable {
     }
 
     @FXML
+<<<<<<< Updated upstream
     public void displayUsername(){
         try {
             String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
 		    usernameLabel.setText("username: " + username);
+=======
+    public void initialize(URL url ,ResourceBundle resourceBundle){
+        //displayUsername();
+        usernameLabel.setText("guest");
+    }
+
+    @FXML
+    public void displayUsername() {
+        try {
+            String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
+            usernameLabel.setText("username: " + username);
+>>>>>>> Stashed changes
             System.out.println("display!");
         } catch (Exception e) {
             e.printStackTrace();
         }
+<<<<<<< Updated upstream
         
+=======
+
+>>>>>>> Stashed changes
 	}
 
 
