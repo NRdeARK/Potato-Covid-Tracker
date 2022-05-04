@@ -16,7 +16,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class ProfileController implements Initializable {
+public class CountryController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -45,7 +45,7 @@ public class ProfileController implements Initializable {
 
     @FXML
     public void initialize(URL url ,ResourceBundle  resourceBundle){
-        modeLabel.setText("Profile");
+        modeLabel.setText("Country");
     }
 
     @FXML

@@ -1,7 +1,10 @@
 com\openjfx\LogManager.class
 com\openjfx\App.class
 com\openjfx\UserData.class
+com\openjfx\CountryController.class
 com\openjfx\TutorialController.class
+com\openjfx\GlobalController.class
+com\openjfx\CityController.class
 com\openjfx\LaunchController.class
 com\openjfx\LoginController.class
 com\openjfx\WelcomeController.class
