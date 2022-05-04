@@ -1,7 +1,16 @@
+<<<<<<< Updated upstream
 com\openjfx\LaunchController.class
 com\openjfx\LogManager.class
 com\openjfx\App.class
 com\openjfx\LoginController.class
 com\openjfx\UserData.class
+=======
+com\openjfx\LogManager.class
+com\openjfx\App.class
+com\openjfx\MainController.class
+com\openjfx\UserData.class
+com\openjfx\LaunchController.class
+com\openjfx\LoginController.class
+>>>>>>> Stashed changes
 com\openjfx\WelcomeController.class
 com\openjfx\RegisterController.class
