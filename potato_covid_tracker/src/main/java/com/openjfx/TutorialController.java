@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class TutorialController implements Initializable{
+public class TutorialController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -23,17 +23,19 @@ public class TutorialController implements Initializable{
     @FXML
     private Button finishButton;
 
-    public void initialize(URL url ,ResourceBundle  resourceBundle){
-    
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
 
     public void finishButton(ActionEvent event) throws IOException {
         System.out.println("new guest user finish tutorial");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
+        ProfileController profileController = loader.getController();
+        profileController.displayUsername();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();    
+        stage.show();
     }
 }

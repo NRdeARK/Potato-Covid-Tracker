@@ -32,10 +32,10 @@ public class WelcomeController implements Initializable{
 
     public void yesButton(ActionEvent event) throws IOException {
         System.out.println("old guest user");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/main.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
-        MainController mainController = loader.getController();
-        mainController.displayUsername();
+        ProfileController profileController = loader.getController();
+        profileController.displayUsername();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

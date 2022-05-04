@@ -15,7 +15,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class MainController implements Initializable {
+public class ProfileController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -26,7 +26,7 @@ public class MainController implements Initializable {
 
     @FXML
     public void initialize(URL url ,ResourceBundle  resourceBundle){
-        displayUsername();
+        
     }
 
     @FXML

@@ -45,15 +45,24 @@ public class LoginController {
         else{
             System.out.println("login successful");
             LogManager.writeLog(userID,"login as user successful");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/welcome.fxml"));	
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));	
 		    root = loader.load();
-		    MainController mainController = loader.getController();
-		    mainController.displayUsername();
+		    ProfileController profileController = loader.getController();
+		    profileController.displayUsername();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         }
 
+    }
+
+    @FXML
+    public void back(ActionEvent event) throws IOException{
+        root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }
