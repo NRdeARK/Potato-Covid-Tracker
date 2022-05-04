@@ -47,8 +47,8 @@ public class LoginController {
             LogManager.writeLog(userID,"login as user successful");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/welcome.fxml"));	
 		    root = loader.load();
-		    WelcomeController welcomeController = loader.getController();
-		    welcomeController.displayUsername();
+		    MainController mainController = loader.getController();
+		    mainController.displayUsername();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
