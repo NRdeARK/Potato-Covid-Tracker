@@ -59,7 +59,7 @@ public class GlobalController implements Initializable {
         }
 	}
 
-    public void GlobalButton(ActionEvent event) throws IOException {
+    public void globalButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
         root = loader.load();
         GlobalController globalController = loader.getController();
@@ -70,7 +70,7 @@ public class GlobalController implements Initializable {
         stage.show();
     }
 
-    public void CountryButton(ActionEvent event) throws IOException {
+    public void countryButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
         root = loader.load();
         CountryController countryController = loader.getController();
@@ -104,11 +104,13 @@ public class GlobalController implements Initializable {
     }
 
     public void logoutButton(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
-        Scene scene = new Scene(root);
+        root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
+
 
 
 }
