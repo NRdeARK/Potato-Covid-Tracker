@@ -25,7 +25,6 @@ public class WelcomeController implements Initializable {
     private Label usernameLabel;
 
     public void initialize(URL url ,ResourceBundle  resourceBundle){
-        displayUsername();
     }
 
     @FXML
@@ -39,7 +38,7 @@ public class WelcomeController implements Initializable {
         }
         
 	}
-    
+
 
 
 }

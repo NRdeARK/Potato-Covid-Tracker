@@ -7,7 +7,7 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="usernameLabel" layoutX="458.0" layoutY="14.0" text="user: " />
+            <Label fx:id="usernameLabel" layoutX="30.0" layoutY="6.0" prefHeight="17.0" prefWidth="464.0" text="user: " textAlignment="RIGHT" />
          </children>
       </AnchorPane>
    </center>

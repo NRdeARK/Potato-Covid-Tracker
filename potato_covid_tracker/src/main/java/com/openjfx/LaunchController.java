@@ -29,12 +29,9 @@ public class LaunchController {
         LogManager.writeLog(0, "login as guest successful");
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/welcome.fxml"));
-
         root = (Parent) loader.load();
-
         WelcomeController welcomeController = loader.getController();
         welcomeController.displayUsername();
-
         Scene newScene = new Scene(root);
         Stage newStage = new Stage();
         newStage.setScene(newScene);
