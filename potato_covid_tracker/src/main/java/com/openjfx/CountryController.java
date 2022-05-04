@@ -38,6 +38,15 @@ public class CountryController implements Initializable {
     private Button ProfileButton;
 
     @FXML
+    private Label dailyCure;
+
+    @FXML
+    private Label dailyDeath;
+
+    @FXML
+    private Label dailyInfect;
+
+    @FXML
     private Label modeLabel;
 
     @FXML
@@ -46,6 +55,23 @@ public class CountryController implements Initializable {
     @FXML
     public void initialize(URL url ,ResourceBundle  resourceBundle){
         modeLabel.setText("Country");
+        APIController api = new APIController();
+        int inf = Integer.parseInt(api.getCountryDailyData()[0]);
+        int totalInf = Integer.parseInt(api.getCountryDailyData()[1]);
+        int dead = Integer.parseInt(api.getCountryDailyData()[2]);
+        int totalDead = Integer.parseInt(api.getCountryDailyData()[3]);
+        int cure = Integer.parseInt(api.getCountryDailyData()[4]);
+        int totalCure = Integer.parseInt(api.getCountryDailyData()[5]);
+
+        dailyInfect.setText("inf : "+ String.valueOf(totalInf-inf)+" + "+String.valueOf(inf));
+        dailyDeath.setText("death : "+String.valueOf(totalDead-dead)+" + "+String.valueOf(dead));
+        dailyCure.setText("cure : "+String.valueOf(totalCure-cure)+" + "+String.valueOf(cure));
+
+        String [][] week = api.getCountryWeeklyData();
+
+        String [][] month = api.getCountryWeeklyData();
+
+
     }
 
     @FXML
