@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -13,5 +14,6 @@
             <Font size="66.0" />
          </font>
       </Label>
+      <Label layoutX="526.0" layoutY="8.0" text="Label" />
    </children>
 </AnchorPane>
