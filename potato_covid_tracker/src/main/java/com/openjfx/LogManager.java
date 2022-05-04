@@ -8,7 +8,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 import java.time.LocalDateTime;
 
 public class LogManager {
@@ -63,5 +62,11 @@ public class LogManager {
         fr.close();
         br.close();
         return "ERROR(readLastLog)";
+    }
+
+    public static int getUserIDFromLastLog()throws IOException{
+        String line = readLastLog();
+        String userID = line.split("::")[1].split("=")[1];
+        return Integer.parseInt(userID);
     }
 }

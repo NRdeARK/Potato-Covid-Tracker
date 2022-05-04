@@ -1,31 +1,29 @@
-TimeStamp=2022-05-03T21:17:59.607984::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-03T21:03:34.862972600::UserID=999::Log=login successful
-TimeStamp=2022-05-03T21:03:25.092691500::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-03T20:45:29.235255100::UserID=999::Log=login successful
-TimeStamp=2022-05-03T20:44:57.820388300::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:56:35.481092700::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:56:17.388557200::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:56:17.203558300::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:56:17.035560300::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:56:16.866559500::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:56:16.558558::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:55:23.507530300::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:55:23.275530800::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:55:23.111015300::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:55:22.944501700::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:55:22.293468500::UserID=0::Log=login unsuccessful
-TimeStamp=2022-05-02T17:54:56.547126600::UserID=999::Log=login successful
-TimeStamp=2022-05-02T17:54:56.385123900::UserID=999::Log=login successful
-TimeStamp=2022-05-02T17:54:56.224644400::UserID=999::Log=login successful
-TimeStamp=2022-05-02T17:54:56.059611200::UserID=999::Log=login successful
-TimeStamp=2022-05-02T17:54:55.887609700::UserID=999::Log=login successful
-TimeStamp=2022-05-02T17:54:55.712609200::UserID=999::Log=login successful
-TimeStamp=2022-05-02T17:54:55.231611600::UserID=999::Log=login successful
-TimeStamp=2022-05-02T17:54:52.716011800::UserID=999::Log=login successful
-TimeStamp=2022-05-02T17:37:15.032272400::UserID=999::Log=login
-TimeStamp=2022-05-02T17:37:14.868272900::UserID=999::Log=login
-TimeStamp=2022-05-02T17:37:14.700273400::UserID=999::Log=login
-TimeStamp=2022-05-02T17:37:14.544273900::UserID=999::Log=login
-TimeStamp=2022-05-02T17:37:08.896206900::UserID=999::Log=login
+<<<<<<< Updated upstream
+TimeStamp=2022-05-04T03:06:56.469481::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-04T03:06:10.914617700::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-04T03:03:52.972029800::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-04T03:01:22.783501200::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-04T03:00:44.994436300::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-04T03:00:33.127431900::UserID=0::Log=login as guest successful
+=======
+TimeStamp=2022-05-04T02:51:08.898159900::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-04T02:49:44.502010600::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-04T02:48:54.544374300::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-04T02:48:31.681540::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-04T02:46:44.883010400::UserID=0::Log=login as guest successful
+>>>>>>> Stashed changes
+TimeStamp=2022-05-03T23:36:17.087517900::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-03T23:33:28.340944500::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-03T23:23:22.674844::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-03T23:01:47.245935100::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-03T22:58:03.331555::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-03T22:49:28.737516700::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-03T22:35:25.505530500::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-03T22:35:12.089879400::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-03T22:29:32.389775800::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-03T22:01:33.369545700::UserID=999::Log=login as user successful
+TimeStamp=2022-05-03T22:01:08.098155200::UserID=0::Log=login as guest successful
+TimeStamp=2022-05-03T21:28:26.216187300::UserID=0::Log=login as guest successful
+
 
 

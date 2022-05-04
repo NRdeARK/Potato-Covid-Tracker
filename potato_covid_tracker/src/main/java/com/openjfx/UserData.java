@@ -5,13 +5,12 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.InputStreamReader;
 
 //import javafx.scene.shape.Path;
 
 public class UserData {
 
-    public int verifyLogin(String username, String password) throws IOException {
+    public static int verifyLogin(String username, String password) throws IOException {
         String line = null;
         File f1 = new File("userLogin.txt");
         FileReader fr = new FileReader(f1);
@@ -31,7 +30,7 @@ public class UserData {
     }
 
     // return user information
-    public String getUserInfo(int userID) throws IOException {
+    public static String getUserInfo(int userID) throws IOException {
         String line = null;
         File f1 = new File("userInfo.txt");
         FileReader fr = new FileReader(f1);
@@ -49,4 +48,9 @@ public class UserData {
         return "ERROR(getUserInfo)";
     }
 
+    public static String getUsername(int userID) throws IOException{
+        String userInfo = getUserInfo(userID);
+        String username = userInfo.split(" ")[1];
+        return username;
+    }
 }
