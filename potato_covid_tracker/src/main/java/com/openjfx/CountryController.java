@@ -13,6 +13,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.AreaChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -21,6 +24,8 @@ public class CountryController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    private APIController api = new APIController();
+    String[][] monthlyData = api.getCountryMonthlyData();
 
     @FXML
     private Button CityButton;
@@ -53,25 +58,23 @@ public class CountryController implements Initializable {
     private Label usernameLabel;
 
     @FXML
+    private AreaChart<Number, Number> countryChart;
+
+    @FXML
+    private NumberAxis xAxis;
+
+    @FXML
+    private NumberAxis yAxis;
+
+
+
+    @FXML
     public void initialize(URL url ,ResourceBundle  resourceBundle){
+        
         modeLabel.setText("Country");
-        APIController api = new APIController();
-        int inf = Integer.parseInt(api.getCountryDailyData()[0]);
-        int totalInf = Integer.parseInt(api.getCountryDailyData()[1]);
-        int dead = Integer.parseInt(api.getCountryDailyData()[2]);
-        int totalDead = Integer.parseInt(api.getCountryDailyData()[3]);
-        int cure = Integer.parseInt(api.getCountryDailyData()[4]);
-        int totalCure = Integer.parseInt(api.getCountryDailyData()[5]);
-
-        dailyInfect.setText("inf : "+ String.valueOf(totalInf-inf)+" + "+String.valueOf(inf));
-        dailyDeath.setText("death : "+String.valueOf(totalDead-dead)+" + "+String.valueOf(dead));
-        dailyCure.setText("cure : "+String.valueOf(totalCure-cure)+" + "+String.valueOf(cure));
-
-        String [][] week = api.getCountryWeeklyData();
-
-        String [][] month = api.getCountryWeeklyData();
-
-
+        displayDailyData();
+        displayChart();
+        
     }
 
     @FXML
@@ -137,7 +140,51 @@ public class CountryController implements Initializable {
         stage.show();
     }
 
+    public void displayDailyData() {
+        int inf = Integer.parseInt(monthlyData[0][0]);
+        int totalInf = Integer.parseInt(monthlyData[0][1]);
+        int dead = Integer.parseInt(monthlyData[0][2]);
+        int totalDead = Integer.parseInt(monthlyData[0][3]);
+        int cure = Integer.parseInt(monthlyData[0][4]);
+        int totalCure = Integer.parseInt(monthlyData[0][5]);
 
+        dailyInfect.setText("inf : "+ String.valueOf(totalInf-inf)+" + "+String.valueOf(inf));
+        dailyDeath.setText("death : "+String.valueOf(totalDead-dead)+" + "+String.valueOf(dead));
+        dailyCure.setText("cure : "+String.valueOf(totalCure-cure)+" + "+String.valueOf(cure));
+    }
 
+    public void displayChart(){
+        System.out.println("chart loading.....");
+        
+        // xAxis = new NumberAxis(1, 30, 1);
+        // yAxis = new NumberAxis(0,10,100);
+
+        yAxis.setLabel("pop");
+        xAxis.setLabel("day");
+
+        // countryChart = new StackedAreaChart<Number,Number>(xAxis,yAxis);
+        
+        countryChart.setTitle("Covid-19 30 days");
+        System.out.println("call api");
+        // String [][] month = api.getCountryMonthlyData();
+        System.out.println("finish call api");
+        XYChart.Series<Number,Number> seriesDeath = new XYChart.Series<Number,Number>();
+        XYChart.Series<Number,Number> seriesInfect = new XYChart.Series<>();
+        XYChart.Series<Number,Number> seriesCure = new XYChart.Series<>();
+
+        for (int i = 0; i < 30; i++) {
+            seriesDeath.getData().add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29-i][3])));
+            // System.out.println( i+1 + " " +Integer.parseInt(month[i][3]));
+            seriesInfect.getData().add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29-i][1])));
+            seriesCure.getData().add(new XYChart.Data<Number, Number>(i + 1,Integer.parseInt(monthlyData[29-i][5])));
+            // seriesDeath.setName("death");
+            // seriesDeath.getData().add(new XYChart.Data<Number, Number>(i,i));
+        }
+
+        // System.out.println(seriesDeath.getData().toString()); 
+        countryChart.getData().add(seriesInfect);
+        countryChart.getData().add(seriesCure);
+        countryChart.getData().add(seriesDeath);
+    }
 }
 

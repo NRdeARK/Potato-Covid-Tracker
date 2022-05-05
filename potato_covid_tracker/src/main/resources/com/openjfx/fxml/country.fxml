@@ -34,12 +34,12 @@
             <Label fx:id="dailyInfect" layoutX="42.0" layoutY="264.0" text="infect" />
             <Label fx:id="dailyDeath" layoutX="42.0" layoutY="295.0" text="death" />
             <Label fx:id="dailyCure" layoutX="42.0" layoutY="327.0" text="cured" />
-            <AreaChart fx:id="countryChart" layoutX="111.0" layoutY="40.0" prefHeight="212.0" prefWidth="290.0">
+            <AreaChart fx:id="countryChart" layoutX="77.0" layoutY="40.0" prefHeight="301.0" prefWidth="341.0">
               <xAxis>
-                <CategoryAxis side="BOTTOM" />
+                <NumberAxis side="BOTTOM" fx:id="xAxis" />
               </xAxis>
               <yAxis>
-                <NumberAxis side="LEFT" />
+                <NumberAxis fx:id="yAxis" side="LEFT" />
               </yAxis>
             </AreaChart>
          </children>
