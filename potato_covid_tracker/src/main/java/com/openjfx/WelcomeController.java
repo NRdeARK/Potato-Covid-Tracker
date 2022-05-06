@@ -11,26 +11,36 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class WelcomeController implements Initializable{
+public class WelcomeController implements Initializable {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
     @FXML
+    private ImageView backgroundImageView;
+
+    @FXML
     private Button noButton;
+
+    @FXML
+    private Label tutorialLabel;
 
     @FXML
     private Button yesButton;
 
-    public void initialize(URL url ,ResourceBundle  resourceBundle){
-    
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Image backgroundImage = new Image(getClass().getResourceAsStream("images/welcome/background.png"));
+        backgroundImageView.setImage(backgroundImage);
     }
 
-    public void yesButton(ActionEvent event) throws IOException {
+    public void startButton(ActionEvent event) throws IOException {
         System.out.println("old guest user");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
@@ -39,16 +49,15 @@ public class WelcomeController implements Initializable{
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
-        stage.show();    
+        stage.show();
     }
 
-    public void noButton(ActionEvent event) throws IOException {
+    public void openTutorial() throws IOException {
         System.out.println("new guest user");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/tutorial.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        root = FXMLLoader.load(getClass().getResource("fxml/tutorial.fxml"));
         scene = new Scene(root);
+        stage = (Stage) tutorialLabel.getParent().getScene().getWindow();
         stage.setScene(scene);
-        stage.show();    
+        stage.show();
     }
 }

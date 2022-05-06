@@ -11,6 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -20,13 +22,25 @@ public class LaunchController implements Initializable {
     private Scene scene;
     private Parent root;
 
+
+
     @FXML
     private Button loginAsGuestButton;
 
     @FXML
     private Button loginAsPotatoButton;
 
+    @FXML
+    private ImageView logoImageView;
+
+    @FXML
+    private ImageView backgroundImageView;
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Image logoImage = new Image(getClass().getResourceAsStream("images/launch/logo.png"));
+        logoImageView.setImage(logoImage);
+        Image backgroundImage = new Image(getClass().getResourceAsStream("images/launch/background.png"));
+        backgroundImageView.setImage(backgroundImage);
     }
 
     public void loginAsGuest(ActionEvent event) throws IOException {
@@ -37,7 +51,6 @@ public class LaunchController implements Initializable {
         stage.setScene(scene);
         stage.show();
         System.out.println("GUEST");
-
     }
 
     public void loginAsPotato(ActionEvent event) throws IOException {
