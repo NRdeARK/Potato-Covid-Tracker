@@ -47,7 +47,9 @@ public class LaunchController implements Initializable {
         LogManager.writeLog(0, "login as guest successful");
         root = FXMLLoader.load(getClass().getResource("fxml/welcome.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        String css = this.getClass().getResource("styles/welcome.css").toExternalForm();
         scene = new Scene(root);
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
         System.out.println("GUEST");

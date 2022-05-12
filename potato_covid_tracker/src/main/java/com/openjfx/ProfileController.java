@@ -106,7 +106,9 @@ public class ProfileController implements Initializable {
     public void logoutButton(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        String css = this.getClass().getResource("styles/launch.css").toExternalForm();
         scene = new Scene(root);
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }
