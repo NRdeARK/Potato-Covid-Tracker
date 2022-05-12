@@ -9,12 +9,19 @@ import javafx.scene.text.Text;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class APIController {
-
     @FXML
     private Label cured;
 
@@ -32,9 +39,7 @@ public class APIController {
         APIConnector apiConnecter = new APIConnector(countryAPI);
         JSONArray jsonArray = apiConnecter.getJSONArray("timeline-cases-all");
         JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("timeline-cases-all").get(jsonArray.size() - 1));
-
         System.out.println(jsonData.toString());
-
     }
 
     public String[] getCountryDailyData() {
@@ -117,6 +122,46 @@ public class APIController {
         } catch (Exception e) {
             e.printStackTrace();
             return monthlyData;
+        }
+    }
+
+    public boolean updateContryData() throws IOException{
+        List<String> lines = new ArrayList<String>();
+        APIConnector apiConnecter = new APIConnector(countryAPI);
+        JSONArray jsonArray = apiConnecter.getJSONArray("timeline-cases-all");
+        for (int i = 0; i < 30; i++) {
+            JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("timeline-cases-all").get(jsonArray.size() - 1 - i));
+            lines.add(jsonData.toString());
+        }
+        File f1 = new File("countryData.txt");
+        FileWriter fw = new FileWriter(f1);
+        BufferedWriter out = new BufferedWriter(fw);
+        for (String s : lines) {
+            out.write(s);
+            out.newLine();
+        }
+        out.flush();
+        out.close();
+        return true;
+    }
+
+    public void convertUnicodeToString(){
+        try {
+            // Convert from Unicode to UTF-8
+            String string = "\u0e19";
+            byte[] utf8 = string.getBytes("UTF-8");
+            string = new String(utf8, "UTF-8");
+            // System.out.println(string);
+            File f1 = new File("test.txt");
+            FileWriter fw = new FileWriter(f1);
+            BufferedWriter out = new BufferedWriter(fw);
+            out.write(string);
+            out.flush();
+            out.close();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

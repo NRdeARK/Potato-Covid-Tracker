@@ -74,7 +74,6 @@ public class ProfileController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
         root = loader.load();
         CountryController countryController = loader.getController();
-        // countryController.displayChart();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
