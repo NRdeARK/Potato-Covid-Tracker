@@ -25,6 +25,7 @@ public class CountryController implements Initializable {
     private Scene scene;
     private Parent root;
     private APIController api = new APIController();
+    
     String[][] monthlyData = api.getCountryMonthlyData();
 
     @FXML
