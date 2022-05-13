@@ -8,9 +8,11 @@ import org.json.simple.JSONObject;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -186,8 +188,31 @@ public class APIController {
         return monthlyData;
     }
 
-    public String getCityNameFromID(){
-        
+    public String getCityNameFromID(int cityID) throws IOException {
+        String cityName;
+        String line = null;
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(getClass().getResourceAsStream("txt/provinceOrder.txt")));
+        for (int i = 0; i < cityID; i++) {
+            line = reader.readLine();
+        }
+        reader.close();
+        cityName = line.split(" ")[1];
+        return cityName;
+    }
+
+    public int getCityIDfromName(String cityName) throws IOException {
+        int cityID = 0;
+        String line = null;
+        String cityList = "";
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(getClass().getResourceAsStream("txt/provinceOrder.txt")));
+        while (!cityList.equals(cityName) && (line = reader.readLine()) != null) {
+            cityList = line.split("\"")[1].split("\"")[0];
+            cityID = Integer.parseInt(line.split(" \"")[0]);
+        }
+        reader.close();
+        return cityID;
     }
 
     public String[] getCityDailyData(int cityID) throws IOException {
@@ -195,26 +220,20 @@ public class APIController {
         File f1 = new File("cityData.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
-        for (int i = 0; i < 78-i; i++) {
-            br.readLine();
+        for (int i = 0; i < 79 - cityID; i++) {
+            line = br.readLine();
         }
-        if ((line = br.readLine()) != null) {
-            fr.close();
-            br.close();
-        }
-        fr.close();
-        br.close();
         String[] arr = line.split(",");
         // {
-        //     0"total_case_excludeabroad":8963,
-        //     1"txn_date":"2022-05-13",
-        //     2"total_death":51,
-        //     3"province":"????????",
-        //     4"new_death":0,
-        //     5"total_case":8969,
-        //     6"new_case_excludeabroad":20,
-        //     7"update_date":"2022-05-13 07:35:56",
-        //     8"new_case":20
+        // 0"total_case_excludeabroad":8963,
+        // 1"txn_date":"2022-05-13",
+        // 2"total_death":51,
+        // 3"province":"????????",
+        // 4"new_death":0,
+        // 5"total_case":8969,
+        // 6"new_case_excludeabroad":20,
+        // 7"update_date":"2022-05-13 07:35:56",
+        // 8"new_case":20
         // }
         System.out.println(line);
         String[] dailyData = {
@@ -226,8 +245,10 @@ public class APIController {
                 arr[2].split(":")[1],
                 // date
                 arr[1].split(":")[1],
-                //province name
+                // province name
+                getCityNameFromID(cityID)
         };
+        System.out.println(getCityNameFromID(cityID));
         return dailyData;
     }
 }

@@ -16,7 +16,7 @@ public class App extends Application {
         APIController api = new APIController();
         api.updateContryData();
         api.updateCityData();
-        api.getCityDailyData(1);
+        // api.getCityDailyData(1);
         Parent root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
