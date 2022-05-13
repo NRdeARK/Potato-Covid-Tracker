@@ -15,8 +15,8 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         APIController api = new APIController();
         api.updateContryData();
-        api.getCountryWeeklyData();
-        api.getCountryMonthlyData();
+        api.updateCityData();
+        api.getCityDailyData(1);
         Parent root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);

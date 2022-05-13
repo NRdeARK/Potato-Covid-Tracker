@@ -28,8 +28,11 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FCFFE7;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="modeLabel" layoutX="14.0" layoutY="14.0" text="Label" />
+            <Label fx:id="modeLabel" layoutX="43.0" layoutY="23.0" text="Label" />
             <AnchorPane layoutY="263.0" prefHeight="109.0" prefWidth="497.0" />
+            <Label fx:id="dailyInfect" layoutX="42.0" layoutY="264.0" text="infect" />
+            <Label fx:id="dailyDeath" layoutX="42.0" layoutY="295.0" text="death" />
+            <Label fx:id="dailyCure" layoutX="42.0" layoutY="327.0" text="cured" />
          </children>
       </AnchorPane>
    </center>

@@ -67,8 +67,6 @@ public class CountryController implements Initializable {
     @FXML
     private NumberAxis yAxis;
 
-
-
     @FXML
     public void initialize(URL url ,ResourceBundle  resourceBundle){
         

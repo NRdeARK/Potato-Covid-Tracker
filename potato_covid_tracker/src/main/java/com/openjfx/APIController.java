@@ -37,15 +37,40 @@ public class APIController {
     }
 
     public boolean updateContryData() throws IOException {
+        System.out.println("start update country data");
         List<String> lines = new ArrayList<String>();
         APIConnector apiConnecter = new APIConnector(countryAPI);
         JSONArray jsonArray = apiConnecter.getJSONArray("timeline-cases-all");
         for (int i = 0; i < 30; i++) {
+            System.out.println("data : " + (i + 1) + "/30");
             JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("timeline-cases-all")
                     .get(jsonArray.size() - 1 - i));
             lines.add(jsonData.toString());
         }
         File f1 = new File("countryData.txt");
+        FileWriter fw = new FileWriter(f1);
+        BufferedWriter out = new BufferedWriter(fw);
+        for (String s : lines) {
+            out.write(s);
+            out.newLine();
+        }
+        out.flush();
+        out.close();
+        return true;
+    }
+
+    public boolean updateCityData() throws IOException {
+        System.out.println("start update city data");
+        List<String> lines = new ArrayList<String>();
+        APIConnector apiConnecter = new APIConnector(cityAPI);
+        JSONArray jsonArray = apiConnecter.getJSONArray("today-cases-by-provinces");
+        for (int i = 0; i < 78; i++) {
+            System.out.println("data : " + (i + 1) + "/78");
+            JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("today-cases-by-provinces")
+                    .get(jsonArray.size() - 1 - i));
+            lines.add(jsonData.toString());
+        }
+        File f1 = new File("cityData.txt");
         FileWriter fw = new FileWriter(f1);
         BufferedWriter out = new BufferedWriter(fw);
         for (String s : lines) {
@@ -102,7 +127,6 @@ public class APIController {
 
         String[][] weeklyData = new String[7][7];
         String line = null;
-        List<String> lines = new ArrayList<String>();
         File f1 = new File("countryData.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
@@ -121,85 +145,89 @@ public class APIController {
             // date
             weeklyData[i][6] = arr[8].split(":")[1];
             System.out.println("case " + weeklyData[i][0] + " : " + weeklyData[i][1]);
-            System.out.println("death " + weeklyData[i][2]+ " : " + weeklyData[i][3]);
-            System.out.println("cure " + weeklyData[i][4]+ " : "+weeklyData[i][5]);
+            System.out.println("death " + weeklyData[i][2] + " : " + weeklyData[i][3]);
+            System.out.println("cure " + weeklyData[i][4] + " : " + weeklyData[i][5]);
             System.out.println("date " + weeklyData[i][6]);
 
         }
-
         return weeklyData;
-        // try {
-        // APIConnector apiConnecter = new APIConnector(countryAPI);
-        // JSONArray jsonArray = apiConnecter.getJSONArray("timeline-cases-all");
-        // for (int i = 0; i < 7; i++) {
-        // JSONObject jsonData = (JSONObject)
-        // (apiConnecter.getJSONArray("timeline-cases-all")
-        // .get(jsonArray.size() - 1 - i));
-        // weeklyData[i][0] = jsonData.get("new_case").toString();
-        // weeklyData[i][1] = jsonData.get("total_case").toString();
-        // weeklyData[i][2] = jsonData.get("new_death").toString();
-        // weeklyData[i][3] = jsonData.get("total_death").toString();
-        // weeklyData[i][4] = jsonData.get("new_recovered").toString();
-        // weeklyData[i][5] = jsonData.get("total_recovered").toString();
-        // }
-        // return weeklyData;
-        // } catch (Exception e) {
-        // e.printStackTrace();
-        // return weeklyData;
-        // }
-
     }
 
-    public String[][] getCountryMonthlyData(){
+    public String[][] getCountryMonthlyData() {
         String[][] monthlyData = new String[30][7];
         String line = null;
-        try{
-            
-        List<String> lines = new ArrayList<String>();
-        File f1 = new File("countryData.txt");
-        FileReader fr = new FileReader(f1);
-        BufferedReader br = new BufferedReader(fr);
-        for (int i = 0; i < 30; i++) {
-            line = br.readLine();
-            String[] arr = line.split(",");
-            //case
-            monthlyData[i][0] = arr[9].split(":")[1].replace("}","");
-            monthlyData[i][1] = arr[5].split(":")[1];
-            //death
-            monthlyData[i][2] = arr[4].split(":")[1];
-            monthlyData[i][3] = arr[3].split(":")[1];
-            //cure
-            monthlyData[i][4] = arr[1].split(":")[1];
-            monthlyData[i][5] = arr[6].split(":")[1];
-            //date
-            monthlyData[i][6] = arr[8].split(":")[1];
-            System.out.println("case " + monthlyData[i][0] + " : " + monthlyData[i][1]);
-            System.out.println("death " + monthlyData[i][2]+ " : " + monthlyData[i][3]);
-            System.out.println("cure " + monthlyData[i][4]+ " : "+monthlyData[i][5]);
-            System.out.println("date " + monthlyData[i][6]);
-        }
+        try {
+
+            File f1 = new File("countryData.txt");
+            FileReader fr = new FileReader(f1);
+            BufferedReader br = new BufferedReader(fr);
+            for (int i = 0; i < 30; i++) {
+                line = br.readLine();
+                String[] arr = line.split(",");
+                // case
+                monthlyData[i][0] = arr[9].split(":")[1].replace("}", "");
+                monthlyData[i][1] = arr[5].split(":")[1];
+                // death
+                monthlyData[i][2] = arr[4].split(":")[1];
+                monthlyData[i][3] = arr[3].split(":")[1];
+                // cure
+                monthlyData[i][4] = arr[1].split(":")[1];
+                monthlyData[i][5] = arr[6].split(":")[1];
+                // date
+                monthlyData[i][6] = arr[8].split(":")[1];
+                System.out.println("case " + monthlyData[i][0] + " : " + monthlyData[i][1]);
+                System.out.println("death " + monthlyData[i][2] + " : " + monthlyData[i][3]);
+                System.out.println("cure " + monthlyData[i][4] + " : " + monthlyData[i][5]);
+                System.out.println("date " + monthlyData[i][6]);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return monthlyData;
+    }
 
-        // try {
-        //     APIConnector apiConnecter = new APIConnector(countryAPI);
-        //     JSONArray jsonArray = apiConnecter.getJSONArray("timeline-cases-all");
-        //     for (int i = 0; i < 30; i++) {
-        //         JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("timeline-cases-all")
-        //                 .get(jsonArray.size() - 1 - i));
-        //         monthlyData[i][0] = jsonData.get("new_case").toString();
-        //         monthlyData[i][1] = jsonData.get("total_case").toString();
-        //         monthlyData[i][2] = jsonData.get("new_death").toString();
-        //         monthlyData[i][3] = jsonData.get("total_death").toString();
-        //         monthlyData[i][4] = jsonData.get("new_recovered").toString();
-        //         monthlyData[i][5] = jsonData.get("total_recovered").toString();
-        //     }
-        //     return monthlyData;
-        // } catch (Exception e) {
-        //     e.printStackTrace();
-        //     return monthlyData;
+    public String getCityNameFromID(){
+        
+    }
+
+    public String[] getCityDailyData(int cityID) throws IOException {
+        String line = null;
+        File f1 = new File("cityData.txt");
+        FileReader fr = new FileReader(f1);
+        BufferedReader br = new BufferedReader(fr);
+        for (int i = 0; i < 78-i; i++) {
+            br.readLine();
+        }
+        if ((line = br.readLine()) != null) {
+            fr.close();
+            br.close();
+        }
+        fr.close();
+        br.close();
+        String[] arr = line.split(",");
+        // {
+        //     0"total_case_excludeabroad":8963,
+        //     1"txn_date":"2022-05-13",
+        //     2"total_death":51,
+        //     3"province":"????????",
+        //     4"new_death":0,
+        //     5"total_case":8969,
+        //     6"new_case_excludeabroad":20,
+        //     7"update_date":"2022-05-13 07:35:56",
+        //     8"new_case":20
         // }
+        System.out.println(line);
+        String[] dailyData = {
+                // case
+                arr[8].split(":")[1].replace("}", ""),
+                arr[5].split(":")[1],
+                // death
+                arr[4].split(":")[1],
+                arr[2].split(":")[1],
+                // date
+                arr[1].split(":")[1],
+                //province name
+        };
+        return dailyData;
     }
 }

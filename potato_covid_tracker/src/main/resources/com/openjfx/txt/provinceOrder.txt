@@ -1,4 +1,3 @@
-0 "Unknown"
 1 "Krabi"
 2 "Bangkok"
 3 "Kanchanaburi"
