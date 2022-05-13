@@ -1,4 +1,5 @@
 .button{
+    -fx-background-color: #FBF9CF;
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25),10,0,0,4px)
 }
@@ -13,9 +14,9 @@
 }
 
 .button:pressed{
-    -fx-font-weight: bold;
+    -fx-font-weight: bolder;
     -fx-background-radius: 5;
-    -fx-fontsize: 22;
+    -fx-font-size: 10;
     -fx-text-fill: #764627;
     -fx-border-color: #764627;
     -fx-border-radius: 5;
@@ -23,12 +24,12 @@
     
 }
 
-.label:hover{
+#tutorialLabel:hover{
     -fx-text-fill: black;
 
 }
 
-.label:pressed{
+#tutorialLabel:pressed{
     -fx-text-fill: black;
-    -fx-font-weight: bold;
+    -fx-font-weight: bolder;
 }

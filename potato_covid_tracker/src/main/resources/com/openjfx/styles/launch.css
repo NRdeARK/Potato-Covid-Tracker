@@ -24,7 +24,7 @@
 .button:pressed{
     -fx-font-weight: bold;
     -fx-background-radius: 5;
-    -fx-fontsize: 22;
+    -fx-font-size: 10;
     -fx-text-fill: #764627;
     -fx-border-color: #764627;
     -fx-border-radius: 5;

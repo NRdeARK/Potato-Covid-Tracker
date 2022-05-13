@@ -2,6 +2,8 @@ package com.openjfx;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,8 +46,14 @@ public class ProfileController implements Initializable {
     private Label usernameLabel;
 
     @FXML
+    private ImageView profileView;
+
+
+    @FXML
     public void initialize(URL url ,ResourceBundle  resourceBundle){
         modeLabel.setText("Profile");
+        Image profileImage = new Image(getClass().getResourceAsStream("images/profile/potato.jpg"));
+        profileView.setImage(profileImage);
     }
 
     @FXML
@@ -98,7 +106,9 @@ public class ProfileController implements Initializable {
         ProfileController profileController = loader.getController();
         profileController.displayUsername();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        String css = this.getClass().getResource("styles/profile.css").toExternalForm();
         scene = new Scene(root);
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }

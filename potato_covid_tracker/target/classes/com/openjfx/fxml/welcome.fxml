@@ -12,7 +12,7 @@
          <font>
             <Font size="43.0" />
          </font></Label>
-      <Button fx:id="yesButton" layoutX="404.0" layoutY="273.0" mnemonicParsing="false" onAction="#startButton" prefHeight="37.18" prefWidth="151.65" style="-fx-background-color: FBF9CF;" text="GET START" />
+      <Button fx:id="yesButton" layoutX="404.0" layoutY="273.0" mnemonicParsing="false" onAction="#startButton" prefHeight="37.18" prefWidth="151.65"  text="GET START" />
       <Label fx:id="tutorialLabel" layoutX="401.0" layoutY="327.0" onMouseClicked="#openTutorial" text="DO YOU WANT A TUTORIAL ?" textFill="WHITE" underline="true" />
    </children>
 </AnchorPane>

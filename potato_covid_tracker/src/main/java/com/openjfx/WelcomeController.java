@@ -46,8 +46,10 @@ public class WelcomeController implements Initializable {
         root = loader.load();
         ProfileController profileController = loader.getController();
         profileController.displayUsername();
+        String css = this.getClass().getResource("styles/profile.css").toExternalForm();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }

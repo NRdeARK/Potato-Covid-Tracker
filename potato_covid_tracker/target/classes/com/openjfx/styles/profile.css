@@ -1,0 +1,29 @@
+#leftAnchor{
+    -fx-background-color:#FFD4AD;
+}
+
+#InnerLeftAnchor{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 10;
+}
+
+#MiddleAnchor{
+    -fx-background-color:#FFD4AD;
+}
+
+
+#ProfileButton{
+    -fx-background-color: #F9F8F0;
+    -fx-background-radius: 100;
+    -fx-border-color: #FFAA5C;
+    -fx-border-radius: 100;
+    -fx-border-width: 3px;
+}
+
+#ProfileButton:hover{
+    -fx-background-color: #8b8a8a;
+}
+
+#ProfileButton:pressed{
+    -fx-background-color: #acaaaa;
+}
