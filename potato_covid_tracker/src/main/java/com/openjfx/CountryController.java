@@ -25,6 +25,7 @@ public class CountryController implements Initializable {
     private Scene scene;
     private Parent root;
     private APIController api = new APIController();
+    
     String[][] monthlyData = api.getCountryMonthlyData();
 
     @FXML
@@ -65,8 +66,6 @@ public class CountryController implements Initializable {
 
     @FXML
     private NumberAxis yAxis;
-
-
 
     @FXML
     public void initialize(URL url ,ResourceBundle  resourceBundle){
