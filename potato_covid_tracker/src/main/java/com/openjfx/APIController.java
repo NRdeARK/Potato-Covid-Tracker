@@ -12,7 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
+// import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,14 +28,14 @@ public class APIController {
 
     private final String countryAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
 
-    private final String cityAPI = "https://covid19.ddc.moph.go.th/api/Cases/"; // timeline-cases-by-provinces
+    private final String cityAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
 
-    public void api() throws MalformedURLException {
-        APIConnector apiConnecter = new APIConnector(countryAPI);
-        JSONArray jsonArray = apiConnecter.getJSONArray("timeline-cases-all");
-        JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("timeline-cases-all").get(jsonArray.size() - 1));
-        System.out.println(jsonData.toString());
-    }
+    // public void api() throws MalformedURLException {
+    //     APIConnector apiConnecter = new APIConnector(countryAPI);
+    //     JSONArray jsonArray = apiConnecter.getJSONArray("timeline-cases-all");
+    //     JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("timeline-cases-all").get(jsonArray.size() - 1));
+    //     //System.out.println(jsonData.toString());
+    // }
 
     public boolean updateContryData() throws IOException {
         System.out.println("start update country data");
@@ -145,10 +145,10 @@ public class APIController {
             weeklyData[i][5] = arr[6].split(":")[1];
             // date
             weeklyData[i][6] = arr[8].split(":")[1];
-            System.out.println("case " + weeklyData[i][0] + " : " + weeklyData[i][1]);
-            System.out.println("death " + weeklyData[i][2] + " : " + weeklyData[i][3]);
-            System.out.println("cure " + weeklyData[i][4] + " : " + weeklyData[i][5]);
-            System.out.println("date " + weeklyData[i][6]);
+            //System.out.println("case " + weeklyData[i][0] + " : " + weeklyData[i][1]);
+            //System.out.println("death " + weeklyData[i][2] + " : " + weeklyData[i][3]);
+            //System.out.println("cure " + weeklyData[i][4] + " : " + weeklyData[i][5]);
+            //System.out.println("date " + weeklyData[i][6]);
 
         }
         br.close();
@@ -177,16 +177,15 @@ public class APIController {
                 monthlyData[i][5] = arr[6].split(":")[1];
                 // date
                 monthlyData[i][6] = arr[8].split(":")[1];
-                System.out.println("case " + monthlyData[i][0] + " : " + monthlyData[i][1]);
-                System.out.println("death " + monthlyData[i][2] + " : " + monthlyData[i][3]);
-                System.out.println("cure " + monthlyData[i][4] + " : " + monthlyData[i][5]);
-                System.out.println("date " + monthlyData[i][6]);
+                //System.out.println("case " + monthlyData[i][0] + " : " + monthlyData[i][1]);
+                //System.out.println("death " + monthlyData[i][2] + " : " + monthlyData[i][3]);
+                //System.out.println("cure " + monthlyData[i][4] + " : " + monthlyData[i][5]);
+                //System.out.println("date " + monthlyData[i][6]);
             }
             br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
         return monthlyData;
     }
 
@@ -250,7 +249,7 @@ public class APIController {
                 // province name
                 getCityNameFromID(cityID)
         };
-        System.out.println(getCityNameFromID(cityID));
+        System.out.println("loading " + getCityNameFromID(cityID) + " data");
         br.close();
         return dailyData;
     }

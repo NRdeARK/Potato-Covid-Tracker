@@ -3,9 +3,17 @@ package com.openjfx;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,7 +33,7 @@ public class CountryController implements Initializable {
     private Scene scene;
     private Parent root;
     private APIController api = new APIController();
-    
+    private final String countryAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
     String[][] monthlyData = api.getCountryMonthlyData();
 
     @FXML
@@ -57,6 +65,9 @@ public class CountryController implements Initializable {
 
     @FXML
     private Label usernameLabel;
+
+    @FXML
+    private Label dateUpdateLabel;
 
     @FXML
     private AreaChart<Number, Number> countryChart;
@@ -138,10 +149,11 @@ public class CountryController implements Initializable {
         int totalDead = Integer.parseInt(monthlyData[0][3]);
         int cure = Integer.parseInt(monthlyData[0][4]);
         int totalCure = Integer.parseInt(monthlyData[0][5]);
-
-        dailyInfect.setText("inf : "+ String.valueOf(totalInf-inf)+" + "+String.valueOf(inf));
-        dailyDeath.setText("death : "+String.valueOf(totalDead-dead)+" + "+String.valueOf(dead));
-        dailyCure.setText("cure : "+String.valueOf(totalCure-cure)+" + "+String.valueOf(cure));
+        String updateDate = monthlyData[0][6];
+        dailyInfect.setText("Today infected : "+ String.valueOf(totalInf-inf)+" + "+String.valueOf(inf));
+        dailyDeath.setText("Today death : "+String.valueOf(totalDead-dead)+" + "+String.valueOf(dead));
+        dailyCure.setText("Today cure : "+String.valueOf(totalCure-cure)+" + "+String.valueOf(cure));
+        dateUpdateLabel.setText("update date: " + updateDate);
     }
 
     public void displayChart(){
@@ -177,5 +189,30 @@ public class CountryController implements Initializable {
         countryChart.getData().add(seriesCure);
         countryChart.getData().add(seriesDeath);
     }
+
+    @FXML
+    void updateButton(ActionEvent event) throws IOException {
+        System.out.println("start update country data");
+        List<String> lines = new ArrayList<String>();
+        APIConnector apiConnecter = new APIConnector(countryAPI);
+        JSONArray jsonArray = apiConnecter.getJSONArray("timeline-cases-all");
+        for (int i = 0; i < 30; i++) {
+            System.out.println("data : " + (i + 1) + "/30");
+            JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("timeline-cases-all")
+                    .get(jsonArray.size() - 1 - i));
+            lines.add(jsonData.toString());
+        }
+        File f1 = new File("countryData.txt");
+        FileWriter fw = new FileWriter(f1);
+        BufferedWriter out = new BufferedWriter(fw);
+        for (String s : lines) {
+            out.write(s);
+            out.newLine();
+        }
+        out.flush();
+        out.close();
+    }
+
+
 }
 

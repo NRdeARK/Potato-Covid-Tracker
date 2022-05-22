@@ -4,9 +4,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -101,6 +109,7 @@ public class CityController implements Initializable {
         "Phrae",
         "Mae Hong Son",
     };
+    private final String cityAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
 
     @FXML
     private Button CityButton;
@@ -116,6 +125,9 @@ public class CityController implements Initializable {
 
     @FXML
     private Button ProfileButton;
+
+    @FXML
+    private Button updateButton;
 
     @FXML
     private ComboBox<String> cityComboBox;
@@ -134,6 +146,8 @@ public class CityController implements Initializable {
 
     @FXML
     private Label dateLabel;
+
+    
 
 
     @FXML
@@ -167,9 +181,9 @@ public class CityController implements Initializable {
             APIController api = new APIController();
             String [] cityData = api.getCityDailyData(CityID);
             modeLabel.setText("city : " + cityData[5]);
-            infectLabel.setText((Integer.parseInt(cityData[1]) - Integer.parseInt(cityData[0]))+ " + " + cityData[0]);
-            deathLabel.setText((Integer.parseInt(cityData[3]) - Integer.parseInt(cityData[2]))+ " + " + cityData[2]);
-             dateLabel.setText(cityData[4]);
+            infectLabel.setText("infected: " + (Integer.parseInt(cityData[1]) - Integer.parseInt(cityData[0]))+ " + " + cityData[0]);
+            deathLabel.setText("death: " + (Integer.parseInt(cityData[3]) - Integer.parseInt(cityData[2]))+ " + " + cityData[2]);
+             dateLabel.setText("date update: " + cityData[4]);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -224,6 +238,29 @@ public class CityController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    void updateButton(ActionEvent event) throws IOException {
+        System.out.println("start update city data");
+        List<String> lines = new ArrayList<String>();
+        APIConnector apiConnecter = new APIConnector(cityAPI);
+        JSONArray jsonArray = apiConnecter.getJSONArray("today-cases-by-provinces");
+        for (int i = 0; i < 78; i++) {
+            System.out.println("data : " + (i + 1) + "/78");
+            JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("today-cases-by-provinces")
+                    .get(jsonArray.size() - 1 - i));
+            lines.add(jsonData.toString());
+        }
+        File f1 = new File("cityData.txt");
+        FileWriter fw = new FileWriter(f1);
+        BufferedWriter out = new BufferedWriter(fw);
+        for (String s : lines) {
+            out.write(s);
+            out.newLine();
+        }
+        out.flush();
+        out.close();
     }
 
 

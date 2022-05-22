@@ -42,6 +42,8 @@
                 <NumberAxis fx:id="yAxis" side="LEFT" />
               </yAxis>
             </AreaChart>
+            <Button fx:id="updateButton" layoutX="668.0" layoutY="289.0" mnemonicParsing="false" onAction="#updateButton" text="update" />
+            <Label fx:id="dateUpdateLabel" layoutX="667.0" layoutY="248.0" text="date update" />
          </children>
       </AnchorPane>
    </center>

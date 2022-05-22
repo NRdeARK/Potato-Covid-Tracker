@@ -45,7 +45,8 @@
                <font>
                   <Font size="38.0" />
                </font></Label>
-            <ComboBox fx:id="cityComboBox" layoutX="227.0" layoutY="119.0" onAction="#chooseCity" prefHeight="59.0" prefWidth="234.0" promptText="krabi" />
+            <ComboBox fx:id="cityComboBox" layoutX="108.0" layoutY="47.0" onAction="#chooseCity" prefHeight="59.0" prefWidth="234.0" promptText="krabi" />
+            <Button fx:id="updateButton" layoutX="637.0" layoutY="354.0" mnemonicParsing="false" onAction="#updateButton" text="update" AnchorPane.topAnchor="344.0" />
          </children>
       </AnchorPane>
    </center>
