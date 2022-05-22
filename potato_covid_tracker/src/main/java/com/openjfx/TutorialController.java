@@ -32,7 +32,6 @@ public class TutorialController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
         ProfileController profileController = loader.getController();
-        profileController.displayUsername();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.ProfileController">
+   <top>
+      <AnchorPane prefHeight="28.0" prefWidth="600.0" style="-fx-background-color: #CE9461;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="usernameLabel1" layoutX="462.0" layoutY="6.0" text="Label" />
+         </children></AnchorPane>
+   </top>
    <left>
-      <AnchorPane prefHeight="517.0" prefWidth="87.0" style="-fx-background-color: #E0D8B0;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="60.0" style="-fx-background-color: #E0D8B0;" BorderPane.alignment="CENTER">
          <children>
             <VBox layoutY="67.0" prefHeight="73.0" prefWidth="103.0" spacing="20.0">
                <children>
+                  <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#profileButton" prefHeight="25.0" prefWidth="112.0" text="Profile" />
                   <Button fx:id="GlobalButton" mnemonicParsing="false" onAction="#globalButton" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: #DEA057;" text="Global" />
                   <Button fx:id="CountryButton" mnemonicParsing="false" onAction="#countryButton" prefHeight="25.0" prefWidth="162.0" style="-fx-background-color: #DEA057;" text="Country" />
                   <Button fx:id="CityButton" mnemonicParsing="false" onAction="#cityButton" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #DEA057;" text="City" />
                   <Button fx:id="LogoutButton" mnemonicParsing="false" onAction="#logoutButton" prefHeight="25.0" prefWidth="122.0" text="Logout" />
                </children>
             </VBox>
-            <Button fx:id="ProfileButton" layoutX="2.0" layoutY="26.0" mnemonicParsing="false" onAction="#profileButton" prefHeight="25.0" prefWidth="112.0" text="Profile" />
          </children>
-         <BorderPane.margin>
-            <Insets bottom="12.0" left="11.0" top="12.0" />
-         </BorderPane.margin>
       </AnchorPane>
    </left>
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FCFFE7;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="modeLabel" layoutX="14.0" layoutY="14.0" text="Label" />
-            <AnchorPane layoutY="263.0" prefHeight="109.0" prefWidth="497.0" />
+            <ImageView fx:id="profileImage" fitHeight="150.0" fitWidth="200.0" layoutX="329.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="greetingLabel" layoutX="329.0" layoutY="98.0" text="Welcome username potato" />
+            <Label fx:id="usernameLabel2" layoutX="329.0" layoutY="290.0" text="username" />
+            <Label fx:id="nameLabel" layoutX="322.0" layoutY="326.0" text="name" />
+            <Label fx:id="doseLabel" layoutX="323.0" layoutY="383.0" text="vacinated dose" />
+            <Label layoutX="330.0" layoutY="410.0" />
+            <Label fx:id="genderLabel" layoutX="325.0" layoutY="355.0" text="gender" />
+            <Label fx:id="vaccinatedDate" layoutX="323.0" layoutY="410.0" text="last vaccinated date" />
+            <Label fx:id="countdownLabel" layoutX="323.0" layoutY="439.0" text="vaccinated date countdown" />
          </children>
       </AnchorPane>
    </center>
