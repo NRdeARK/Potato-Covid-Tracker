@@ -43,7 +43,7 @@ public class LaunchController implements Initializable {
         backgroundImageView.setImage(backgroundImage);
     }
 
-    public void loginAsGuest(ActionEvent event) throws IOException {
+    public void loginAsGuestButton(ActionEvent event) throws IOException {
         LogManager.writeLog(0, "login as guest successful");
         root = FXMLLoader.load(getClass().getResource("fxml/welcome.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -53,7 +53,7 @@ public class LaunchController implements Initializable {
         System.out.println("GUEST");
     }
 
-    public void loginAsPotato(ActionEvent event) throws IOException {
+    public void loginAsPotatoButton(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/login.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

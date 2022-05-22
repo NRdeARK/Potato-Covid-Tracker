@@ -37,7 +37,7 @@ public class APIController {
     //     //System.out.println(jsonData.toString());
     // }
 
-    public boolean updateContryData() throws IOException {
+    public boolean updateCountryData() throws IOException {
         System.out.println("start update country data");
         List<String> lines = new ArrayList<String>();
         APIConnector apiConnecter = new APIConnector(countryAPI);

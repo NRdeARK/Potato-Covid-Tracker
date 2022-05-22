@@ -189,11 +189,43 @@ public class CityController implements Initializable {
         }
     }
 
+    @FXML
+    public void updateButton(ActionEvent event) throws IOException {
+        System.out.println("start update city data");
+        List<String> lines = new ArrayList<String>();
+        APIConnector apiConnecter = new APIConnector(cityAPI);
+        JSONArray jsonArray = apiConnecter.getJSONArray("today-cases-by-provinces");
+        for (int i = 0; i < 78; i++) {
+            System.out.println("data : " + (i + 1) + "/78");
+            JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("today-cases-by-provinces")
+                    .get(jsonArray.size() - 1 - i));
+            lines.add(jsonData.toString());
+        }
+        File f1 = new File("cityData.txt");
+        FileWriter fw = new FileWriter(f1);
+        BufferedWriter out = new BufferedWriter(fw);
+        for (String s : lines) {
+            out.write(s);
+            out.newLine();
+        }
+        out.flush();
+        out.close();
+    }
+
     public void chooseCity(ActionEvent event) throws IOException{
         String cityName = cityComboBox.getValue();
         APIController api = new APIController();
         int userID = api.getCityIDfromName(cityName);
         displayCityData(userID);
+    }
+
+    public void profileButton(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void globalButton(ActionEvent event) throws IOException {
@@ -223,15 +255,6 @@ public class CityController implements Initializable {
         stage.show();
     }
 
-    public void profileButton(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void logoutButton(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -240,28 +263,6 @@ public class CityController implements Initializable {
         stage.show();
     }
 
-    @FXML
-    void updateButton(ActionEvent event) throws IOException {
-        System.out.println("start update city data");
-        List<String> lines = new ArrayList<String>();
-        APIConnector apiConnecter = new APIConnector(cityAPI);
-        JSONArray jsonArray = apiConnecter.getJSONArray("today-cases-by-provinces");
-        for (int i = 0; i < 78; i++) {
-            System.out.println("data : " + (i + 1) + "/78");
-            JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("today-cases-by-provinces")
-                    .get(jsonArray.size() - 1 - i));
-            lines.add(jsonData.toString());
-        }
-        File f1 = new File("cityData.txt");
-        FileWriter fw = new FileWriter(f1);
-        BufferedWriter out = new BufferedWriter(fw);
-        for (String s : lines) {
-            out.write(s);
-            out.newLine();
-        }
-        out.flush();
-        out.close();
-    }
 
 
 }

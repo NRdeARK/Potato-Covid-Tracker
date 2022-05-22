@@ -29,7 +29,6 @@ public class UserData {
         return -1;
     }
 
-    // return user information
     public static String getUserInfo(int userID) throws IOException {
         String line = null;
         File f1 = new File("userInfo.txt");

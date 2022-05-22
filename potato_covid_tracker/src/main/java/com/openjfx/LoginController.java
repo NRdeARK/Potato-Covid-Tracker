@@ -54,7 +54,7 @@ public class LoginController implements Initializable{
     }
 
     @FXML
-    public void login(ActionEvent event) throws IOException {
+    public void loginButton(ActionEvent event) throws IOException {
         String username = usernameTextField.getText();
         String password = passwordPasswordField.getText();
         int userID = UserData.verifyLogin(username, password);
@@ -76,7 +76,7 @@ public class LoginController implements Initializable{
     }
 
     @FXML
-    public void back() throws IOException{
+    public void backButton() throws IOException{
         root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
         scene = new Scene(root);
         stage = (Stage) backLabel.getParent().getScene().getWindow();

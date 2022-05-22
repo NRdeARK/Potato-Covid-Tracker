@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 public class LogManager {
 
-    public static void CreateLog() throws IOException {
+    public static void createLog() throws IOException {
         File logFile = new File("log.txt");
         if (logFile.createNewFile()) {
             System.out.println("File created: " + logFile.getName());
@@ -20,7 +20,6 @@ public class LogManager {
         } else {
             System.out.println("File already exists.");
         }
-
     }
 
     public static void writeLog(int userID, String log) throws IOException {
@@ -46,7 +45,6 @@ public class LogManager {
         }
         out.flush();
         out.close();
-
     }
 
     public static String readLastLog() throws IOException {
