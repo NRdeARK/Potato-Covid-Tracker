@@ -31,7 +31,6 @@ public class TutorialController implements Initializable {
         System.out.println("new guest user finish tutorial");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
-        ProfileController profileController = loader.getController();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

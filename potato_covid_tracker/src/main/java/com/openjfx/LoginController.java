@@ -68,7 +68,6 @@ public class LoginController implements Initializable{
             LogManager.writeLog(userID,"login as user successful");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));	
 		    root = loader.load();
-		    ProfileController profileController = loader.getController();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

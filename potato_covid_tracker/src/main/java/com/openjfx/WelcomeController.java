@@ -44,7 +44,6 @@ public class WelcomeController implements Initializable {
         System.out.println("old guest user");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
-        ProfileController profileController = loader.getController();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

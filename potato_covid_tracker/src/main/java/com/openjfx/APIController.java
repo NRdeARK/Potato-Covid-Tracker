@@ -8,7 +8,6 @@ import org.json.simple.JSONObject;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -152,6 +151,7 @@ public class APIController {
             System.out.println("date " + weeklyData[i][6]);
 
         }
+        br.close();
         return weeklyData;
     }
 
@@ -182,9 +182,11 @@ public class APIController {
                 System.out.println("cure " + monthlyData[i][4] + " : " + monthlyData[i][5]);
                 System.out.println("date " + monthlyData[i][6]);
             }
+            br.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
         return monthlyData;
     }
 
@@ -249,6 +251,7 @@ public class APIController {
                 getCityNameFromID(cityID)
         };
         System.out.println(getCityNameFromID(cityID));
+        br.close();
         return dailyData;
     }
 }

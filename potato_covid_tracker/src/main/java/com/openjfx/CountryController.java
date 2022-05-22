@@ -69,7 +69,7 @@ public class CountryController implements Initializable {
 
     @FXML
     public void initialize(URL url ,ResourceBundle  resourceBundle){
-        
+        displayUsername();
         modeLabel.setText("Country");
         displayDailyData();
         displayChart();
@@ -90,8 +90,6 @@ public class CountryController implements Initializable {
     public void globalButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
         root = loader.load();
-        GlobalController globalController = loader.getController();
-        globalController.displayUsername();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -101,8 +99,6 @@ public class CountryController implements Initializable {
     public void countryButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
         root = loader.load();
-        CountryController countryController = loader.getController();
-        countryController.displayUsername();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -112,8 +108,6 @@ public class CountryController implements Initializable {
     public void cityButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
         root = loader.load();
-        CityController cityController = loader.getController();
-        cityController.displayUsername();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -123,7 +117,6 @@ public class CountryController implements Initializable {
     public void profileButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
-        ProfileController profileController = loader.getController();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
