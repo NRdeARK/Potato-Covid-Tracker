@@ -53,4 +53,41 @@ public class UserData {
         String username = userInfo.split(" ")[1];
         return username;
     }
+
+    public static String getRealname(int userID) throws IOException{
+        String userInfo = getUserInfo(userID);
+        String username = userInfo.split(" ")[2];
+        return username;
+    }
+
+    public static String getSurname(int userID) throws IOException{
+        String userInfo = getUserInfo(userID);
+        String username = userInfo.split(" ")[3];
+        return username;
+    }
+
+    public static String getGender(int userID) throws IOException{
+        String userInfo = getUserInfo(userID);
+        String username = userInfo.split(" ")[4];
+        return username;
+    }
+
+    public static String getVaccineDose(int userID) throws IOException{
+        String userInfo = getUserInfo(userID);
+        String username = userInfo.split(" ")[5];
+        return username;
+    }
+
+    public static String getVaccineDate(int userID) throws IOException{
+        String userInfo = getUserInfo(userID);
+        String username = userInfo.split(" ")[6];
+        return username;
+    }
+
+    public static String getProfilePicture(int userID) throws IOException{
+        String userInfo = getUserInfo(userID);
+        //"profile/normalPotato.png"
+        String username = "profile/" + userInfo.split(" ")[7];
+        return username;
+    }
 }

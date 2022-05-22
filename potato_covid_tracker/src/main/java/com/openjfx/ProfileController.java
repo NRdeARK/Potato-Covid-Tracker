@@ -2,7 +2,10 @@ package com.openjfx;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,26 +41,66 @@ public class ProfileController implements Initializable {
     private Button ProfileButton;
 
     @FXML
-    private Label modeLabel;
+    private Label countdownLabel;
 
     @FXML
-    private Label usernameLabel;
+    private Label doseLabel;
 
     @FXML
-    public void initialize(URL url ,ResourceBundle  resourceBundle){
-        modeLabel.setText("Profile");
+    private Label genderLabel;
+
+    @FXML
+    private Label greetingLabel;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private ImageView profileImage;
+
+    @FXML
+    private Label usernameLabel1;
+
+    @FXML
+    private Label usernameLabel2;
+
+    @FXML
+    private Label vaccinatedDate;
+
+    @FXML
+    public void initialize(URL url , ResourceBundle  resourceBundle){
+        try {
+            displayAll(LogManager.getUserIDFromLastLog());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    public void displayUsername() {
+    public void displayAll(int userID) {
         try {
-            String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
-            usernameLabel.setText("username: " + username);
+            usernameLabel1.setText(UserData.getUsername(userID));
+            usernameLabel2.setText(UserData.getUsername(userID));
+
+            nameLabel.setText(UserData.getRealname(userID) + " " + UserData.getSurname(userID));
+
+            genderLabel.setText(UserData.getGender(userID));
+
+            doseLabel.setText(UserData.getVaccineDose(userID));
+
+            vaccinatedDate.setText(UserData.getVaccineDate(userID));
+
+            // File imageFile = new File("profile/normalPotato.png");
+            File imageFile = new File(UserData.getProfilePicture(userID));
+            Image image = new Image(imageFile.toURI().toString());
+            profileImage.setImage(image);
+
             System.out.println("display!");
         } catch (Exception e) {
             e.printStackTrace();
         }
 	}
+
 
     public void globalButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
@@ -95,7 +138,6 @@ public class ProfileController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
         ProfileController profileController = loader.getController();
-        profileController.displayUsername();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
