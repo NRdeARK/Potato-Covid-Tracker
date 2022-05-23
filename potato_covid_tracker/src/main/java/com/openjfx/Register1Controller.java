@@ -49,35 +49,42 @@ public class Register1Controller implements Initializable {
 
     }
 
-    public boolean checkUsername() throws IOException {
-        String username = usernameTextField.getText();
-        int userID = UserData.getUserID(username);
-        return userID == -1;
-    }
-
-    public boolean checkPassword() {
-        return passwordPasswordField.getText().equals(rePasswordPasswordField.getText());
-    }
-
     @FXML
     public boolean usernameWarning() throws IOException {
-        if (checkUsername()) {
-            usernameWarningLabel.setText("");
-        } else {
+        String username = usernameTextField.getText();
+        int userID = UserData.getUserID(username);
+        if (userID != -1) {
             usernameWarningLabel.setText("username has been taken");
+            return false;
+        } else if (username == "") {
+            usernameWarningLabel.setText("username is blank");
+            return false;
+        } else if (username.contains(" ")){
+            usernameWarningLabel.setText("username contains \" \"");
+            return false;
+        }else{
+            usernameWarningLabel.setText("");
+            return true;
         }
-
-        return checkUsername();
     }
 
     @FXML
     public boolean passwordWarning() {
-        if (checkPassword()) {
-            passwordWarningLabel.setText("");
-        } else {
+        String password = passwordPasswordField.getText();
+        String rePassword = rePasswordPasswordField.getText();
+        if (password != rePassword) {
             passwordWarningLabel.setText("password don't match");
+            return false;
+        } else if (password == "" || rePassword == "") {
+            passwordWarningLabel.setText("password is blank");
+            return false;
+        } else if (password.contains(" ")) {
+            passwordWarningLabel.setText("password contains \" \"");
+            return false;
+        } else {
+            passwordWarningLabel.setText("");
+            return true;
         }
-        return checkPassword();
     }
 
     @FXML
@@ -92,7 +99,7 @@ public class Register1Controller implements Initializable {
 
     @FXML
     void nextButton(ActionEvent event) throws IOException {
-        if ( passwordWarning() && usernameWarning()) {
+        if (passwordWarning() && usernameWarning()) {
             String username = usernameTextField.getText();
             String password = passwordPasswordField.getText();
             int userID = UserData.CreateNewUser1(username, password);

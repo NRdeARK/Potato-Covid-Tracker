@@ -3,6 +3,7 @@ package com.openjfx;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -19,11 +20,12 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class Register2Controller implements Initializable{
-    
+public class Register2Controller implements Initializable {
+
     private Stage stage;
     private Scene scene;
     private Parent root;
+    String path = "profile/justPotato.jpg";
 
     @FXML
     private Button CreateNewAccountButton;
@@ -38,10 +40,19 @@ public class Register2Controller implements Initializable{
     private TextField firstnameTextfield;
 
     @FXML
+    private Label firstnameWarningLabel;
+
+    @FXML
     private TextField genderTextField;
 
     @FXML
-    private TextField lastVaccinatedDate;
+    private Label genderWarningLabel;
+
+    @FXML
+    private TextField lastVaccinatedDateTextField;
+
+    @FXML
+    private Label lastVaccinatedDateWarningLabel;
 
     @FXML
     private Label lastnameLabel;
@@ -50,13 +61,19 @@ public class Register2Controller implements Initializable{
     private TextField lastnameTextfield;
 
     @FXML
+    private Label lastnameWarningLabel;
+
+    @FXML
     private Label passwordWarningLabel;
 
     @FXML
     private ImageView profileImageView;
 
     @FXML
-    private TextField vaccineDose;
+    private TextField vaccineDoseTextField; 
+
+    @FXML
+    private Label vaccineDoseWarningLabel;
 
     @FXML
     private Label warningLabel;
@@ -79,43 +96,98 @@ public class Register2Controller implements Initializable{
     }
 
     @FXML
-    void CheckFirstname(ActionEvent event) {
+    boolean checkFirstname() {
         String firstname = firstnameTextfield.getText();
-        firstname.
+        if (firstname=="") {
+            firstnameWarningLabel.setText("firstname is blank");
+            return false;
+        } else if (firstname.contains(" ")) {
+            firstnameWarningLabel.setText("firstname contains \" \"");
+            return false;
+        }else{
+            firstnameWarningLabel.setText("");
+            return true;
+        }
     }
 
     @FXML
-    void CheckLastname(ActionEvent event) {
+    boolean checkLastname() {
+        String lastname = lastnameTextfield.getText();
+        if (lastname=="") {
+            lastnameWarningLabel.setText("lastname is blank");
+            return false;
+        } else if (lastname.contains(" ")) {
+            lastnameWarningLabel.setText("lastname contains \" \"");
+            return false;
+        }else{
+            lastnameWarningLabel.setText("");
+            return true;
+        }
+    }
 
+    @FXML
+    boolean checkGender() {
+        String gender = genderTextField.getText();
+        if (gender=="") {
+            genderWarningLabel.setText("gender is blank");
+            return false;
+        } else if (gender.contains(" ")) {
+            genderWarningLabel.setText("gender contains \" \"");
+            return false;
+        }else{
+            genderWarningLabel.setText("");
+            return true;
+        }
+    }
+
+    @FXML
+    boolean checkVaccinatedDate() {
+        try {
+            String vaccinatedDate = lastVaccinatedDateTextField.getText();
+            LocalDate.parse(vaccinatedDate);
+            lastVaccinatedDateWarningLabel.setText("");
+            return true;
+        } catch (Exception e) {
+
+        }
+        lastVaccinatedDateWarningLabel.setText("format is wrong");
+        return false;
+
+    }
+
+    @FXML
+    boolean checkVaccineDose() {
+        try {
+            int dose = Integer.parseInt(vaccineDoseTextField.getText());
+            if (dose < 0) {
+                vaccineDoseWarningLabel.setText("dose is less than one");
+                return false;
+            } else {
+                vaccineDoseWarningLabel.setText("");
+                return true;
+            }
+
+        } catch (Exception e) {
+            vaccineDoseWarningLabel.setText("not in Integer format");
+            return false;
+        }
     }
 
     @FXML
     void CreateNewAccountButton(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if (checkFirstname() && checkLastname() && checkGender() && checkVaccineDose() && checkVaccinatedDate()) {
+            UserData.CreateNewUser2(LogManager.getUserIDFromLastLog(), firstnameTextfield.getText(), lastnameTextfield.getText(), genderTextField.getText(),vaccineDoseTextField.getText(), lastVaccinatedDateTextField.getText());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+            root = loader.load();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     @FXML
     void browseProfileImage(ActionEvent event) {
-
-    }
-
-    @FXML
-    void checkGender(ActionEvent event) {
-
-    }
-
-    @FXML
-    void checkVaccinatedDate(ActionEvent event) {
-
-    }
-
-    @FXML
-    void checkVaccineDose(ActionEvent event) {
-
+        
     }
 }
