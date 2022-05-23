@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -25,7 +26,8 @@ public class Register2Controller implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    String path = "profile/justPotato.jpg";
+    String filePath = "profile/justPotato.jpg";
+    String absolutePath = "";
 
     @FXML
     private Button CreateNewAccountButton;
@@ -70,13 +72,16 @@ public class Register2Controller implements Initializable {
     private ImageView profileImageView;
 
     @FXML
-    private TextField vaccineDoseTextField; 
+    private TextField vaccineDoseTextField;
 
     @FXML
     private Label vaccineDoseWarningLabel;
 
     @FXML
     private Label warningLabel;
+
+    @FXML
+    private Label fileNameLabel;
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -87,6 +92,7 @@ public class Register2Controller implements Initializable {
 
     @FXML
     void BackButton(ActionEvent event) throws IOException {
+        UserData.deleteNewUser1();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/register1.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -98,13 +104,13 @@ public class Register2Controller implements Initializable {
     @FXML
     boolean checkFirstname() {
         String firstname = firstnameTextfield.getText();
-        if (firstname=="") {
+        if (firstname.equals("")) {
             firstnameWarningLabel.setText("firstname is blank");
             return false;
         } else if (firstname.contains(" ")) {
             firstnameWarningLabel.setText("firstname contains \" \"");
             return false;
-        }else{
+        } else {
             firstnameWarningLabel.setText("");
             return true;
         }
@@ -113,13 +119,13 @@ public class Register2Controller implements Initializable {
     @FXML
     boolean checkLastname() {
         String lastname = lastnameTextfield.getText();
-        if (lastname=="") {
+        if (lastname.equals("")) {
             lastnameWarningLabel.setText("lastname is blank");
             return false;
         } else if (lastname.contains(" ")) {
             lastnameWarningLabel.setText("lastname contains \" \"");
             return false;
-        }else{
+        } else {
             lastnameWarningLabel.setText("");
             return true;
         }
@@ -128,13 +134,13 @@ public class Register2Controller implements Initializable {
     @FXML
     boolean checkGender() {
         String gender = genderTextField.getText();
-        if (gender=="") {
+        if (gender.equals("")) {
             genderWarningLabel.setText("gender is blank");
             return false;
         } else if (gender.contains(" ")) {
             genderWarningLabel.setText("gender contains \" \"");
             return false;
-        }else{
+        } else {
             genderWarningLabel.setText("");
             return true;
         }
@@ -175,8 +181,15 @@ public class Register2Controller implements Initializable {
 
     @FXML
     void CreateNewAccountButton(ActionEvent event) throws IOException {
-        if (checkFirstname() && checkLastname() && checkGender() && checkVaccineDose() && checkVaccinatedDate()) {
-            UserData.CreateNewUser2(LogManager.getUserIDFromLastLog(), firstnameTextfield.getText(), lastnameTextfield.getText(), genderTextField.getText(),vaccineDoseTextField.getText(), lastVaccinatedDateTextField.getText());
+        boolean condition1 = checkFirstname();
+        boolean condition2 = checkLastname();
+        boolean condition3 = checkGender();
+        boolean condition4 = checkVaccineDose();
+        boolean condition5 = checkVaccinatedDate();
+        if (condition1 && condition2 && condition3 && condition4 && condition5) {
+            UserData.createNewUser2(LogManager.getUserIDFromLastLog(), firstnameTextfield.getText(),
+                    lastnameTextfield.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
+                    lastVaccinatedDateTextField.getText(), filePath);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
             root = loader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -188,6 +201,16 @@ public class Register2Controller implements Initializable {
 
     @FXML
     void browseProfileImage(ActionEvent event) {
-        
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("png Files", "*.jpg"),
+                new FileChooser.ExtensionFilter("jpg Files", "*.png"));
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        if (selectedFile.exists()){
+            absolutePath = selectedFile.getAbsolutePath();
+            filePath = selectedFile.getName();
+            fileNameLabel.setText(selectedFile.getName());
+        }
+
     }
 }

@@ -46,7 +46,6 @@ public class Register1Controller implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
     @FXML
@@ -56,7 +55,7 @@ public class Register1Controller implements Initializable {
         if (userID != -1) {
             usernameWarningLabel.setText("username has been taken");
             return false;
-        } else if (username == "") {
+        } else if (username.equals("")) {
             usernameWarningLabel.setText("username is blank");
             return false;
         } else if (username.contains(" ")){
@@ -72,10 +71,10 @@ public class Register1Controller implements Initializable {
     public boolean passwordWarning() {
         String password = passwordPasswordField.getText();
         String rePassword = rePasswordPasswordField.getText();
-        if (password != rePassword) {
+        if (!password.equals(rePassword)) {
             passwordWarningLabel.setText("password don't match");
             return false;
-        } else if (password == "" || rePassword == "") {
+        } else if (password.equals("") || rePassword.equals("")) {
             passwordWarningLabel.setText("password is blank");
             return false;
         } else if (password.contains(" ")) {
@@ -99,10 +98,12 @@ public class Register1Controller implements Initializable {
 
     @FXML
     void nextButton(ActionEvent event) throws IOException {
-        if (passwordWarning() && usernameWarning()) {
+        boolean check1 = passwordWarning();
+        boolean check2 = usernameWarning();
+        if (check1 && check2) {
             String username = usernameTextField.getText();
             String password = passwordPasswordField.getText();
-            int userID = UserData.CreateNewUser1(username, password);
+            int userID = UserData.createNewUser1(username, password);
             LogManager.writeLog(userID, "register part 1/2");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/register2.fxml"));
             root = loader.load();

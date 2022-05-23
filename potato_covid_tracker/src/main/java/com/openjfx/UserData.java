@@ -93,7 +93,7 @@ public class UserData {
         return username;
     }
 
-    public static int CreateNewUser1(String username , String password) throws IOException{
+    public static int createNewUser1(String username , String password) throws IOException{
         List<String> lines = new ArrayList<String>();
         String line = null;
         File f1 = new File("dummy.txt");
@@ -120,7 +120,7 @@ public class UserData {
         return userID;
     }
 
-    public static int CreateNewUser2(int userID, String firstname ,String lastname ,String gender ,String dose ,String vaccinatedDate) throws IOException{
+    public static int createNewUser2(int userID, String firstname ,String lastname ,String gender ,String dose ,String vaccinatedDate, String profileName) throws IOException{
         List<String> lines = new ArrayList<String>();
         String line = null;
         File f1 = new File("dummy2.txt");
@@ -134,7 +134,7 @@ public class UserData {
 
         FileWriter fw = new FileWriter(f1);
         BufferedWriter out = new BufferedWriter(fw);
-        out.write(userID + " " + firstname + " " + lastname + " " + gender + " " + dose + " " + vaccinatedDate);
+        out.write(userID + " " + firstname + " " + lastname + " " + gender + " " + dose + " " + vaccinatedDate + " " + profileName);
         out.newLine();
         for (String s : lines) {
             out.write(s);
@@ -147,12 +147,12 @@ public class UserData {
     
     public static int getUserID(String username) throws IOException{
         String line = null;
-        File f1 = new File("userInfo.txt");
+        File f1 = new File("dummy.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         while ((line = br.readLine()) != null) {
             String readUsername = line.split(" ")[1];
-            if (username == readUsername) {
+            if (username.equals(readUsername)) {
                 fr.close();
                 br.close();
                 return Integer.parseInt(line.split(" ")[0]);
@@ -161,5 +161,64 @@ public class UserData {
         fr.close();
         br.close();
         return -1;
+    }
+    
+    public static void deleteNewUser1() throws IOException{
+        List<String> lines = new ArrayList<String>();
+        String line = null;
+        File f1 = new File("dummy.txt");
+        FileReader fr = new FileReader(f1);
+        BufferedReader br = new BufferedReader(fr);
+        while ((line = br.readLine()) != null) {
+            lines.add(line);
+        }
+        fr.close();
+        br.close();
+
+        FileWriter fw = new FileWriter(f1);
+        BufferedWriter out = new BufferedWriter(fw);
+        int i = 0;
+        for (String s : lines) {
+            if(i!=0){
+                out.write(s);
+                out.newLine();
+            }
+            i++;
+        }
+        out.flush();
+        out.close();
+    }
+    
+    public static int getNumberLine(String fileName) throws IOException{
+        List<String> lines = new ArrayList<String>();
+        String line = null;
+        File f1 = new File(fileName);
+        FileReader fr = new FileReader(f1);
+        BufferedReader br = new BufferedReader(fr);
+        while ((line = br.readLine()) != null) {
+            lines.add(line);
+        }
+        fr.close();
+        br.close();
+        return lines.size();
+
+    }
+
+    public static boolean isDuplicateFile(String fileName) throws IOException {
+        String line = null;
+        File f1 = new File("dummy.txt");
+        FileReader fr = new FileReader(f1);
+        BufferedReader br = new BufferedReader(fr);
+        while ((line = br.readLine()) != null) {
+            String readFileName = line.split(" ")[7];
+            if (fileName.equals(readFileName)) {
+                fr.close();
+                br.close();
+                return true;
+            }
+        }
+        fr.close();
+        br.close();
+        return false;
     }
 }
