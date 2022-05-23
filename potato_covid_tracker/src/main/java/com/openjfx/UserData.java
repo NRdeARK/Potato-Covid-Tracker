@@ -134,7 +134,7 @@ public class UserData {
 
         FileWriter fw = new FileWriter(f1);
         BufferedWriter out = new BufferedWriter(fw);
-        out.write(userID + " " + firstname + " " + lastname + " " + gender + " " + dose + " " + vaccinatedDate + " " + profileName);
+        out.write(userID + " " + getNewestUsername() + " " + firstname + " " + lastname + " " + gender + " " + dose + " " + vaccinatedDate + " " + profileName);
         out.newLine();
         for (String s : lines) {
             out.write(s);
@@ -206,7 +206,7 @@ public class UserData {
 
     public static boolean isDuplicateFile(String fileName) throws IOException {
         String line = null;
-        File f1 = new File("dummy.txt");
+        File f1 = new File("dummy2.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         while ((line = br.readLine()) != null) {
@@ -220,5 +220,17 @@ public class UserData {
         fr.close();
         br.close();
         return false;
+    }
+
+    private static String getNewestUsername() throws IOException{
+        String line = null;
+        File f1 = new File("dummy.txt");
+        FileReader fr = new FileReader(f1);
+        BufferedReader br = new BufferedReader(fr);
+        line = br.readLine();
+        String readUsername = line.split(" ")[1];
+        fr.close();
+        br.close();
+        return readUsername;
     }
 }

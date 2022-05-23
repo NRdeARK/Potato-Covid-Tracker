@@ -28,5 +28,6 @@
       <Label fx:id="vaccineDoseWarningLabel" layoutX="813.0" layoutY="263.0" />
       <Label fx:id="lastVaccinatedDateWarningLabel" layoutX="821.0" layoutY="302.0" />
       <Label fx:id="fileNameLabel" layoutX="128.0" layoutY="306.0" />
+      <Label fx:id="fileNameWarningLabel" layoutX="124.0" layoutY="338.0" />
    </children>
 </AnchorPane>

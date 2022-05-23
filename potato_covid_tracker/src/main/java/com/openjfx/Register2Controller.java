@@ -1,10 +1,20 @@
 package com.openjfx;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import org.apache.commons.io.FileUtils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -84,15 +94,20 @@ public class Register2Controller implements Initializable {
     private Label fileNameLabel;
 
     @FXML
+    private Label fileNameWarningLabel;
+
+    @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File imageFile = new File("profile/justPotato.jpg");
         Image profileImage = new Image(imageFile.toURI().toString());
         profileImageView.setImage(profileImage);
+        fileNameLabel.setText("justPotato.jpg");
     }
 
     @FXML
     void BackButton(ActionEvent event) throws IOException {
         UserData.deleteNewUser1();
+        LogManager.writeLog(0, "delete unfinished account");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/register1.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -180,16 +195,33 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
+    boolean checkProfileFile() throws IOException {
+        if (UserData.isDuplicateFile(fileNameLabel.getText())
+                && !fileNameLabel.getText().equals("profile/justPotato.jpg")) {
+            fileNameWarningLabel.setText("file name is duplicated");
+            return false;
+        } else {
+            fileNameWarningLabel.setText("");
+            return true;
+        }
+    }
+
+    @FXML
     void CreateNewAccountButton(ActionEvent event) throws IOException {
         boolean condition1 = checkFirstname();
         boolean condition2 = checkLastname();
         boolean condition3 = checkGender();
         boolean condition4 = checkVaccineDose();
         boolean condition5 = checkVaccinatedDate();
-        if (condition1 && condition2 && condition3 && condition4 && condition5) {
+        boolean condition6 = checkProfileFile();
+        if (condition1 && condition2 && condition3 && condition4 && condition5 && condition6) {
             UserData.createNewUser2(LogManager.getUserIDFromLastLog(), firstnameTextfield.getText(),
                     lastnameTextfield.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
-                    lastVaccinatedDateTextField.getText(), filePath);
+                    lastVaccinatedDateTextField.getText(), fileNameLabel.getText());
+            File src = new File(absolutePath);
+            File dest = new File("dummyPro/" + fileNameLabel.getText());
+            Files.copy(src.toPath(), dest.toPath());
+            LogManager.writeLog(LogManager.getUserIDFromLastLog(), "create account successful");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
             root = loader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -206,11 +238,14 @@ public class Register2Controller implements Initializable {
                 new FileChooser.ExtensionFilter("png Files", "*.jpg"),
                 new FileChooser.ExtensionFilter("jpg Files", "*.png"));
         File selectedFile = fileChooser.showOpenDialog(stage);
-        if (selectedFile.exists()){
+        if (selectedFile.exists() && selectedFile != null) {
             absolutePath = selectedFile.getAbsolutePath();
-            filePath = selectedFile.getName();
+            filePath = "profile/" + selectedFile.getName();
             fileNameLabel.setText(selectedFile.getName());
-        }
 
+            File imageFile = new File(absolutePath);
+            Image profileImage = new Image(imageFile.toURI().toString());
+            profileImageView.setImage(profileImage);
+        }
     }
 }
