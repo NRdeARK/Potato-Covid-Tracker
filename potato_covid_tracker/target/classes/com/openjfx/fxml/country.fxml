@@ -44,7 +44,7 @@
             </AreaChart>
             <Button fx:id="updateButton" layoutX="668.0" layoutY="289.0" mnemonicParsing="false" onAction="#updateButton" text="update" />
             <Label fx:id="dateUpdateLabel" layoutX="667.0" layoutY="248.0" text="date update" />
-            <ComboBox fx:id="modeComboBox" layoutX="107.0" layoutY="19.0" onAction="#chooseGraph" prefWidth="150.0" />
+            <ComboBox fx:id="modeComboBox" layoutX="107.0" layoutY="19.0" onAction="#chooseGraph" prefWidth="150.0" promptText="all" />
          </children>
       </AnchorPane>
    </center>
