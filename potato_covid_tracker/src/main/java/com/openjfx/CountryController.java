@@ -1,6 +1,8 @@
 package com.openjfx;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
 import java.io.BufferedWriter;
@@ -35,7 +37,12 @@ public class CountryController implements Initializable {
     private APIController api = new APIController();
     private final String countryAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
     String[][] monthlyData = api.getCountryMonthlyData();
-
+    String[] modeList = {
+            "all",
+            "infeced",
+            "cured",
+            "death"
+    };
     @FXML
     private Button CityButton;
 
@@ -79,12 +86,29 @@ public class CountryController implements Initializable {
     private NumberAxis yAxis;
 
     @FXML
-    public void initialize(URL url ,ResourceBundle  resourceBundle){
+    private ComboBox<String> modeComboBox;
+
+    @FXML
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         displayUsername();
         modeLabel.setText("Country");
         displayDailyData();
         displayChart();
-        
+        modeComboBox.getItems().addAll(modeList);
+        modeComboBox.setOnAction(event -> {
+            try {
+                chooseGraph(event);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @FXML
+    void chooseGraph(ActionEvent event) throws IOException {
+        String modeName = modeComboBox.getValue();
+        APIController api = new APIController();
+        displayChart();
     }
 
     @FXML
@@ -96,7 +120,7 @@ public class CountryController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-	}
+    }
 
     public void displayDailyData() {
         int inf = Integer.parseInt(monthlyData[0][0]);
@@ -106,15 +130,15 @@ public class CountryController implements Initializable {
         int cure = Integer.parseInt(monthlyData[0][4]);
         int totalCure = Integer.parseInt(monthlyData[0][5]);
         String updateDate = monthlyData[0][6];
-        dailyInfect.setText("Today infected : "+ String.valueOf(totalInf-inf)+" + "+String.valueOf(inf));
-        dailyDeath.setText("Today death : "+String.valueOf(totalDead-dead)+" + "+String.valueOf(dead));
-        dailyCure.setText("Today cure : "+String.valueOf(totalCure-cure)+" + "+String.valueOf(cure));
+        dailyInfect.setText("Today infected : " + String.valueOf(totalInf - inf) + " + " + String.valueOf(inf));
+        dailyDeath.setText("Today death : " + String.valueOf(totalDead - dead) + " + " + String.valueOf(dead));
+        dailyCure.setText("Today cure : " + String.valueOf(totalCure - cure) + " + " + String.valueOf(cure));
         dateUpdateLabel.setText("update date: " + updateDate);
     }
 
-    public void displayChart(){
+    public void displayChart() {
         System.out.println("chart loading.....");
-        
+
         // xAxis = new NumberAxis(1, 30, 1);
         // yAxis = new NumberAxis(0,10,100);
 
@@ -122,28 +146,98 @@ public class CountryController implements Initializable {
         xAxis.setLabel("day");
 
         // countryChart = new StackedAreaChart<Number,Number>(xAxis,yAxis);
-        
+
         countryChart.setTitle("Covid-19 30 days");
         System.out.println("call api");
         // String [][] month = api.getCountryMonthlyData();
         System.out.println("finish call api");
-        XYChart.Series<Number,Number> seriesDeath = new XYChart.Series<Number,Number>();
-        XYChart.Series<Number,Number> seriesInfect = new XYChart.Series<>();
-        XYChart.Series<Number,Number> seriesCure = new XYChart.Series<>();
+        XYChart.Series<Number, Number> seriesDeath = new XYChart.Series<Number, Number>();
+        XYChart.Series<Number, Number> seriesInfect = new XYChart.Series<>();
+        XYChart.Series<Number, Number> seriesCure = new XYChart.Series<>();
 
         for (int i = 0; i < 30; i++) {
-            seriesDeath.getData().add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29-i][3])));
+            seriesDeath.getData()
+                    .add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][3])));
             // System.out.println( i+1 + " " +Integer.parseInt(month[i][3]));
-            seriesInfect.getData().add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29-i][1])));
-            seriesCure.getData().add(new XYChart.Data<Number, Number>(i + 1,Integer.parseInt(monthlyData[29-i][5])));
+            seriesInfect.getData()
+                    .add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][1])));
+            seriesCure.getData().add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][5])));
             // seriesDeath.setName("death");
             // seriesDeath.getData().add(new XYChart.Data<Number, Number>(i,i));
         }
 
-        // System.out.println(seriesDeath.getData().toString()); 
+        // System.out.println(seriesDeath.getData().toString());
         countryChart.getData().add(seriesInfect);
         countryChart.getData().add(seriesCure);
         countryChart.getData().add(seriesDeath);
+    }
+
+    public void displayChart(String mode) {
+        System.out.println("chart loading.....");
+
+        // xAxis = new NumberAxis(1, 30, 1);
+        // yAxis = new NumberAxis(0,10,100);
+
+        yAxis.setLabel("pop");
+        xAxis.setLabel("day");
+
+        // countryChart = new StackedAreaChart<Number,Number>(xAxis,yAxis);
+
+        countryChart.setTitle("Covid-19 30 days");
+        System.out.println("call api");
+        // String [][] month = api.getCountryMonthlyData();
+        System.out.println("finish call api");
+        XYChart.Series<Number, Number> seriesDeath = new XYChart.Series<Number, Number>();
+        XYChart.Series<Number, Number> seriesInfect = new XYChart.Series<>();
+        XYChart.Series<Number, Number> seriesCure = new XYChart.Series<>();
+
+        for (int i = 0; i < 30; i++) {
+            if (mode.equals("all")) {
+                seriesDeath.getData()
+                        .add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][3])));
+                seriesInfect.getData()
+                        .add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][1])));
+                seriesCure.getData()
+                        .add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][5])));
+            }
+            if (mode.equals("infected")) {
+                seriesInfect.getData()
+                        .add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][1])));
+
+            }
+            if (mode.equals("cured")) {
+                seriesCure.getData()
+                        .add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][5])));
+            }
+            if (mode.equals("death")) {
+                seriesDeath.getData()
+                        .add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][3])));
+
+            }
+
+            // seriesDeath.setName("death");
+            // seriesDeath.getData().add(new XYChart.Data<Number, Number>(i,i));
+        }
+
+        // System.out.println(seriesDeath.getData().toString());
+        
+        if (mode.equals("all")) {
+            countryChart.getData().add(seriesInfect);
+            countryChart.getData().add(seriesCure);
+            countryChart.getData().add(seriesDeath);
+        }
+        if (mode.equals("infected")) {
+            countryChart.getData().add(seriesInfect);
+
+
+        }
+        if (mode.equals("cured")) {
+            countryChart.getData().add(seriesCure);
+
+        }
+        if (mode.equals("death")) {
+            countryChart.getData().add(seriesDeath);
+        }
     }
 
     @FXML
@@ -168,7 +262,6 @@ public class CountryController implements Initializable {
         out.flush();
         out.close();
     }
-
 
     public void profileButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
@@ -214,7 +307,4 @@ public class CountryController implements Initializable {
         stage.show();
     }
 
- 
-
 }
-

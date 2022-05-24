@@ -13,7 +13,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        APIController apiController = new APIController();
+        // APIController apiController = new APIController();
         // apiController.updateGlobalData();
         Parent root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
         Scene scene = new Scene(root);
