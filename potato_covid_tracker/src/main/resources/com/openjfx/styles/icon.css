@@ -1,0 +1,8 @@
+.ikonli-font-icon {
+    -fx-icon-code: bxs-square-rounded;
+    -fx-icon-size: 30;
+    -fx-icon-color: #ffaa5c;
+    -fx-effect: dropshadow(gaussian,rgba(0, 0, 0, 0.69),8.45,0,0,6);
+}
+
+

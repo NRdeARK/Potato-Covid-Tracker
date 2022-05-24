@@ -11,6 +11,17 @@
     -fx-background-color:#FFD4AD;
 }
 
+#MenuButton{
+    -fx-background-color: #FFFFFF;
+}
+
+#notificationButton{
+    -fx-background-color: #FFFFFF;
+}
+
+#questionButton{
+    -fx-background-color: #FFFFFF;
+}
 
 #ProfileButton{
     -fx-background-color: #F9F8F0;
@@ -20,10 +31,17 @@
     -fx-border-width: 3px;
 }
 
-#ProfileButton:hover{
-    -fx-background-color: #8b8a8a;
+#VBox > .button{
+    -fx-background-color:#DEA057;
 }
 
-#ProfileButton:pressed{
-    -fx-background-color: #acaaaa;
+#VBox > .button:hover{
+    -fx-background-color: #F9F8F0;
 }
+
+#ProfileCircle{
+    -fx-fill: #F9F8F0;
+    -fx-stroke-width: 10px;
+    -fx-stroke: #FFAA5C;
+}
+

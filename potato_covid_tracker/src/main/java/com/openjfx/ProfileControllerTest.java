@@ -33,7 +33,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class ProfileController implements Initializable {
+public class ProfileControllerTest implements Initializable {
 
     private Stage stage;
     private Scene scene;

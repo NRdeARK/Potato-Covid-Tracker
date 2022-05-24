@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane id="Bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/profiletest.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.ProfileControllerTest">
+   <children>
+      <ImageView fx:id="BgImage" fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" />
+      <Circle id="BgCircle1" fill="DODGERBLUE" layoutX="295.0" layoutY="318.0" radius="287.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-27.0" translateY="300.0" AnchorPane.rightAnchor="414.0" />
+      <BorderPane prefHeight="540.0" prefWidth="960.0">
+         <center>
+            <Pane id="middlePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="797.0" stylesheets="@../styles/profiletest.css" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="35.0" />
+               </BorderPane.margin>
+               <children>
+                  <Circle id="profile-pic1" fill="DODGERBLUE" layoutX="399.0" layoutY="91.0" radius="66.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle id="profile-pic2" fill="DODGERBLUE" layoutX="399.0" layoutY="91.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
+                  <ImageView fitHeight="260.0" fitWidth="341.0" layoutX="270.0" layoutY="-32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/profile/potato.jpg" />
+                     </image>
+                  </ImageView>
+                  <Rectangle id="username-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="234.0" layoutY="194.0" stroke="BLACK" strokeType="INSIDE" width="332.0" />
+                  <Rectangle id="name-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="234.0" layoutY="242.0" stroke="BLACK" strokeType="INSIDE" width="332.0" />
+                  <Rectangle id="gender-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="234.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+                  <Rectangle id="vacc-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="407.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+                  <Rectangle id="last-vecc-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="234.0" layoutY="339.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+                  <Rectangle id="vacc-countdown-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="407.0" layoutY="339.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
+                  <Label layoutX="244.0" layoutY="204.0" text="USERNAME" />
+               </children>
+            </Pane>
+         </center>
+         <left>
+            <AnchorPane fx:id="LeftPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="81.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXDrawer id="submenudrawer" fx:id="SubMenuDrawer" defaultDrawerSize="175.0" layoutX="-15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="259.0" prefWidth="80.0" translateX="103.0" translateY="145.0" />
+                  <JFXDrawer id="mainmenudrawer" fx:id="MainMenuDrawer" depthTest="DISABLE" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="517.0" prefWidth="87.0" styleClass="main-menu-drawer" />
+               </children>
+            </AnchorPane>
+         </left>
+         <right>
+            <Pane prefHeight="462.0" prefWidth="83.0" BorderPane.alignment="CENTER" />
+         </right></BorderPane>
+      <JFXHamburger fx:id="Hamberger" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="40.0" />
+   </children>
+</AnchorPane>

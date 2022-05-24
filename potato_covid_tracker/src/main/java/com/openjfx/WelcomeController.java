@@ -42,11 +42,11 @@ public class WelcomeController implements Initializable {
 
     public void startButton(ActionEvent event) throws IOException {
         System.out.println("old guest user");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/mainpage.fxml"));
         root = loader.load();
-        ProfileController profileController = loader.getController();
-        profileController.displayUsername();
-        String css = this.getClass().getResource("styles/profile.css").toExternalForm();
+        //ProfileController profileController = loader.getController();
+        // profileController.displayUsername();
+        String css = this.getClass().getResource("styles/mainpage.css").toExternalForm();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         scene.getStylesheets().add(css);
