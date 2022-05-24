@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.Register2Controller">
    <children>
-      <Button fx:id="CreateNewAccountButton" layoutX="726.0" layoutY="456.0" mnemonicParsing="false" onAction="#CreateNewAccountButton" text="create new account" />
+      <Button fx:id="createNewAccountButton" layoutX="726.0" layoutY="456.0" mnemonicParsing="false" onAction="#createNewAccountButton" text="create new account" />
       <Label fx:id="passwordWarningLabel" layoutX="469.0" layoutY="178.0" />
       <Label fx:id="warningLabel" layoutX="422.0" layoutY="313.0" />
       <Button fx:id="backButton" layoutX="117.0" layoutY="454.0" mnemonicParsing="false" onAction="#BackButton" text="back" />
@@ -14,14 +14,14 @@
       <Label layoutX="528.0" layoutY="225.0" text="gender" />
       <Label layoutX="513.0" layoutY="263.0" text="vaccine dose" />
       <Label layoutX="509.0" layoutY="302.0" text="last vaccinated date" />
-      <TextField fx:id="firstnameTextfield" layoutX="621.0" layoutY="128.0" onAction="#checkFirstname" promptText="noob" />
+      <TextField fx:id="firstnameTextField" layoutX="621.0" layoutY="128.0" onAction="#checkFirstname" promptText="noob" />
       <TextField fx:id="genderTextField" layoutX="627.0" layoutY="221.0" onAction="#checkGender" promptText="define your potato" />
       <TextField fx:id="vaccineDoseTextField" layoutX="627.0" layoutY="259.0" onAction="#checkVaccineDose" promptText="dose" />
       <TextField fx:id="lastVaccinatedDateTextField" layoutX="627.0" layoutY="298.0" onAction="#checkVaccinatedDate" promptText="YYYY-MM-DD" />
       <ImageView fx:id="profileImageView" fitHeight="150.0" fitWidth="200.0" layoutX="144.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="browseButton" layoutX="275.0" layoutY="303.0" mnemonicParsing="false" onAction="#browseProfileImage" text="browse" />
       <Label fx:id="lastnameLabel" layoutX="533.0" layoutY="178.0" text="lastnameLabel" />
-      <TextField fx:id="lastnameTextfield" layoutX="628.0" layoutY="167.0" onAction="#checkLastname" promptText="master" />
+      <TextField fx:id="lastnameTextField" layoutX="628.0" layoutY="167.0" onAction="#checkLastname" promptText="master" />
       <Label fx:id="firstnameWarningLabel" layoutX="799.0" layoutY="132.0" />
       <Label fx:id="lastnameWarningLabel" layoutX="807.0" layoutY="168.0" />
       <Label fx:id="genderWarningLabel" layoutX="813.0" layoutY="225.0" />

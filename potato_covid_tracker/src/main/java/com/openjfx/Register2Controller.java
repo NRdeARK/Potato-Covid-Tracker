@@ -1,20 +1,11 @@
 package com.openjfx;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.channels.FileChannel;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-import java.io.InputStream;
-import java.io.OutputStream;
-
-import org.apache.commons.io.FileUtils;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -40,7 +31,7 @@ public class Register2Controller implements Initializable {
     String absolutePath = "";
 
     @FXML
-    private Button CreateNewAccountButton;
+    private Button createNewAccountButton;
 
     @FXML
     private Button backButton;
@@ -49,7 +40,7 @@ public class Register2Controller implements Initializable {
     private Button browseButton;
 
     @FXML
-    private TextField firstnameTextfield;
+    private TextField firstnameTextField;
 
     @FXML
     private Label firstnameWarningLabel;
@@ -70,7 +61,7 @@ public class Register2Controller implements Initializable {
     private Label lastnameLabel;
 
     @FXML
-    private TextField lastnameTextfield;
+    private TextField lastnameTextField;
 
     @FXML
     private Label lastnameWarningLabel;
@@ -118,7 +109,7 @@ public class Register2Controller implements Initializable {
 
     @FXML
     boolean checkFirstname() {
-        String firstname = firstnameTextfield.getText();
+        String firstname = firstnameTextField.getText();
         if (firstname.equals("")) {
             firstnameWarningLabel.setText("firstname is blank");
             return false;
@@ -133,7 +124,7 @@ public class Register2Controller implements Initializable {
 
     @FXML
     boolean checkLastname() {
-        String lastname = lastnameTextfield.getText();
+        String lastname = lastnameTextField.getText();
         if (lastname.equals("")) {
             lastnameWarningLabel.setText("lastname is blank");
             return false;
@@ -197,7 +188,7 @@ public class Register2Controller implements Initializable {
     @FXML
     boolean checkProfileFile() throws IOException {
         if (UserData.isDuplicateFile(fileNameLabel.getText())
-                && !fileNameLabel.getText().equals("profile/justPotato.jpg")) {
+                && !fileNameLabel.getText().equals("justPotato.jpg")) {
             fileNameWarningLabel.setText("file name is duplicated");
             return false;
         } else {
@@ -207,7 +198,7 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
-    void CreateNewAccountButton(ActionEvent event) throws IOException {
+    void createNewAccountButton(ActionEvent event) throws IOException {
         boolean condition1 = checkFirstname();
         boolean condition2 = checkLastname();
         boolean condition3 = checkGender();
@@ -215,12 +206,15 @@ public class Register2Controller implements Initializable {
         boolean condition5 = checkVaccinatedDate();
         boolean condition6 = checkProfileFile();
         if (condition1 && condition2 && condition3 && condition4 && condition5 && condition6) {
-            UserData.createNewUser2(LogManager.getUserIDFromLastLog(), firstnameTextfield.getText(),
-                    lastnameTextfield.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
+            UserData.createNewUser2(LogManager.getUserIDFromLastLog(), firstnameTextField.getText(),
+                    lastnameTextField.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
                     lastVaccinatedDateTextField.getText(), fileNameLabel.getText());
-            File src = new File(absolutePath);
-            File dest = new File("dummyPro/" + fileNameLabel.getText());
-            Files.copy(src.toPath(), dest.toPath());
+            if(!fileNameLabel.getText().equals("justPotato.jpg")){
+                File src = new File(absolutePath);
+                File dest = new File("profile/" + fileNameLabel.getText());
+                Files.copy(src.toPath(), dest.toPath());
+            }
+            
             LogManager.writeLog(LogManager.getUserIDFromLastLog(), "create account successful");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
             root = loader.load();

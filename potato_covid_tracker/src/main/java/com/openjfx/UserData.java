@@ -56,13 +56,13 @@ public class UserData {
         return username;
     }
 
-    public static String getRealname(int userID) throws IOException{
+    public static String getFirstname(int userID) throws IOException{
         String userInfo = getUserInfo(userID);
         String username = userInfo.split(" ")[2];
         return username;
     }
 
-    public static String getSurname(int userID) throws IOException{
+    public static String getLastname(int userID) throws IOException{
         String userInfo = getUserInfo(userID);
         String username = userInfo.split(" ")[3];
         return username;
@@ -96,7 +96,7 @@ public class UserData {
     public static int createNewUser1(String username , String password) throws IOException{
         List<String> lines = new ArrayList<String>();
         String line = null;
-        File f1 = new File("dummy.txt");
+        File f1 = new File("userLogin.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         while ((line = br.readLine()) != null) {
@@ -123,7 +123,7 @@ public class UserData {
     public static int createNewUser2(int userID, String firstname ,String lastname ,String gender ,String dose ,String vaccinatedDate, String profileName) throws IOException{
         List<String> lines = new ArrayList<String>();
         String line = null;
-        File f1 = new File("dummy2.txt");
+        File f1 = new File("userInfo.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         while ((line = br.readLine()) != null) {
@@ -147,7 +147,7 @@ public class UserData {
     
     public static int getUserID(String username) throws IOException{
         String line = null;
-        File f1 = new File("dummy.txt");
+        File f1 = new File("userLogin.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         while ((line = br.readLine()) != null) {
@@ -166,7 +166,7 @@ public class UserData {
     public static void deleteNewUser1() throws IOException{
         List<String> lines = new ArrayList<String>();
         String line = null;
-        File f1 = new File("dummy.txt");
+        File f1 = new File("userLogin.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         while ((line = br.readLine()) != null) {
@@ -206,7 +206,7 @@ public class UserData {
 
     public static boolean isDuplicateFile(String fileName) throws IOException {
         String line = null;
-        File f1 = new File("dummy2.txt");
+        File f1 = new File("userInfo.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         while ((line = br.readLine()) != null) {
@@ -224,7 +224,7 @@ public class UserData {
 
     private static String getNewestUsername() throws IOException{
         String line = null;
-        File f1 = new File("dummy.txt");
+        File f1 = new File("userLogin.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         line = br.readLine();
@@ -232,5 +232,32 @@ public class UserData {
         fr.close();
         br.close();
         return readUsername;
+    }
+
+    public static void resetPassword(String username, String newPassword)throws IOException{
+        List<String> lines = new ArrayList<String>();
+        String line = null;
+        File f1 = new File("userLogin.txt");
+        FileReader fr = new FileReader(f1);
+        BufferedReader br = new BufferedReader(fr);
+        while ((line = br.readLine()) != null) {
+            lines.add(line);
+        }
+        fr.close();
+        br.close();
+
+        FileWriter fw = new FileWriter(f1);
+        BufferedWriter out = new BufferedWriter(fw);
+        for (String s : lines) {
+            if (s.split(" ")[1].equals(username)) {
+                out.write(s.split(" ")[0] + " " + s.split(" ")[1] + " " + newPassword);
+                out.newLine();
+            } else {
+                out.write(s);
+                out.newLine();
+            }
+        }
+        out.flush();
+        out.close();
     }
 }

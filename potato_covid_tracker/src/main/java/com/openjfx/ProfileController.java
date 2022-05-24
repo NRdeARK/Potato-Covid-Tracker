@@ -112,7 +112,7 @@ public class ProfileController implements Initializable {
 
             usernameLabel2.setText(UserData.getUsername(userID));
 
-            nameLabel.setText(UserData.getRealname(userID) + " " + UserData.getSurname(userID));
+            nameLabel.setText(UserData.getFirstname(userID) + " " + UserData.getLastname(userID));
 
             genderLabel.setText(UserData.getGender(userID));
 

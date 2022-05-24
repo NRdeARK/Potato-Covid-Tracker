@@ -75,10 +75,20 @@ public class LoginController implements Initializable{
         }
     }
 
+    @FXML
     public void registerButton(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/register1.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    public void forgotPasswordLabel() throws IOException{
+        root = FXMLLoader.load(getClass().getResource("fxml/forgotPassword.fxml"));
+        scene = new Scene(root);
+        stage = (Stage) backLabel.getParent().getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
