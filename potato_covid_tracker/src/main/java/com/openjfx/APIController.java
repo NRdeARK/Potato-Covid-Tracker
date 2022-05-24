@@ -12,7 +12,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-// import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +25,7 @@ public class APIController {
     @FXML
     private Label infect;
 
-    private final String globalAPI =  "https://api.covid19api.com/summary";
+    private final String globalAPI =  "https://api.covid19api.com";
 
     private final String countryAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
 
@@ -39,6 +38,29 @@ public class APIController {
     //     //System.out.println(jsonData.toString());
     // }
 
+    public boolean updateGlobalData() throws IOException {
+        System.out.println("start update country data");
+        List<String> lines = new ArrayList<String>();
+        APIConnector apiConnecter = new APIConnector(globalAPI);
+        JSONArray jsonArray = apiConnecter.getJSONArray("summary");
+        for (int i = 0; i < 3; i++) {
+            System.out.println("data : " + (i + 1) + "/3");
+            JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("summary")
+                    .get(jsonArray.size() - 1 - i));
+            lines.add(jsonData.toString());
+        }
+        File f1 = new File("globalData.txt");
+        FileWriter fw = new FileWriter(f1);
+        BufferedWriter out = new BufferedWriter(fw);
+        for (String s : lines) {
+            out.write(s);
+            out.newLine();
+        }
+        out.flush();
+        out.close();
+        return true;
+    }
+    
     public boolean updateCountryData() throws IOException {
         System.out.println("start update country data");
         List<String> lines = new ArrayList<String>();
@@ -147,11 +169,6 @@ public class APIController {
             weeklyData[i][5] = arr[6].split(":")[1];
             // date
             weeklyData[i][6] = arr[8].split(":")[1];
-            //System.out.println("case " + weeklyData[i][0] + " : " + weeklyData[i][1]);
-            //System.out.println("death " + weeklyData[i][2] + " : " + weeklyData[i][3]);
-            //System.out.println("cure " + weeklyData[i][4] + " : " + weeklyData[i][5]);
-            //System.out.println("date " + weeklyData[i][6]);
-
         }
         br.close();
         return weeklyData;
