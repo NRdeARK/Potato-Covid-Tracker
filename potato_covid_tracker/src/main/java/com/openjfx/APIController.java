@@ -26,6 +26,8 @@ public class APIController {
     @FXML
     private Label infect;
 
+    private final String globalAPI =  "https://api.covid19api.com/summary";
+
     private final String countryAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
 
     private final String cityAPI = "https://covid19.ddc.moph.go.th/api/Cases/";

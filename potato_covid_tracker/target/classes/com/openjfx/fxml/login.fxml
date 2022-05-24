@@ -6,14 +6,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.LoginController">
    <children>
-      <ImageView fx:id="backgroundImageView" fitHeight="540.0" fitWidth="960.0"  pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="backgroundImageView" fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="logoImageView" fitHeight="206.0" fitWidth="631.0" layoutX="165.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
       <PasswordField fx:id="passwordPasswordField" layoutX="268.0" layoutY="286.05" prefHeight="48.6" prefWidth="425.0" promptText="PASSWORD" />
       <Label fx:id="cautionLabel" alignment="CENTER" layoutX="469.0" layoutY="197.0" prefHeight="27.6" prefWidth="252.76" textFill="RED" />
-      <Button fx:id="registerButton" layoutX="269.0" layoutY="374.0" mnemonicParsing="false" prefHeight="50.19" prefWidth="196.0" style="-fx-background-color: #FFAA5C;" text="REGISTER" textFill="WHITE" />
+      <Button fx:id="registerButton" layoutX="269.0" layoutY="374.0" mnemonicParsing="false" onAction="#registerButton" prefHeight="50.19" prefWidth="196.0" style="-fx-background-color: #FFAA5C;" text="REGISTER" textFill="WHITE" />
       <TextField fx:id="usernameTextField" layoutX="268.0" layoutY="225.0" prefHeight="48.6" prefWidth="425.0" promptText="USERNAME" />
       <Button fx:id="loginButton" layoutX="496.0" layoutY="373.95" mnemonicParsing="false" onAction="#loginButton" prefHeight="50.19" prefWidth="198.0" style="-fx-background-color: #FBF9CF;" text="LOGIN" />
-      <Label alignment="CENTER" layoutX="285.4" layoutY="336.0" prefHeight="37.8" prefWidth="388.8" text="FORGOT PASSWORD ?" underline="true" />
+      <Label alignment="CENTER" layoutX="285.4" layoutY="336.0" onMouseClicked="#forgotPasswordLabel" prefHeight="37.8" prefWidth="388.8" text="FORGOT PASSWORD ?" underline="true" />
       <AnchorPane layoutX="105.0" layoutY="450.0" prefHeight="22.0" prefWidth="59.0">
          <children>
             <Label fx:id="backLabel" onMouseClicked="#backButton" text="&lt; BACK" />
