@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 com\openjfx\ForgotPasswordController.class
 com\openjfx\LogManager.class
 com\openjfx\APIConnector.class
@@ -16,3 +17,23 @@ com\openjfx\GlobalController.class
 com\openjfx\LaunchController.class
 com\openjfx\LoginController.class
 com\openjfx\AboutUsController.class
+=======
+com/openjfx/LogManager.class
+com/openjfx/GlobalController.class
+com/openjfx/APIController.class
+com/openjfx/WelcomeController.class
+com/openjfx/CityController.class
+com/openjfx/RegisterController.class
+com/openjfx/ProfileControllerTest.class
+com/openjfx/SubMenuController.class
+com/openjfx/TutorialController.class
+com/openjfx/FXMLoader.class
+com/openjfx/LaunchController.class
+com/openjfx/App.class
+com/openjfx/APIConnector.class
+com/openjfx/MainPageController.class
+com/openjfx/UserData.class
+com/openjfx/LoginController.class
+com/openjfx/ProfileController.class
+com/openjfx/CountryController.class
+>>>>>>> Stashed changes

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 C:\Users\asus\Documents\GitHub\Potato-Covid-Tracker\potato_covid_tracker\src\main\java\com\openjfx\APIConnector.java
 C:\Users\asus\Documents\GitHub\Potato-Covid-Tracker\potato_covid_tracker\src\main\java\com\openjfx\GlobalController.java
 C:\Users\asus\Documents\GitHub\Potato-Covid-Tracker\potato_covid_tracker\src\main\java\com\openjfx\WelcomeController.java
@@ -16,3 +17,23 @@ C:\Users\asus\Documents\GitHub\Potato-Covid-Tracker\potato_covid_tracker\src\mai
 C:\Users\asus\Documents\GitHub\Potato-Covid-Tracker\potato_covid_tracker\src\main\java\com\openjfx\CountryController.java
 C:\Users\asus\Documents\GitHub\Potato-Covid-Tracker\potato_covid_tracker\src\main\java\com\openjfx\LogoutConfirmationController.java
 C:\Users\asus\Documents\GitHub\Potato-Covid-Tracker\potato_covid_tracker\src\main\java\com\openjfx\ProfileController.java
+=======
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/WelcomeController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/LoginController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/UserData.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/RegisterController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/GlobalController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/APIController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/CityController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/FXMLoader.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/LogManager.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/LaunchController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/TutorialController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/CountryController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/ProfileController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/App.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/SubMenuController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/ProfileControllerTest.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/MainPageController.java
+/Users/xFfliminfinity/Coding/Potato-Covid-Tracker/potato_covid_tracker/src/main/java/com/openjfx/APIConnector.java
+>>>>>>> Stashed changes

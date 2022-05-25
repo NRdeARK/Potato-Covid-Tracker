@@ -1,0 +1,53 @@
+#Bg {
+  -fx-background-color: linear-gradient(to bottom, #ffd4ad, #ffffff);
+}
+
+#BgCircle1 {
+  -fx-fill: #ffaa5c;
+}
+
+#middlePane {
+  -fx-background-color: #ffffff;
+  -fx-background-radius: 20px;
+}
+
+#profile-pic1 {
+  -fx-fill: #ffaa5c;
+  -fx-stroke-width: 2px;
+}
+
+#profile-pic2 {
+  -fx-fill: #f9f8f0;
+  -fx-stroke: null;
+}
+
+#username-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+
+}
+
+#name-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+}
+
+#gender-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+}
+
+#vacc-rect{
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+}
+
+#last-vecc-rect{
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+}
+
+#vacc-countdown-rect{
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+}
