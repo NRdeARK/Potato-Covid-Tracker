@@ -130,7 +130,7 @@ public class ForgotPasswordController implements Initializable{
             usernameWarningLabel.setText("don't have this user in system");
             return false;
         } else if (!(firstname.equals(UserData.getFirstname(userID)) && lastname.equals(UserData.getLastname(userID)))){
-            usernameWarningLabel.setText("some thing wrong");
+            usernameWarningLabel.setText("something wrong");
             return false;
         } else {
             return true;

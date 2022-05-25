@@ -59,6 +59,9 @@ public class ProfileController implements Initializable {
     private Button AboutUsButton;
 
     @FXML
+    private Button EditProfileButton;
+
+    @FXML
     private Label countdownLabel;
 
     @FXML
@@ -172,6 +175,16 @@ public class ProfileController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void editProfileButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "editProfile1");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/editProfile1.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void profileButton(ActionEvent event) throws IOException {

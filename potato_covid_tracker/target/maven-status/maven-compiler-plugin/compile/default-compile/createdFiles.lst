@@ -1,6 +1,16 @@
-com\openjfx\ForgotPasswordController.class
 com\openjfx\LogManager.class
 com\openjfx\App.class
+com\openjfx\CityController.class
+com\openjfx\ProfileController.class
+com\openjfx\MainPageController.class
+com\openjfx\UserData.class
+com\openjfx\Register1Controller.class
+com\openjfx\APIController.class
+com\openjfx\GlobalController.class
+com\openjfx\LoginController.class
+com\openjfx\AboutUsController.class
+com\openjfx\ForgotPasswordController.class
+com\openjfx\APIConnector.class
 com\openjfx\Register2Controller.class
 com\openjfx\TutorialController.class
 com\openjfx\CityController.class
