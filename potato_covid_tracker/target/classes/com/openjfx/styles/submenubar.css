@@ -1,0 +1,70 @@
+.button-container{
+    -fx-background-color:#EBEBEB;
+}
+
+.globe-button{
+    -fx-background-color:transparent;
+}
+
+.globe-button .ikonli-font-icon{
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0.0, 4.0);
+}
+
+.global-label{
+    visibility: hidden;
+}
+
+.country-button{
+    -fx-background-color:transparent;
+}
+
+.country-button .ikonli-font-icon{
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0.0, 4.0);
+}
+
+.country-label{
+    visibility: hidden;
+}
+
+.city-button{
+    -fx-background-color:transparent;
+}
+
+.city-button .ikonli-font-icon{
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0, 0.0, 4.0);
+}
+
+.city-label{
+    visibility: hidden;
+}
+
+.globe-button:hover .ikonli-font-icon{
+    -fx-icon-color:#FFAA5C;
+    -fx-effect: null;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0 , 4);
+}
+
+.country-button:hover .ikonli-font-icon{
+    -fx-icon-color:#FFAA5C;
+    -fx-effect: null;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0 , 4);
+}
+
+.city-button:hover .ikonli-font-icon{
+    -fx-icon-color:#FFAA5C;
+    -fx-effect: null;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 5, 0, 0 , 4);
+}
+
+.globe-button:hover .global-label{
+    visibility: visible;
+}
+
+.country-button:hover .country-label{
+    visibility: visible;
+}
+
+.city-button:hover .city-label{
+    visibility: visible;
+}
+
