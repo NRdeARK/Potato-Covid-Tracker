@@ -124,14 +124,13 @@ public class ProfileController implements Initializable {
             vaccinatedDate.setText(UserData.getVaccineDate(userID));
 
             countdownLabel.setText(getCountdownVaccinated(userID));
-
-            System.out.println("display!");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void profileButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "profile");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -141,6 +140,7 @@ public class ProfileController implements Initializable {
     }
 
     public void globalButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "global");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -150,6 +150,7 @@ public class ProfileController implements Initializable {
     }
 
     public void countryButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "country");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -159,6 +160,7 @@ public class ProfileController implements Initializable {
     }
 
     public void cityButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "city");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -167,16 +169,8 @@ public class ProfileController implements Initializable {
         stage.show();
     }
 
-    public void logoutButton(ActionEvent event) throws IOException {
-        LogManager.writeLog(LogManager.getUserIDFromLastLog(),"request logout form #profile");
-        root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
     public void aboutUsButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "aboutUs");
         root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -184,4 +178,14 @@ public class ProfileController implements Initializable {
         stage.show();
     }
 
+    public void logoutButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "logout");
+        root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    
 }

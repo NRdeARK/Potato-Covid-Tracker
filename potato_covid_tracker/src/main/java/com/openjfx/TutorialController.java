@@ -49,7 +49,7 @@ public class TutorialController implements Initializable {
     }
 
     public void finishButton(ActionEvent event) throws IOException {
-        System.out.println("new guest user finish tutorial");
+        LogManager.changeScene("tutorial", "profile");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

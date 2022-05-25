@@ -138,6 +138,7 @@ public class ForgotPasswordController implements Initializable{
     }
 
     public void backButton(ActionEvent event) throws IOException{
+        LogManager.changeScene("forgotPassword", "login");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));	
 		root = loader.load();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -154,6 +155,7 @@ public class ForgotPasswordController implements Initializable{
         if(condition1 && condition2 && condition3 && condition4){
             boolean condition5 = verifyResetPassword();
             if(condition5){
+                LogManager.changeScene("forgotPassword", "login");
                 UserData.resetPassword(usernameTextField.getText(), passwordPasswordField.getText());
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));	
                 root = loader.load();

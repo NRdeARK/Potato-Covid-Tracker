@@ -88,6 +88,7 @@ public class Register1Controller implements Initializable {
 
     @FXML
     void loginButton(ActionEvent event) throws IOException {
+        LogManager.changeScene(0,"register1", "login");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -104,7 +105,7 @@ public class Register1Controller implements Initializable {
             String username = usernameTextField.getText();
             String password = passwordPasswordField.getText();
             int userID = UserData.createNewUser1(username, password);
-            LogManager.writeLog(userID, "register part 1/2");
+            LogManager.changeScene(userID, "register1", "register2");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/register2.fxml"));
             root = loader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

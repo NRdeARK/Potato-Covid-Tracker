@@ -64,6 +64,7 @@ public class GlobalController implements Initializable {
 	}
 
     public void profileButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("global", "profile");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -73,6 +74,7 @@ public class GlobalController implements Initializable {
     }
 
     public void globalButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("global", "global");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -82,6 +84,7 @@ public class GlobalController implements Initializable {
     }
 
     public void countryButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("global", "country");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -91,6 +94,7 @@ public class GlobalController implements Initializable {
     }
 
     public void cityButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("global", "city");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -100,6 +104,7 @@ public class GlobalController implements Initializable {
     }
 
     public void logoutButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("global", "logoutConfirmation");
         root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -108,14 +113,12 @@ public class GlobalController implements Initializable {
     }
 
     public void aboutUsButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("global", "aboutUs");
         root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
-
-
 }
 

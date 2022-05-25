@@ -216,7 +216,6 @@ public class CityController implements Initializable {
     }
 
     public void chooseCity(ActionEvent event) throws IOException{
-
         String cityName = cityComboBox.getValue();
         APIController api = new APIController();
         int cityID = api.getCityIDfromName(cityName);
@@ -224,6 +223,7 @@ public class CityController implements Initializable {
     }
 
     public void profileButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("city", "profile");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -233,6 +233,7 @@ public class CityController implements Initializable {
     }
 
     public void globalButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("city", "global");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -242,6 +243,7 @@ public class CityController implements Initializable {
     }
 
     public void countryButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("city", "country");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -251,6 +253,7 @@ public class CityController implements Initializable {
     }
 
     public void cityButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("city", "city");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -260,6 +263,7 @@ public class CityController implements Initializable {
     }
 
     public void logoutButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("city", "logoutConfirmation");
         root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -268,6 +272,7 @@ public class CityController implements Initializable {
     }
 
     public void aboutUsButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("city", "aboutUs");
         root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

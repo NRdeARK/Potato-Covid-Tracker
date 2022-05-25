@@ -59,13 +59,12 @@ public class LoginController implements Initializable{
         String password = passwordPasswordField.getText();
         int userID = UserData.verifyLogin(username, password);
         if(userID == -1){
-            System.out.println("username or password are invalid");
             cautionLabel.setText("username or password are invalid");
-            LogManager.writeLog(0,"login unsuccessful");         
+            LogManager.writeLog(0,"login as " + username + " unsuccessful","login");         
         }
         else{
-            System.out.println("login successful");
-            LogManager.writeLog(userID,"login as user successful");
+            LogManager.writeLog(0,"login as "+ UserData.getUsername(userID)+" successful","login");
+            LogManager.changeScene(userID, "login", "profile");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));	
 		    root = loader.load();
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -77,6 +76,7 @@ public class LoginController implements Initializable{
 
     @FXML
     public void registerButton(ActionEvent event) throws IOException {
+        LogManager.changeScene(0, "login", "register");
         root = FXMLLoader.load(getClass().getResource("fxml/register1.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -86,6 +86,7 @@ public class LoginController implements Initializable{
 
     @FXML
     public void forgotPasswordLabel() throws IOException{
+        LogManager.changeScene(0, "login", "forgotPassword");
         root = FXMLLoader.load(getClass().getResource("fxml/forgotPassword.fxml"));
         scene = new Scene(root);
         stage = (Stage) backLabel.getParent().getScene().getWindow();
@@ -95,6 +96,7 @@ public class LoginController implements Initializable{
 
     @FXML
     public void backButton() throws IOException{
+        LogManager.changeScene(0,"login","launch");
         root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
         scene = new Scene(root);
         stage = (Stage) backLabel.getParent().getScene().getWindow();

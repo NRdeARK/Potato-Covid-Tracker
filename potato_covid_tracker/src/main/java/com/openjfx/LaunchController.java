@@ -44,21 +44,20 @@ public class LaunchController implements Initializable {
     }
 
     public void loginAsGuestButton(ActionEvent event) throws IOException {
-        LogManager.writeLog(0, "login as guest successful");
+        LogManager.changeScene(0, "launch", "welcome");
         root = FXMLLoader.load(getClass().getResource("fxml/welcome.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        System.out.println("login as guest");
     }
 
     public void loginAsPotatoButton(ActionEvent event) throws IOException {
+        LogManager.changeScene(0,"launch","welcome");
         root = FXMLLoader.load(getClass().getResource("fxml/login.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        System.out.println("login as potato");
     }
 }

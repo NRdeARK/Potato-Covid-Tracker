@@ -95,17 +95,7 @@ public class Register2Controller implements Initializable {
         fileNameLabel.setText("justPotato.jpg");
     }
 
-    @FXML
-    void BackButton(ActionEvent event) throws IOException {
-        UserData.deleteNewUser1();
-        LogManager.writeLog(0, "delete unfinished account");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/register1.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    
 
     @FXML
     boolean checkFirstname() {
@@ -198,6 +188,37 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
+    void browseProfileImage(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("jpg Files", "*.jpg"),
+                new FileChooser.ExtensionFilter("png Files", "*.png"),
+                new FileChooser.ExtensionFilter("jpeg Files", "*.jpeg"));
+        File selectedFile = fileChooser.showOpenDialog(stage);
+        if (selectedFile.exists() && selectedFile != null) {
+            absolutePath = selectedFile.getAbsolutePath();
+            filePath = "profile/" + selectedFile.getName();
+            fileNameLabel.setText(selectedFile.getName());
+            File imageFile = new File(absolutePath);
+            Image profileImage = new Image(imageFile.toURI().toString());
+            profileImageView.setImage(profileImage);
+        }
+    }
+
+    @FXML
+    void BackButton(ActionEvent event) throws IOException {
+        UserData.deleteNewUser1();
+        LogManager.writeLog(0, "delete unfinished account","register2");
+        LogManager.changeScene("register2", "register1");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/register1.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
     void createNewAccountButton(ActionEvent event) throws IOException {
         boolean condition1 = checkFirstname();
         boolean condition2 = checkLastname();
@@ -215,7 +236,8 @@ public class Register2Controller implements Initializable {
                 Files.copy(src.toPath(), dest.toPath());
             }
             
-            LogManager.writeLog(LogManager.getUserIDFromLastLog(), "create account successful");
+            LogManager.writeLog(LogManager.getUserIDFromLastLog(), "create account successful","register2");
+            LogManager.changeScene("register2", "profile");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
             root = loader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -225,21 +247,5 @@ public class Register2Controller implements Initializable {
         }
     }
 
-    @FXML
-    void browseProfileImage(ActionEvent event) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("jpg Files", "*.jpg"),
-                new FileChooser.ExtensionFilter("png Files", "*.png"),
-                new FileChooser.ExtensionFilter("jpeg Files", "*.jpeg"));
-        File selectedFile = fileChooser.showOpenDialog(stage);
-        if (selectedFile.exists() && selectedFile != null) {
-            absolutePath = selectedFile.getAbsolutePath();
-            filePath = "profile/" + selectedFile.getName();
-            fileNameLabel.setText(selectedFile.getName());
-            File imageFile = new File(absolutePath);
-            Image profileImage = new Image(imageFile.toURI().toString());
-            profileImageView.setImage(profileImage);
-        }
-    }
+
 }

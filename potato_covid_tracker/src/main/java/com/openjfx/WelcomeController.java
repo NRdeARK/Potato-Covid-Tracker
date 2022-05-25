@@ -41,7 +41,7 @@ public class WelcomeController implements Initializable {
     }
 
     public void startButton(ActionEvent event) throws IOException {
-        System.out.println("old guest user");
+        LogManager.changeScene("welcome", "profile");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -51,7 +51,7 @@ public class WelcomeController implements Initializable {
     }
 
     public void openTutorial() throws IOException {
-        System.out.println("new guest user");
+        LogManager.changeScene("welcome","tutorial");
         root = FXMLLoader.load(getClass().getResource("fxml/tutorial.fxml"));
         scene = new Scene(root);
         stage = (Stage) tutorialLabel.getParent().getScene().getWindow();
