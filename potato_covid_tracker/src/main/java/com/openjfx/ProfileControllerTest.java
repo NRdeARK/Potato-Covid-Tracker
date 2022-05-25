@@ -243,8 +243,6 @@ public class ProfileControllerTest implements Initializable {
     public void profileButton(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
-        ProfileController profileController = loader.getController();
-        profileController.displayUsername();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         String css = this.getClass().getResource("styles/profile.css").toExternalForm();
         scene = new Scene(root);
