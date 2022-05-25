@@ -20,6 +20,7 @@
                   <Button fx:id="GlobalButton" mnemonicParsing="false" onAction="#globalButton" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: #DEA057;" text="Global" />
                   <Button fx:id="CountryButton" mnemonicParsing="false" onAction="#countryButton" prefHeight="25.0" prefWidth="162.0" style="-fx-background-color: #DEA057;" text="Country" />
                   <Button fx:id="CityButton" mnemonicParsing="false" onAction="#cityButton" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #DEA057;" text="City" />
+                  <Button fx:id="AboutUsButton" mnemonicParsing="false" onAction="#aboutUsButton" prefHeight="25.0" prefWidth="151.0" text="About us" />
                   <Button fx:id="LogoutButton" mnemonicParsing="false" onAction="#logoutButton" prefHeight="25.0" prefWidth="122.0" text="Logout" />
                </children>
             </VBox>

@@ -127,6 +127,9 @@ public class CityController implements Initializable {
     private Button ProfileButton;
 
     @FXML
+    private Button AboutUsButton;
+
+    @FXML
     private Button updateButton;
 
     @FXML
@@ -213,10 +216,11 @@ public class CityController implements Initializable {
     }
 
     public void chooseCity(ActionEvent event) throws IOException{
+
         String cityName = cityComboBox.getValue();
         APIController api = new APIController();
-        int userID = api.getCityIDfromName(cityName);
-        displayCityData(userID);
+        int cityID = api.getCityIDfromName(cityName);
+        displayCityData(cityID);
     }
 
     public void profileButton(ActionEvent event) throws IOException {
@@ -257,6 +261,14 @@ public class CityController implements Initializable {
 
     public void logoutButton(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void aboutUsButton(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

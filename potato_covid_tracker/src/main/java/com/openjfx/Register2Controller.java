@@ -229,14 +229,14 @@ public class Register2Controller implements Initializable {
     void browseProfileImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("png Files", "*.jpg"),
-                new FileChooser.ExtensionFilter("jpg Files", "*.png"));
+                new FileChooser.ExtensionFilter("jpg Files", "*.jpg"),
+                new FileChooser.ExtensionFilter("png Files", "*.png"),
+                new FileChooser.ExtensionFilter("jpeg Files", "*.jpeg"));
         File selectedFile = fileChooser.showOpenDialog(stage);
         if (selectedFile.exists() && selectedFile != null) {
             absolutePath = selectedFile.getAbsolutePath();
             filePath = "profile/" + selectedFile.getName();
             fileNameLabel.setText(selectedFile.getName());
-
             File imageFile = new File(absolutePath);
             Image profileImage = new Image(imageFile.toURI().toString());
             profileImageView.setImage(profileImage);

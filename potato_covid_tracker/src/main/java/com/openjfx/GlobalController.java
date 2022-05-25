@@ -38,6 +38,9 @@ public class GlobalController implements Initializable {
     private Button ProfileButton;
 
     @FXML
+    private Button AboutUsButton;
+
+    @FXML
     private Label modeLabel;
 
     @FXML
@@ -98,6 +101,14 @@ public class GlobalController implements Initializable {
 
     public void logoutButton(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void aboutUsButton(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
