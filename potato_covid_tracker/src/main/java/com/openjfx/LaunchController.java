@@ -50,7 +50,7 @@ public class LaunchController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        System.out.println("GUEST");
+        System.out.println("login as guest");
     }
 
     public void loginAsPotatoButton(ActionEvent event) throws IOException {
@@ -59,6 +59,6 @@ public class LaunchController implements Initializable {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        System.out.println("POTATO");
+        System.out.println("login as potato");
     }
 }
