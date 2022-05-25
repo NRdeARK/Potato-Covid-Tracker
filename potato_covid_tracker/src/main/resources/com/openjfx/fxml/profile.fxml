@@ -30,15 +30,16 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FCFFE7;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fx:id="profileImage" fitHeight="150.0" fitWidth="200.0" layoutX="329.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="profileImage" fitHeight="150.0" fitWidth="200.0" layoutX="54.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="greetingLabel" layoutX="329.0" layoutY="98.0" text="Welcome username potato" />
-            <Label fx:id="usernameLabel2" layoutX="329.0" layoutY="290.0" text="username" />
-            <Label fx:id="nameLabel" layoutX="322.0" layoutY="326.0" text="name" />
-            <Label fx:id="doseLabel" layoutX="323.0" layoutY="383.0" text="vacinated dose" />
+            <Label fx:id="usernameLabel2" layoutX="331.0" layoutY="144.0" text="username" />
+            <Label fx:id="nameLabel" layoutX="327.0" layoutY="178.0" text="name" />
+            <Label fx:id="doseLabel" layoutX="328.0" layoutY="235.0" text="vacinated dose" />
             <Label layoutX="330.0" layoutY="410.0" />
-            <Label fx:id="genderLabel" layoutX="325.0" layoutY="355.0" text="gender" />
-            <Label fx:id="vaccinatedDate" layoutX="323.0" layoutY="410.0" text="last vaccinated date" />
-            <Label fx:id="countdownLabel" layoutX="323.0" layoutY="439.0" text="vaccinated date countdown" />
+            <Label fx:id="genderLabel" layoutX="330.0" layoutY="207.0" text="gender" />
+            <Label fx:id="vaccinatedDate" layoutX="328.0" layoutY="262.0" text="last vaccinated date" />
+            <Label fx:id="countdownLabel" layoutX="328.0" layoutY="291.0" text="vaccinated date countdown" />
+            <Button fx:id="EditProfileButton" layoutX="377.0" layoutY="473.0" mnemonicParsing="false" onAction="#editProfileButton" text="edit profile" />
          </children>
       </AnchorPane>
    </center>
