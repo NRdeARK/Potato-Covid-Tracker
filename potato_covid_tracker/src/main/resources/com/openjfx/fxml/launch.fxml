@@ -8,7 +8,7 @@
    <children>
       <ImageView fx:id="backgroundImageView" fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="logoImageView" fitHeight="258.0" fitWidth="793.0" layoutX="84.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="loginAsGuestButton" layoutX="395.0" layoutY="279.0" mnemonicParsing="false" onAction="#loginAsGuest" prefHeight="37.18" prefWidth="151.65" text="as guest" textAlignment="CENTER"  textFill="WHITE"/>
-      <Button fx:id="loginAsPotatoButton" layoutX="395.0" layoutY="347.0" mnemonicParsing="false" onAction="#loginAsPotato" prefHeight="37.18" prefWidth="151.65" text="as P0T4T0" textAlignment="CENTER" textFill="BLACK" />
+      <Button fx:id="loginAsGuestButton" layoutX="395.0" layoutY="279.0" mnemonicParsing="false" onAction="#loginAsGuestButton" prefHeight="37.18" prefWidth="151.65" text="as guest" textAlignment="CENTER"  textFill="WHITE"/>
+      <Button fx:id="loginAsPotatoButton" layoutX="395.0" layoutY="347.0" mnemonicParsing="false" onAction="#loginAsPotatoButton" prefHeight="37.18" prefWidth="151.65" text="as P0T4T0" textAlignment="CENTER" textFill="BLACK" />
    </children>
 </AnchorPane>
