@@ -1,7 +1,25 @@
 package com.openjfx;
 
+import com.jfoenix.controls.JFXDrawer;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.BlurType;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+
+import org.kordamp.ikonli.javafx.FontIcon;
+import org.kordamp.ikonli.javafx.StackedFontIcon;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -12,8 +30,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -28,19 +44,16 @@ public class ProfileController implements Initializable {
     private Parent root;
 
     @FXML
-    private Button CityButton;
-
-    @FXML
-    private Button CountryButton;
-
-    @FXML
-    private Button GlobalButton;
-
-    @FXML
-    private Button LogoutButton;
+    private Button MenuButton;
 
     @FXML
     private Button ProfileButton;
+
+    @FXML
+    private Circle ProfileCircle;
+
+    @FXML
+    private Label modeLabel;
 
     @FXML
     private Button AboutUsButton;
@@ -52,6 +65,44 @@ public class ProfileController implements Initializable {
     private Label countdownLabel;
 
     @FXML
+    private ImageView profileView;
+
+    @FXML
+    private ImageView ProfileCircleImg;
+
+    @FXML
+    private AnchorPane InnerButtonAnchor;
+
+    @FXML
+    private AnchorPane MiddleAnchor;
+
+    @FXML
+    private StackedFontIcon Icon1;
+
+    @FXML
+    private StackedFontIcon Icon2;
+
+    @FXML
+    private FontIcon Icon01;
+
+    @FXML
+    private FontIcon Icon02;
+
+    @FXML
+    private FontIcon Icon03;
+
+    @FXML
+    private FontIcon Icon04;
+
+    @FXML
+    private AnchorPane ProfileAnchor;
+
+    @FXML
+    private JFXDrawer menuDrawer;
+
+    private boolean menuActive;
+    private boolean profileActive;
+
     private Label doseLabel;
 
     @FXML
@@ -110,22 +161,16 @@ public class ProfileController implements Initializable {
     @FXML
     public void displayProfile(int userID) {
         try {
-            usernameLabel1.setText(UserData.getUsername(userID));
-
             File imageFile = new File(UserData.getProfilePicture(userID));
             Image image = new Image(imageFile.toURI().toString());
             profileImage.setImage(image);
 
+            usernameLabel1.setText(UserData.getUsername(userID));
             usernameLabel2.setText(UserData.getUsername(userID));
-
             nameLabel.setText(UserData.getFirstname(userID) + " " + UserData.getLastname(userID));
-
             genderLabel.setText(UserData.getGender(userID));
-
             doseLabel.setText(UserData.getVaccineDose(userID));
-
             vaccinatedDate.setText(UserData.getVaccineDate(userID));
-
             countdownLabel.setText(getCountdownVaccinated(userID));
         } catch (Exception e) {
             e.printStackTrace();
@@ -186,7 +231,9 @@ public class ProfileController implements Initializable {
         LogManager.changeScene("profile", "aboutUs");
         root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        String css = this.getClass().getResource("styles/profile.css").toExternalForm();
         scene = new Scene(root);
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }
@@ -200,5 +247,4 @@ public class ProfileController implements Initializable {
         stage.show();
     }
 
-    
 }
