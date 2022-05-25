@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.CountryController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.CountryController">
    <top>
       <AnchorPane prefHeight="28.0" prefWidth="600.0" style="-fx-background-color: #CE9461;" BorderPane.alignment="CENTER">
          <children>
@@ -16,10 +16,11 @@
          <children>
             <VBox layoutY="67.0" prefHeight="73.0" prefWidth="103.0" spacing="20.0">
                <children>
+                  <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#profileButton" prefHeight="25.0" prefWidth="112.0" text="Profile" />
                   <Button fx:id="GlobalButton" mnemonicParsing="false" onAction="#globalButton" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: #DEA057;" text="Global" />
                   <Button fx:id="CountryButton" mnemonicParsing="false" onAction="#countryButton" prefHeight="25.0" prefWidth="162.0" style="-fx-background-color: #DEA057;" text="Country" />
                   <Button fx:id="CityButton" mnemonicParsing="false" onAction="#cityButton" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #DEA057;" text="City" />
-                  <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#profileButton" prefHeight="25.0" prefWidth="112.0" text="Profile" />
+                  <Button fx:id="AboutUsButton" mnemonicParsing="false" onAction="#aboutUsButton" prefHeight="25.0" prefWidth="151.0" text="About us" />
                   <Button fx:id="LogoutButton" mnemonicParsing="false" onAction="#logoutButton" prefHeight="25.0" prefWidth="122.0" text="Logout" />
                </children>
             </VBox>
@@ -31,10 +32,10 @@
          <children>
             <Label fx:id="modeLabel" layoutX="43.0" layoutY="23.0" text="Label" />
             <AnchorPane layoutY="263.0" prefHeight="109.0" prefWidth="497.0" />
-            <Label fx:id="dailyInfect" layoutX="42.0" layoutY="264.0" text="infect" />
-            <Label fx:id="dailyDeath" layoutX="42.0" layoutY="295.0" text="death" />
-            <Label fx:id="dailyCure" layoutX="42.0" layoutY="327.0" text="cured" />
-            <AreaChart fx:id="countryChart" layoutX="77.0" layoutY="40.0" prefHeight="301.0" prefWidth="341.0">
+            <Label fx:id="dailyInfect" layoutX="666.0" layoutY="150.0" text="infect" />
+            <Label fx:id="dailyDeath" layoutX="666.0" layoutY="181.0" text="death" />
+            <Label fx:id="dailyCure" layoutX="666.0" layoutY="213.0" text="cured" />
+            <AreaChart fx:id="countryChart" layoutX="107.0" layoutY="42.0" prefHeight="435.0" prefWidth="481.0">
               <xAxis>
                 <NumberAxis side="BOTTOM" fx:id="xAxis" />
               </xAxis>
@@ -42,6 +43,9 @@
                 <NumberAxis fx:id="yAxis" side="LEFT" />
               </yAxis>
             </AreaChart>
+            <Button fx:id="updateButton" layoutX="668.0" layoutY="289.0" mnemonicParsing="false" onAction="#updateButton" text="update" />
+            <Label fx:id="dateUpdateLabel" layoutX="667.0" layoutY="248.0" text="date update" />
+            <ComboBox fx:id="modeComboBox" layoutX="107.0" layoutY="19.0" onAction="#chooseGraph" prefWidth="150.0" promptText="all" />
          </children>
       </AnchorPane>
    </center>

@@ -1,27 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXDrawer?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Circle?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
-<?import org.kordamp.ikonli.javafx.StackedFontIcon?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.ProfileController">
+   <top>
+      <AnchorPane prefHeight="28.0" prefWidth="600.0" style="-fx-background-color: #CE9461;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="usernameLabel1" layoutX="462.0" layoutY="6.0" text="Label" />
+         </children></AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="60.0" style="-fx-background-color: #E0D8B0;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutY="67.0" prefHeight="73.0" prefWidth="103.0" spacing="20.0">
+               <children>
+                  <Button fx:id="ProfileButton" mnemonicParsing="false" onAction="#profileButton" prefHeight="25.0" prefWidth="112.0" text="Profile" />
+                  <Button fx:id="GlobalButton" mnemonicParsing="false" onAction="#globalButton" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: #DEA057;" text="Global" />
+                  <Button fx:id="CountryButton" mnemonicParsing="false" onAction="#countryButton" prefHeight="25.0" prefWidth="162.0" style="-fx-background-color: #DEA057;" text="Country" />
+                  <Button fx:id="CityButton" mnemonicParsing="false" onAction="#cityButton" prefHeight="25.0" prefWidth="129.0" style="-fx-background-color: #DEA057;" text="City" />
+                  <Button fx:id="AboutUsButton" mnemonicParsing="false" onAction="#aboutUsButton" prefHeight="25.0" prefWidth="151.0" text="About us" />
+                  <Button fx:id="LogoutButton" mnemonicParsing="false" onAction="#logoutButton" prefHeight="25.0" prefWidth="122.0" text="Logout" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </left>
    <center>
       <AnchorPane fx:id="MiddleAnchor" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Circle fx:id="ProfileCircle" fill="DODGERBLUE" layoutX="397.0" layoutY="163.0" radius="85.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="334.0" AnchorPane.topAnchor="80.0" />
-            <TextField editable="false" layoutX="270.0" layoutY="280.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="332.0" text="NAME" AnchorPane.leftAnchor="250.0" />
-            <TextField editable="false" layoutX="250.0" layoutY="280.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="332.0" text="USERNAME" AnchorPane.topAnchor="350.0" />
-            <ImageView fx:id="ProfileCircleImg" fitHeight="287.0" fitWidth="449.0" layoutX="278.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="profileImage" fitHeight="150.0" fitWidth="200.0" layoutX="329.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="greetingLabel" layoutX="329.0" layoutY="98.0" text="Welcome username potato" />
+            <Label fx:id="usernameLabel2" layoutX="329.0" layoutY="290.0" text="username" />
+            <Label fx:id="nameLabel" layoutX="322.0" layoutY="326.0" text="name" />
+            <Label fx:id="doseLabel" layoutX="323.0" layoutY="383.0" text="vacinated dose" />
+            <Label layoutX="330.0" layoutY="410.0" />
+            <Label fx:id="genderLabel" layoutX="325.0" layoutY="355.0" text="gender" />
+            <Label fx:id="vaccinatedDate" layoutX="323.0" layoutY="410.0" text="last vaccinated date" />
+            <Label fx:id="countdownLabel" layoutX="323.0" layoutY="439.0" text="vaccinated date countdown" />
          </children>
       </AnchorPane>
    </center>

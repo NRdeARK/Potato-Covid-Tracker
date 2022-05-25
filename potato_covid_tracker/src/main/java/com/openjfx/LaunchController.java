@@ -43,8 +43,8 @@ public class LaunchController implements Initializable {
         backgroundImageView.setImage(backgroundImage);
     }
 
-    public void loginAsGuest(ActionEvent event) throws IOException {
-        LogManager.writeLog(0, "login as guest successful");
+    public void loginAsGuestButton(ActionEvent event) throws IOException {
+        LogManager.changeScene(0, "launch", "welcome");
         root = FXMLLoader.load(getClass().getResource("fxml/welcome.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         String css = this.getClass().getResource("styles/welcome.css").toExternalForm();
@@ -52,15 +52,14 @@ public class LaunchController implements Initializable {
         scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
-        System.out.println("GUEST");
     }
 
-    public void loginAsPotato(ActionEvent event) throws IOException {
+    public void loginAsPotatoButton(ActionEvent event) throws IOException {
+        LogManager.changeScene(0,"launch","welcome");
         root = FXMLLoader.load(getClass().getResource("fxml/login.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        System.out.println("POTATO");
     }
 }

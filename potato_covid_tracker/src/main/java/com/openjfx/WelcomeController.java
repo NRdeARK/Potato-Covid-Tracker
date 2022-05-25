@@ -41,21 +41,17 @@ public class WelcomeController implements Initializable {
     }
 
     public void startButton(ActionEvent event) throws IOException {
-        System.out.println("old guest user");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/mainpage.fxml"));
+        LogManager.changeScene("welcome", "profile");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
-        //ProfileController profileController = loader.getController();
-        // profileController.displayUsername();
-        String css = this.getClass().getResource("styles/mainpage.css").toExternalForm();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }
 
     public void openTutorial() throws IOException {
-        System.out.println("new guest user");
+        LogManager.changeScene("welcome","tutorial");
         root = FXMLLoader.load(getClass().getResource("fxml/tutorial.fxml"));
         scene = new Scene(root);
         stage = (Stage) tutorialLabel.getParent().getScene().getWindow();
