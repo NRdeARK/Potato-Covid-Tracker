@@ -43,6 +43,9 @@ public class ProfileController implements Initializable {
     private Button ProfileButton;
 
     @FXML
+    private Button AboutUsButton;
+
+    @FXML
     private Label countdownLabel;
 
     @FXML
@@ -165,7 +168,16 @@ public class ProfileController implements Initializable {
     }
 
     public void logoutButton(ActionEvent event) throws IOException {
+        LogManager.writeLog(LogManager.getUserIDFromLastLog(),"request logout form #profile");
         root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void aboutUsButton(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

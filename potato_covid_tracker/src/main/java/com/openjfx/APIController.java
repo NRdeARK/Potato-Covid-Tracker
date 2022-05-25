@@ -25,7 +25,7 @@ public class APIController {
     @FXML
     private Label infect;
 
-    private final String globalAPI =  "https://api.covid19api.com";
+    private final String globalAPI =  "https://api.covid19api.com/";
 
     private final String countryAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
 
@@ -217,7 +217,7 @@ public class APIController {
             line = reader.readLine();
         }
         reader.close();
-        cityName = line.split(" ")[1];
+        cityName = line.split("\"")[1];
         return cityName;
     }
 

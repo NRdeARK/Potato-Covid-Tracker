@@ -1,7 +1,6 @@
 package com.openjfx;
 
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
@@ -61,6 +60,9 @@ public class CountryController implements Initializable {
 
     @FXML
     private Button ProfileButton;
+
+    @FXML
+    private Button AboutUsButton;
 
     @FXML
     private Label dailyCure;
@@ -309,6 +311,14 @@ public class CountryController implements Initializable {
 
     public void logoutButton(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void aboutUsButton(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

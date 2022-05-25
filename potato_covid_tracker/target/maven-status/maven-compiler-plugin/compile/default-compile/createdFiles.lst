@@ -14,3 +14,4 @@ com\openjfx\APIController.class
 com\openjfx\GlobalController.class
 com\openjfx\LaunchController.class
 com\openjfx\LoginController.class
+com\openjfx\AboutUsController.class
