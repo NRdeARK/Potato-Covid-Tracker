@@ -42,8 +42,7 @@ public class WelcomeController implements Initializable {
 
     public void startButton(ActionEvent event) throws IOException {
         LogManager.changeScene("welcome", "profile");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
-        root = loader.load();
+        root = FXMLLoader.load(getClass().getResource("fxml/profile.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
