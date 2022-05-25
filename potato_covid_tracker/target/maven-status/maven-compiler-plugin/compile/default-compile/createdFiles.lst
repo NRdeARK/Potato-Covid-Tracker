@@ -10,6 +10,7 @@ com\openjfx\WelcomeController.class
 com\openjfx\ProfileController.class
 com\openjfx\UserData.class
 com\openjfx\Register1Controller.class
+com\openjfx\LogoutConfirmationController.class
 com\openjfx\APIController.class
 com\openjfx\GlobalController.class
 com\openjfx\LaunchController.class

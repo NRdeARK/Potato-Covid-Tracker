@@ -169,7 +169,7 @@ public class ProfileController implements Initializable {
 
     public void logoutButton(ActionEvent event) throws IOException {
         LogManager.writeLog(LogManager.getUserIDFromLastLog(),"request logout form #profile");
-        root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
+        root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
