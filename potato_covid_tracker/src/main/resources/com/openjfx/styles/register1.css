@@ -1,0 +1,13 @@
+#Bg{
+    -fx-background-color: linear-gradient(to bottom left, #ffd4ad, #ffffff);
+}
+
+#bg-circle{
+    -fx-fill: #D6A980;
+    -fx-stroke: null;
+}
+
+#regis-bg{
+    -fx-background-color: rgba(0,0,0,0.2);
+    -fx-background-radius:50px;
+}

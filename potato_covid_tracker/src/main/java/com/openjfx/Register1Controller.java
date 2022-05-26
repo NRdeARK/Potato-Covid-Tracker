@@ -58,10 +58,10 @@ public class Register1Controller implements Initializable {
         } else if (username.equals("")) {
             usernameWarningLabel.setText("username is blank");
             return false;
-        } else if (username.contains(" ")){
+        } else if (username.contains(" ")) {
             usernameWarningLabel.setText("username contains \" \"");
             return false;
-        }else{
+        } else {
             usernameWarningLabel.setText("");
             return true;
         }
@@ -87,8 +87,8 @@ public class Register1Controller implements Initializable {
     }
 
     @FXML
-    void loginButton(ActionEvent event) throws IOException {
-        LogManager.changeScene(0,"register1", "login");
+    public void loginButton(ActionEvent event) throws IOException {
+        LogManager.changeScene(0, "register1", "login");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));
         root = loader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -98,7 +98,7 @@ public class Register1Controller implements Initializable {
     }
 
     @FXML
-    void nextButton(ActionEvent event) throws IOException {
+    public void nextButton(ActionEvent event) throws IOException {
         boolean check1 = passwordWarning();
         boolean check2 = usernameWarning();
         if (check1 && check2) {

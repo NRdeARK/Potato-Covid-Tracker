@@ -16,7 +16,7 @@ public class LogManager {
         File logFile = new File("log.txt");
         if (logFile.createNewFile()) {
             System.out.println("File created: " + logFile.getName());
-            writeLog(0, "log file created","launch");
+            writeLog(0, "log file created", "launch");
         } else {
             System.out.println("File already exists.");
         }
@@ -52,7 +52,7 @@ public class LogManager {
         File f1 = new File("log.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
-        if((line = br.readLine())!= null){
+        if ((line = br.readLine()) != null) {
             fr.close();
             br.close();
             return line;
@@ -62,23 +62,23 @@ public class LogManager {
         return "ERROR(readLastLog)";
     }
 
-    public static int getUserIDFromLastLog()throws IOException{
+    public static int getUserIDFromLastLog() throws IOException {
         String line = readLastLog();
         String userID = line.split("::")[1].split("=")[1];
         return Integer.parseInt(userID);
     }
 
-    public static String getSceneFromLastLog()throws IOException{
+    public static String getSceneFromLastLog() throws IOException {
         String line = readLastLog();
         String scene = line.split("::")[3].split("=")[1];
         return scene;
     }
 
-    public static void changeScene(int userID,String from ,String to) throws IOException{
-        writeLog(userID,"change Scene to #"+ to +" form #" + from,from);
+    public static void changeScene(int userID, String from, String to) throws IOException {
+        writeLog(userID, "change Scene to #" + to + " form #" + from, from);
     }
 
-    public static void changeScene(String from ,String to) throws IOException{
-        writeLog(getUserIDFromLastLog(),"change Scene to #"+ to +" form #" + from,from);
+    public static void changeScene(String from, String to) throws IOException {
+        writeLog(getUserIDFromLastLog(), "change Scene to #" + to + " form #" + from, from);
     }
 }
