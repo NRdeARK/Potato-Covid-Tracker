@@ -16,16 +16,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class APIController {
-    @FXML
-    private Label cured;
+    // @FXML
+    // private Label cured;
 
-    @FXML
-    private Label dead;
+    // @FXML
+    // private Label dead;
 
-    @FXML
-    private Label infect;
+    // @FXML
+    // private Label infect;
 
-    private final String globalAPI =  "https://api.covid19api.com/";
+    // private final String globalAPI =  "https://api.covid19api.com/";
 
     private final String countryAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
 
@@ -38,28 +38,28 @@ public class APIController {
     //     //System.out.println(jsonData.toString());
     // }
 
-    public boolean updateGlobalData() throws IOException {
-        System.out.println("start update country data");
-        List<String> lines = new ArrayList<String>();
-        APIConnector apiConnecter = new APIConnector(globalAPI);
-        JSONArray jsonArray = apiConnecter.getJSONArray("summary");
-        for (int i = 0; i < 3; i++) {
-            System.out.println("data : " + (i + 1) + "/3");
-            JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("summary")
-                    .get(jsonArray.size() - 1 - i));
-            lines.add(jsonData.toString());
-        }
-        File f1 = new File("globalData.txt");
-        FileWriter fw = new FileWriter(f1);
-        BufferedWriter out = new BufferedWriter(fw);
-        for (String s : lines) {
-            out.write(s);
-            out.newLine();
-        }
-        out.flush();
-        out.close();
-        return true;
-    }
+    // public boolean updateGlobalData() throws IOException {
+    //     System.out.println("start update country data");
+    //     List<String> lines = new ArrayList<String>();
+    //     APIConnector apiConnecter = new APIConnector(globalAPI);
+    //     JSONArray jsonArray = apiConnecter.getJSONArray("summary");
+    //     for (int i = 0; i < 3; i++) {
+    //         System.out.println("data : " + (i + 1) + "/3");
+    //         JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("summary")
+    //                 .get(jsonArray.size() - 1 - i));
+    //         lines.add(jsonData.toString());
+    //     }
+    //     File f1 = new File("globalData.txt");
+    //     FileWriter fw = new FileWriter(f1);
+    //     BufferedWriter out = new BufferedWriter(fw);
+    //     for (String s : lines) {
+    //         out.write(s);
+    //         out.newLine();
+    //     }
+    //     out.flush();
+    //     out.close();
+    //     return true;
+    // }
     
     public boolean updateCountryData() throws IOException {
         System.out.println("start update country data");

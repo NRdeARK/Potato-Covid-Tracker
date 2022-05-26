@@ -24,30 +24,36 @@
 #username-rect {
   -fx-fill: #fdebda;
   -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 3, 0, -1, -1);
 }
 
 #name-rect{
   -fx-fill: #fdebda;
   -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 3, 0, -1, -1);
 }
 
 #gender-rect{
   -fx-fill: #fdebda;
   -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 3, 0, -1, -1);
 }
 #vacc-rect{
   -fx-fill: #fdebda;
   -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 3, 0, -1, -1);
 }
 
 #last-vecc-rect{
   -fx-fill: #fdebda;
   -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 3, 0, -1, -1);
 }
 
 #vacc-countdown-rect{
   -fx-fill: #fdebda;
   -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 3, 0, -1, -1);
 }
 
 #setting-button{

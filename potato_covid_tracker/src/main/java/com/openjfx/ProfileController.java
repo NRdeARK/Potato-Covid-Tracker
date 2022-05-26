@@ -44,21 +44,6 @@ public class ProfileController implements Initializable {
     private Parent root;
 
     @FXML
-    private Button MenuButton;
-
-    @FXML
-    private Button ProfileButton;
-
-    @FXML
-    private Circle ProfileCircle;
-
-    @FXML
-    private Label modeLabel;
-
-    @FXML
-    private Button AboutUsButton;
-
-    @FXML
     private Button EditProfileButton;
 
     @FXML
@@ -66,36 +51,6 @@ public class ProfileController implements Initializable {
 
     @FXML
     private ImageView profileImageView;
-
-    @FXML
-    private ImageView ProfileCircleImg;
-
-    @FXML
-    private AnchorPane InnerButtonAnchor;
-
-    @FXML
-    private AnchorPane MiddleAnchor;
-
-    @FXML
-    private StackedFontIcon Icon1;
-
-    @FXML
-    private StackedFontIcon Icon2;
-
-    @FXML
-    private FontIcon Icon01;
-
-    @FXML
-    private FontIcon Icon02;
-
-    @FXML
-    private FontIcon Icon03;
-
-    @FXML
-    private FontIcon Icon04;
-
-    @FXML
-    private AnchorPane ProfileAnchor;
 
     @FXML
     private JFXDrawer menuDrawer;
@@ -133,9 +88,6 @@ public class ProfileController implements Initializable {
     @FXML
     private JFXHamburger Hamberger;
 
-    @FXML
-    private AnchorPane mainAnchor;
-
     private boolean mainMenuActive;
     private boolean subMenuActive;
 
@@ -150,10 +102,10 @@ public class ProfileController implements Initializable {
             TranslateTransition tt = new TranslateTransition();
             tt.setDuration(Duration.millis(500));
             tt.setNode(Hamberger);
-
+            
             mainMenuActive = false;
             subMenuActive = false;
-
+            
             VBox mainMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menubar.fxml"));
             MainMenuDrawer.setSidePane(mainMenuVbox);
             VBox subMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menuslide.fxml"));
@@ -225,7 +177,19 @@ public class ProfileController implements Initializable {
                                 break;
                             }
 
-                            case "Help": {
+                            case "AboutUs": {
+                                try {
+                                    LogManager.changeScene("profile", "aboutUs");
+                                    root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    String css = this.getClass().getResource("styles/profile.css").toExternalForm();
+                                    scene = new Scene(root);
+                                    scene.getStylesheets().add(css);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
                                 break;
                             }
 
@@ -252,7 +216,35 @@ public class ProfileController implements Initializable {
                 if (node.getAccessibleText() != null) {
                     node.addEventHandler(MouseEvent.MOUSE_CLICKED, (ev) -> {
                         switch (node.getAccessibleText()) {
+                            case "Country": {
+                                try {
+                                    LogManager.changeScene("profile", "country");
+                                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
+                                    root = loader.load();
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
 
+                                break;
+                            }
+                            case "City": {
+                                try {
+                                    LogManager.changeScene("profile", "city");
+                                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
+                                    root = loader.load();
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
                         }
                     });
                 }
@@ -313,58 +305,58 @@ public class ProfileController implements Initializable {
         stage.show();
     }
 
-    public void profileButton(ActionEvent event) throws IOException {
-        //don't use
-    }
+    // public void profileButton(ActionEvent event) throws IOException {
+    //     // don't use
+    // }
 
-    public void globalButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("profile", "global");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    // public void globalButton(ActionEvent event) throws IOException {
+    //     LogManager.changeScene("profile", "global");
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
+    //     root = loader.load();
+    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     scene = new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // }
 
-    public void countryButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("profile", "country");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    // public void countryButton(ActionEvent event) throws IOException {
+    //     LogManager.changeScene("profile", "country");
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
+    //     root = loader.load();
+    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     scene = new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // }
 
-    public void cityButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("profile", "city");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    // public void cityButton(ActionEvent event) throws IOException {
+    //     LogManager.changeScene("profile", "city");
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
+    //     root = loader.load();
+    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     scene = new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // }
 
-    public void aboutUsButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("profile", "aboutUs");
-        root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        String css = this.getClass().getResource("styles/profile.css").toExternalForm();
-        scene = new Scene(root);
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
-    }
+    // public void aboutUsButton(ActionEvent event) throws IOException {
+    //     LogManager.changeScene("profile", "aboutUs");
+    //     root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
+    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     String css = this.getClass().getResource("styles/profile.css").toExternalForm();
+    //     scene = new Scene(root);
+    //     scene.getStylesheets().add(css);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // }
 
-    public void logoutButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("profile", "logout");
-        root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    // public void logoutButton(ActionEvent event) throws IOException {
+    //     LogManager.changeScene("profile", "logout");
+    //     root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
+    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     scene = new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // }
 
 }

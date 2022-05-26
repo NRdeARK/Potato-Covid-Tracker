@@ -2,8 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -15,29 +13,21 @@
 
 <VBox id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="517.0" prefWidth="87.0" styleClass="menubar-container" stylesheets="@../styles/menubar.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button id="ProfileButton" accessibleText="Profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" styleClass="menubar-button" translateX="16.0" translateY="20.0">
+      <Button id="profile-button" accessibleText="Profile" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" styleClass="menubar-button" translateX="16.0" translateY="20.0">
          <graphic>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <AnchorPane id="profile-hover" maxHeight="56.0" maxWidth="-Infinity" minHeight="56.0" minWidth="-Infinity" prefHeight="56.0" prefWidth="64.0" translateY="12.0">
+                  <AnchorPane id="profile-hover" maxHeight="56.0" maxWidth="-Infinity" minHeight="56.0" minWidth="-Infinity" prefHeight="56.0" prefWidth="64.0" translateY="8.0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
                   </AnchorPane>
-                  <Button id="inner-profilebutton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="51.0" prefWidth="50.0" text="Button">
-                     <graphic>
-                        <ImageView fx:id="profileView" accessibleText="Profile" fitHeight="96.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="-33.0" translateY="1.0">
-                           <image>
-                              <Image url="@../images/profile/potato.jpg" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <FontIcon iconColor="#ffaa5c" iconLiteral="fas-user" iconSize="46" translateY="-1.0" />
                </children>
             </StackPane>
          </graphic>
       </Button>
-      <Button id="menuslidebutton" fx:id="MenuButton" accessibleText="Menu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="64.0" prefWidth="64.0" styleClass="menubar-button" translateX="10.0" translateY="81.0">
+      <Button id="menuslidebutton" fx:id="MenuButton" accessibleText="Menu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="64.0" prefWidth="64.0" styleClass="menubar-button" translateX="10.0" translateY="72.0">
          <graphic>
             <StackedFontIcon fx:id="Icon" prefWidth="51.0" styleClass="stackicon">
                <children>
@@ -96,7 +86,7 @@
             </StackPane>
          </graphic>
       </Button>
-      <Button id="helpbutton" fx:id="questionButton" accessibleText="Help" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="46.85" prefWidth="46.85" styleClass="menubar-button" translateX="18.0" translateY="172.0">
+      <Button id="helpbutton" fx:id="questionButton" accessibleText="AboutUs" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="46.85" prefWidth="46.85" styleClass="menubar-button" translateX="18.0" translateY="172.0">
          <VBox.margin>
             <Insets />
          </VBox.margin>

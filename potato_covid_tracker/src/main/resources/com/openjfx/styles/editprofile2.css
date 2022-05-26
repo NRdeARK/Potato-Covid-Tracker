@@ -1,62 +1,88 @@
-#edit2-pane{
-    -fx-background-color: rgba(0, 0, 0, 0.5);
-    -fx-background-radius: 10px;
+#edit2-pane {
+  -fx-background-color: rgba(0, 0, 0, 0.5);
+  -fx-background-radius: 10px;
 }
 
-#BgCircle1{
-    -fx-fill:#FFAA5C;
+#BgCircle1 {
+  -fx-fill: #FFAA5C;
 }
 
-#editprofile2-bg{
-    -fx-background-color: linear-gradient(to bottom, #ffd4ad, #ffffff);
+#editprofile2-bg {
+  -fx-background-color: linear-gradient(to bottom, #ffd4ad, #ffffff);
 }
 
 #profile-pic1 {
-    -fx-fill: #ffaa5c;
-    -fx-stroke-width: 2px;
-  }
-  
-  #profile-pic2 {
-    -fx-fill: #f9f8f0;
-    -fx-stroke: null;
-  }
-  
-  #username-rect {
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-  }
-  
-  #name-rect{
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-  }
-  
-  #gender-rect{
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-  }
-  #vacc-rect{
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-  }
-  
-  #last-vecc-rect{
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-  }
-  
-  #vacc-countdown-rect{
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-  }
+  -fx-fill: #ffaa5c;
+  -fx-stroke-width: 2px;
+}
 
-  #save-button{
-      -fx-background-color: #FFFFFF;
-      -fx-background-radius:100;
-  }
+#profile-pic2 {
+  -fx-fill: #f9f8f0;
+  -fx-stroke: null;
+}
 
-  #edit-profile-button{
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius:100;
-  }
+#username-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 3, 0, -1, -1);
+}
 
+#name-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.25), 3, 0, -1, -1);
+}
+
+#gender-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.25), 3, 0, -1, -1);
+}
+
+#vacc-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.25), 3, 0, -1, -1);
+}
+
+#last-vecc-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.25), 3, 0, -1, -1);
+}
+
+#vacc-countdown-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.25), 3, 0, -1, -1);
+}
+
+#save-button {
+  -fx-background-color: #FFFFFF;
+  -fx-background-radius: 100;
+}
+
+#edit-profile-button {
+  -fx-background-color: #FFFFFF;
+  -fx-background-radius: 100;
+}
+
+#back-button {
+  -fx-background-color: transparent;
+}
+
+#back-button:hover .ikonli-font-icon {
+  -fx-icon-color: black;
+}
+
+#save-button:hover {
+  -fx-background-color: #ffd4ad;
+}
+
+#save-button:hover .ikonli-font-icon{
+  -fx-icon-color: black;
+}
+
+#edit-profile-button:hover .ikonli-font-icon {
+  -fx-icon-color:#FFAA5C;
+}

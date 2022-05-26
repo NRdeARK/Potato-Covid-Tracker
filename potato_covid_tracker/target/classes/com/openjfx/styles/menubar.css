@@ -22,25 +22,16 @@
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0 , 8);
 }
 
-#ProfileButton{
-    
+#profile-button{
 }
 
-#inner-profilebutton{
-    -fx-background-radius: 100;
-    -fx-border-color:#FFAA5C;
-    -fx-border-width: 3px;
-    -fx-border-radius: 100;
-
-}
-
-#ProfileButton:hover #inner-profilebutton{
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0 , 8);
-}
-
-#ProfileButton:hover #profile-hover{
+#profile-button:hover #profile-hover{
     -fx-background-color:#6C5D4F;
     -fx-background-radius:8;
+}
+
+#profile-button:hover .ikonli-font-icon{
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0 , 8);
 }
 
 #notibutton:hover #noti-hover{

@@ -4,6 +4,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -16,6 +24,7 @@ import java.util.ResourceBundle;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +35,7 @@ import javafx.scene.chart.AreaChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.scene.Node;
 
 public class CountryController implements Initializable {
@@ -35,34 +45,19 @@ public class CountryController implements Initializable {
     private Parent root;
     private APIController api = new APIController();
     private final String countryAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
-    String[][] monthlyData = api.getCountryMonthlyData();
-    String[] modeList = {
+    private String[][] monthlyData = api.getCountryMonthlyData();
+    private String[] modeList = {
             "all",
             "infected",
             "cured",
             "death"
     };
-    XYChart.Series<Number, Number> seriesDeath = new XYChart.Series<>();
-    XYChart.Series<Number, Number> seriesInfect = new XYChart.Series<>();
-    XYChart.Series<Number, Number> seriesCure = new XYChart.Series<>();
+    private XYChart.Series<Number, Number> seriesDeath = new XYChart.Series<>();
+    private XYChart.Series<Number, Number> seriesInfect = new XYChart.Series<>();
+    private XYChart.Series<Number, Number> seriesCure = new XYChart.Series<>();
 
     @FXML
-    private Button CityButton;
-
-    @FXML
-    private Button CountryButton;
-
-    @FXML
-    private Button GlobalButton;
-
-    @FXML
-    private Button LogoutButton;
-
-    @FXML
-    private Button ProfileButton;
-
-    @FXML
-    private Button AboutUsButton;
+    private Button updateButton;
 
     @FXML
     private Label dailyCure;
@@ -95,6 +90,21 @@ public class CountryController implements Initializable {
     private ComboBox<String> modeComboBox;
 
     @FXML
+    private ImageView BgImage;
+
+    @FXML
+    private JFXHamburger Hamberger;
+
+    @FXML
+    private JFXDrawer MainMenuDrawer;
+
+    @FXML
+    private JFXDrawer SubMenuDrawer;
+
+    private boolean mainMenuActive;
+    private boolean subMenuActive;
+
+    @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         displayUsername();
         modeLabel.setText("Country");
@@ -116,6 +126,165 @@ public class CountryController implements Initializable {
                 e.printStackTrace();
             }
         });
+
+        try {
+
+            HamburgerBackArrowBasicTransition burgerTask = new HamburgerBackArrowBasicTransition(Hamberger);
+            burgerTask.setRate(-1);
+
+            TranslateTransition tt = new TranslateTransition();
+            tt.setDuration(Duration.millis(500));
+            tt.setNode(Hamberger);
+            
+            mainMenuActive = false;
+            subMenuActive = false;
+            
+            VBox mainMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menubar.fxml"));
+            MainMenuDrawer.setSidePane(mainMenuVbox);
+            VBox subMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menuslide.fxml"));
+
+            Hamberger.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
+                burgerTask.setRate(burgerTask.getRate() * -1);
+
+                if (mainMenuActive) {
+                    if (subMenuActive) {
+                        SubMenuDrawer.close();
+                    }
+
+                    tt.setToX(0);
+                    burgerTask.play();
+                    tt.play();
+                    mainMenuActive = false;
+
+                } else {
+                    tt.setToX(80);
+                    burgerTask.play();
+                    tt.play();
+                    mainMenuActive = true;
+
+                }
+
+                if (MainMenuDrawer.isOpened()) {
+                    MainMenuDrawer.close();
+                } else {
+                    MainMenuDrawer.open();
+                }
+
+            });
+
+            for (Node node : mainMenuVbox.getChildren()) {
+                if (node.getAccessibleText() != null) {
+                    node.addEventHandler(MouseEvent.MOUSE_CLICKED, (ev) -> {
+                        switch (node.getAccessibleText()) {
+                            case "Profile": {
+                                try {
+                                    LogManager.changeScene("country", "profile");
+                                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+                                    root = loader.load();
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                    System.out.println("Profile Pressed");
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
+                            case "Menu": {
+
+                                SubMenuDrawer.setSidePane(subMenuVbox);
+
+                                if (SubMenuDrawer.isOpened()) {
+                                    SubMenuDrawer.close();
+                                    subMenuActive = false;
+                                } else {
+                                    SubMenuDrawer.open();
+                                    subMenuActive = true;
+                                }
+                                break;
+                            }
+
+                            case "Notification": {
+
+                                break;
+                            }
+
+                            case "AboutUs": {
+                                try {
+                                    LogManager.changeScene("country", "aboutUs");
+                                    root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    String css = this.getClass().getResource("styles/profile.css").toExternalForm();
+                                    scene = new Scene(root);
+                                    scene.getStylesheets().add(css);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
+
+                            case "Exit": {
+                                try {
+                                    LogManager.changeScene("country", "logout");
+                                    root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
+                        }
+                    });
+                }
+            }
+
+            for (Node node : subMenuVbox.getChildren()) {
+                if (node.getAccessibleText() != null) {
+                    node.addEventHandler(MouseEvent.MOUSE_CLICKED, (ev) -> {
+                        switch (node.getAccessibleText()) {
+                            case "Country": {
+                                try {
+                                    LogManager.changeScene("country", "country");
+                                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
+                                    root = loader.load();
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+                                break;
+                            }
+                            case "City": {
+                                try {
+                                    LogManager.changeScene("country", "city");
+                                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
+                                    root = loader.load();
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
+                        }
+                    });
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -214,7 +383,7 @@ public class CountryController implements Initializable {
             if (mode.equals("infected")) {
                 seriesInfect.getData()
                         .add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][1])));
-
+                
             }
             if (mode.equals("cured")) {
                 seriesCure.getData()
@@ -250,7 +419,6 @@ public class CountryController implements Initializable {
         // }
     }
 
-    @FXML
     public void updateButton(ActionEvent event) throws IOException {
         System.out.println("start update country data");
         List<String> lines = new ArrayList<String>();

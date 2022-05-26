@@ -29,8 +29,8 @@ public class EditProfile2Controller implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    String filePath = "profile/justPotato.jpg";
-    String absolutePath = "";
+    private String filePath = "profile/justPotato.jpg";
+    private String absolutePath = "";
 
     @FXML
     private Button SaveProfileButton;
@@ -107,7 +107,7 @@ public class EditProfile2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkFirstname() {
+    public boolean checkFirstname() {
         String firstname = firstnameTextField.getText();
         if (firstname.equals("")) {
             firstnameWarningLabel.setText("firstname is blank");
@@ -122,7 +122,7 @@ public class EditProfile2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkLastname() {
+    public boolean checkLastname() {
         String lastname = lastnameTextField.getText();
         if (lastname.equals("")) {
             lastnameWarningLabel.setText("lastname is blank");
@@ -137,7 +137,7 @@ public class EditProfile2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkGender() {
+    public boolean checkGender() {
         String gender = genderTextField.getText();
         if (gender.equals("")) {
             genderWarningLabel.setText("gender is blank");
@@ -152,7 +152,7 @@ public class EditProfile2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkVaccinatedDate() {
+    public boolean checkVaccinatedDate() {
         try {
             String vaccinatedDate = lastVaccinatedDateTextField.getText();
             LocalDate.parse(vaccinatedDate);
@@ -167,7 +167,7 @@ public class EditProfile2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkVaccineDose() {
+    public boolean checkVaccineDose() {
         try {
             int dose = Integer.parseInt(vaccineDoseTextField.getText());
             if (dose < 0) {
@@ -185,10 +185,13 @@ public class EditProfile2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkProfileFile() throws IOException {
+    public boolean checkProfileFile() throws IOException {
         if (UserData.isDuplicateFile(fileNameLabel.getText())
                 && !fileNameLabel.getText().equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()))) {
             fileNameWarningLabel.setText("file name is duplicated");
+            return false;
+        } else if (fileNameLabel.getText().contains(" ")) {
+            fileNameWarningLabel.setText("file name contain \" \"");
             return false;
         } else {
             fileNameWarningLabel.setText("");
@@ -197,7 +200,7 @@ public class EditProfile2Controller implements Initializable {
     }
 
     @FXML
-    void browseProfileImage(ActionEvent event) {
+    public void browseProfileImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("jpg Files", "*.jpg"),
@@ -215,7 +218,7 @@ public class EditProfile2Controller implements Initializable {
     }
 
     @FXML
-    void backButton(ActionEvent event) throws IOException {
+    public void backButton(ActionEvent event) throws IOException {
         LogManager.changeScene("global", "profile");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
@@ -226,7 +229,7 @@ public class EditProfile2Controller implements Initializable {
     }
 
     @FXML
-    void saveProfileButton(ActionEvent event) throws IOException {
+    public void saveProfileButton(ActionEvent event) throws IOException {
         boolean condition1 = checkFirstname();
         boolean condition2 = checkLastname();
         boolean condition3 = checkGender();

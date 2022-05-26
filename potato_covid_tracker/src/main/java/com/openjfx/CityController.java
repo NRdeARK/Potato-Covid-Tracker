@@ -3,6 +3,8 @@ package com.openjfx;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,9 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +30,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javafx.scene.Node;
 
 public class CityController implements Initializable {
@@ -31,103 +39,84 @@ public class CityController implements Initializable {
     private Scene scene;
     private Parent root;
     private String[] cityList = {
-        "Krabi",
-        "Bangkok",
-        "Kanchanaburi",
-        "Kalasin",
-        "Kamphaeng Phet",
-        "Khon Kaen",
-        "Chanthaburi",
-        "Chachoengsao",
-        "Chonburi",
-        "Chainat",
-        "Chaiyaphum",
-        "Chumphon",
-        "Trang",
-        "Trad",
-        "Tak",
-        "Nakhon Nayok",
-        "Nakhon Pathom",
-        "Nakhon Phanom",
-        "Nakhon Ratchasima",
-        "Nakhon Si Thammarat",
-        "Nakhon Sawan",
-        "Nonthaburi",
-        "Narathiwat",
-        "Nan",
-        "Bueng Kan",
-        "Buriram",
-        "Pathum Thani",
-        "Prachuap Khiri Khan",
-        "Prachinburi",
-        "Pattani",
-        "Phra Nakhon Si Ayutthaya",
-        "Phayao",
-        "Phang Nga",
-        "Phatthalung",
-        "Phichit",
-        "Phitsanulok",
-        "Phuket",
-        "Maha Sarakham",
-        "Mukdahan",
-        "Yala",
-        "Yasothon",
-        "Ranong",
-        "Rayong",
-        "Ratchaburi",
-        "Roi Et",
-        "Lopburi",
-        "Lampang",
-        "Lamphun",
-        "Sisaket",
-        "Sakon Nakhon",
-        "Songkhla",
-        "Satun",
-        "Samut Prakan",
-        "Samut Songkhram",
-        "Samut Sakhon",
-        "Saraburi",
-        "Sa Kaeo",
-        "Singburi",
-        "Suphan Buri",
-        "Surat Thani",
-        "Surin",
-        "Sukhothai",
-        "Nong Khai",
-        "Nong Bua Lamphu",
-        "Amnat Charoen",
-        "Udon Thani",
-        "Uttaradit",
-        "Uthai Thani",
-        "Ubon Ratchathani",
-        "Ang Thong",
-        "Chiang Rai",
-        "Chiang Mai",
-        "Phetchaburi",
-        "Phetchabun",
-        "Loei",
-        "Phrae",
-        "Mae Hong Son",
+            "Krabi",
+            "Bangkok",
+            "Kanchanaburi",
+            "Kalasin",
+            "Kamphaeng Phet",
+            "Khon Kaen",
+            "Chanthaburi",
+            "Chachoengsao",
+            "Chonburi",
+            "Chainat",
+            "Chaiyaphum",
+            "Chumphon",
+            "Trang",
+            "Trad",
+            "Tak",
+            "Nakhon Nayok",
+            "Nakhon Pathom",
+            "Nakhon Phanom",
+            "Nakhon Ratchasima",
+            "Nakhon Si Thammarat",
+            "Nakhon Sawan",
+            "Nonthaburi",
+            "Narathiwat",
+            "Nan",
+            "Bueng Kan",
+            "Buriram",
+            "Pathum Thani",
+            "Prachuap Khiri Khan",
+            "Prachinburi",
+            "Pattani",
+            "Phra Nakhon Si Ayutthaya",
+            "Phayao",
+            "Phang Nga",
+            "Phatthalung",
+            "Phichit",
+            "Phitsanulok",
+            "Phuket",
+            "Maha Sarakham",
+            "Mukdahan",
+            "Yala",
+            "Yasothon",
+            "Ranong",
+            "Rayong",
+            "Ratchaburi",
+            "Roi Et",
+            "Lopburi",
+            "Lampang",
+            "Lamphun",
+            "Sisaket",
+            "Sakon Nakhon",
+            "Songkhla",
+            "Satun",
+            "Samut Prakan",
+            "Samut Songkhram",
+            "Samut Sakhon",
+            "Saraburi",
+            "Sa Kaeo",
+            "Singburi",
+            "Suphan Buri",
+            "Surat Thani",
+            "Surin",
+            "Sukhothai",
+            "Nong Khai",
+            "Nong Bua Lamphu",
+            "Amnat Charoen",
+            "Udon Thani",
+            "Uttaradit",
+            "Uthai Thani",
+            "Ubon Ratchathani",
+            "Ang Thong",
+            "Chiang Rai",
+            "Chiang Mai",
+            "Phetchaburi",
+            "Phetchabun",
+            "Loei",
+            "Phrae",
+            "Mae Hong Son",
     };
-    private final String cityAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
-
-    @FXML
-    private Button CityButton;
-
-    @FXML
-    private Button CountryButton;
-
-    @FXML
-    private Button GlobalButton;
-
-    @FXML
-    private Button LogoutButton;
-
-    @FXML
-    private Button ProfileButton;
-
-    @FXML
-    private Button AboutUsButton;
 
     @FXML
     private Button UpdateButton;
@@ -150,23 +139,192 @@ public class CityController implements Initializable {
     @FXML
     private Label DateLabel;
 
-    
-
+    @FXML
+    private JFXHamburger Hamberger;
 
     @FXML
-    public void initialize(URL url ,ResourceBundle  resourceBundle){
+    private JFXDrawer MainMenuDrawer;
+
+    @FXML
+    private JFXDrawer SubMenuDrawer;
+
+    private boolean mainMenuActive;
+    private boolean subMenuActive;
+
+    @FXML
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         displayUsername();
         displayCityData(1);
         CityComboBox.getItems().addAll(cityList);
         CityComboBox.setOnAction(event -> {
-			try {
-				chooseCity(event);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		});
-        
+            try {
+                chooseCity(event);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        try {
+
+            HamburgerBackArrowBasicTransition burgerTask = new HamburgerBackArrowBasicTransition(Hamberger);
+            burgerTask.setRate(-1);
+
+            TranslateTransition tt = new TranslateTransition();
+            tt.setDuration(Duration.millis(500));
+            tt.setNode(Hamberger);
+
+            mainMenuActive = false;
+            subMenuActive = false;
+
+            VBox mainMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menubar.fxml"));
+            MainMenuDrawer.setSidePane(mainMenuVbox);
+            VBox subMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menuslide.fxml"));
+
+            Hamberger.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
+                burgerTask.setRate(burgerTask.getRate() * -1);
+
+                if (mainMenuActive) {
+                    if (subMenuActive) {
+                        SubMenuDrawer.close();
+                    }
+
+                    tt.setToX(0);
+                    burgerTask.play();
+                    tt.play();
+                    mainMenuActive = false;
+
+                } else {
+                    tt.setToX(80);
+                    burgerTask.play();
+                    tt.play();
+                    mainMenuActive = true;
+
+                }
+
+                if (MainMenuDrawer.isOpened()) {
+                    MainMenuDrawer.close();
+                } else {
+                    MainMenuDrawer.open();
+                }
+
+            });
+
+            for (Node node : mainMenuVbox.getChildren()) {
+                if (node.getAccessibleText() != null) {
+                    node.addEventHandler(MouseEvent.MOUSE_CLICKED, (ev) -> {
+                        switch (node.getAccessibleText()) {
+                            case "Profile": {
+                                try {
+                                    LogManager.changeScene("city", "profile");
+                                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+                                    root = loader.load();
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                    System.out.println("Profile Pressed");
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
+                            case "Menu": {
+
+                                SubMenuDrawer.setSidePane(subMenuVbox);
+
+                                if (SubMenuDrawer.isOpened()) {
+                                    SubMenuDrawer.close();
+                                    subMenuActive = false;
+                                } else {
+                                    SubMenuDrawer.open();
+                                    subMenuActive = true;
+                                }
+                                break;
+                            }
+
+                            case "Notification": {
+
+                                break;
+                            }
+
+                            case "AboutUs": {
+                                try {
+                                    LogManager.changeScene("city", "aboutUs");
+                                    root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    String css = this.getClass().getResource("styles/profile.css").toExternalForm();
+                                    scene = new Scene(root);
+                                    scene.getStylesheets().add(css);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
+
+                            case "Exit": {
+                                try {
+                                    LogManager.changeScene("city", "logout");
+                                    root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
+                        }
+                    });
+                }
+            }
+
+            for (Node node : subMenuVbox.getChildren()) {
+                if (node.getAccessibleText() != null) {
+                    node.addEventHandler(MouseEvent.MOUSE_CLICKED, (ev) -> {
+                        switch (node.getAccessibleText()) {
+                            case "Country": {
+                                try {
+                                    LogManager.changeScene("city", "country");
+                                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
+                                    root = loader.load();
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+                                break;
+                            }
+                            case "City": {
+                                try {
+                                    LogManager.changeScene("city", "city");
+                                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
+                                    root = loader.load();
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
+                        }
+                    });
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
+
     @FXML
     public void displayUsername() {
         try {
@@ -176,16 +334,18 @@ public class CityController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-	}
+    }
 
     @FXML
-    public void displayCityData(int CityID){
+    public void displayCityData(int CityID) {
         try {
             APIController api = new APIController();
-            String [] cityData = api.getCityDailyData(CityID);
+            String[] cityData = api.getCityDailyData(CityID);
             ModeLabel.setText("city : " + cityData[5]);
-            InfectLabel.setText("infected: " + (Integer.parseInt(cityData[1]) - Integer.parseInt(cityData[0]))+ " + " + cityData[0]);
-            DeathLabel.setText("death: " + (Integer.parseInt(cityData[3]) - Integer.parseInt(cityData[2]))+ " + " + cityData[2]);
+            InfectLabel.setText("infected: " + (Integer.parseInt(cityData[1]) - Integer.parseInt(cityData[0])) + " + "
+                    + cityData[0]);
+            DeathLabel.setText(
+                    "death: " + (Integer.parseInt(cityData[3]) - Integer.parseInt(cityData[2])) + " + " + cityData[2]);
             DateLabel.setText("date update: " + cityData[4]);
         } catch (Exception e) {
             e.printStackTrace();
@@ -196,7 +356,7 @@ public class CityController implements Initializable {
     public void updateButton(ActionEvent event) throws IOException {
         System.out.println("start update city data");
         List<String> lines = new ArrayList<String>();
-        APIConnector apiConnecter = new APIConnector(cityAPI);
+        APIConnector apiConnecter = new APIConnector("https://covid19.ddc.moph.go.th/api/Cases/");
         JSONArray jsonArray = apiConnecter.getJSONArray("today-cases-by-provinces");
         for (int i = 0; i < 78; i++) {
             System.out.println("data : " + (i + 1) + "/78");
@@ -215,72 +375,69 @@ public class CityController implements Initializable {
         out.close();
     }
 
-    public void chooseCity(ActionEvent event) throws IOException{
+    public void chooseCity(ActionEvent event) throws IOException {
         String cityName = CityComboBox.getValue();
         APIController api = new APIController();
         int cityID = api.getCityIDfromName(cityName);
         displayCityData(cityID);
     }
 
-    public void profileButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("city", "profile");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void globalButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("city", "global");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void countryButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("city", "country");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void cityButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("city", "city");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void logoutButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("city", "logoutConfirmation");
-        root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void aboutUsButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("city", "aboutUs");
-        root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-
+    // public void profileButton(ActionEvent event) throws IOException {
+    //     LogManager.changeScene("city", "profile");
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+    //     root = loader.load();
+    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     scene = new Scene(root);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // }
 }
+//     public void globalButton(ActionEvent event) throws IOException {
+//         LogManager.changeScene("city", "global");
+//         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
+//         root = loader.load();
+//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//         scene = new Scene(root);
+//         stage.setScene(scene);
+//         stage.show();
+//     }
 
+//     public void countryButton(ActionEvent event) throws IOException {
+//         LogManager.changeScene("city", "country");
+//         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
+//         root = loader.load();
+//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//         scene = new Scene(root);
+//         stage.setScene(scene);
+//         stage.show();
+//     }
+
+//     public void cityButton(ActionEvent event) throws IOException {
+//         LogManager.changeScene("city", "city");
+//         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
+//         root = loader.load();
+//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//         scene = new Scene(root);
+//         stage.setScene(scene);
+//         stage.show();
+//     }
+
+//     public void logoutButton(ActionEvent event) throws IOException {
+//         LogManager.changeScene("city", "logoutConfirmation");
+//         root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
+//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//         scene = new Scene(root);
+//         stage.setScene(scene);
+//         stage.show();
+//     }
+
+//     public void aboutUsButton(ActionEvent event) throws IOException {
+//         LogManager.changeScene("city", "aboutUs");
+//         root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
+//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//         scene = new Scene(root);
+//         stage.setScene(scene);
+//         stage.show();
+//     }
+
+// }

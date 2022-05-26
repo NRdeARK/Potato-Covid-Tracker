@@ -1,0 +1,20 @@
+#Bg{
+    -fx-background-color:#FFD4AD;
+}
+
+#BgCircle1{
+    -fx-fill:#FFAA5C;
+}
+
+#BgCircle2{
+    -fx-fill:#D6A980;
+}
+
+#middlePane{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 20px;
+}
+
+
+
+

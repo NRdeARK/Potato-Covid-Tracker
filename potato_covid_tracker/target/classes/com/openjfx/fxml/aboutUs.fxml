@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.AboutUsController">
+<AnchorPane id="Bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/aboutus.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.AboutUsController">
    <children>
-      <Label layoutX="200.0" layoutY="166.0" text="nataphan rakvidhyasatra backend dev" textAlignment="CENTER" />
-      <Label layoutX="287.0" layoutY="183.0" text="label" textAlignment="CENTER" />
-      <Label layoutX="286.0" layoutY="200.0" text="Label" />
-      <Button fx:id="backButton" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backButton" text="back" />
-      <Label layoutX="134.0" layoutY="114.0" text="this program is a part of Object Oriented Programming subject" />
+      <ImageView fx:id="BgImage" fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" />
+      <Circle id="BgCircle1" fill="DODGERBLUE" layoutX="295.0" layoutY="286.0" radius="319.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.rightAnchor="350.0" />
+      <Circle id="BgCircle2" fill="DODGERBLUE" layoutX="900.0" layoutY="536.0" radius="153.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="749.0" AnchorPane.topAnchor="297.0" />
+      <BorderPane prefHeight="540.0" prefWidth="960.0">
+         <center>
+            <AnchorPane id="middlePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="797.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets top="78.0" />
+               </BorderPane.margin>
+               <children>
+                  <ImageView fitHeight="167.0" fitWidth="514.0" layoutX="142.0" layoutY="-121.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/mainpage/logo.png" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="797.0">
+                     <children>
+                        <Text layoutX="496.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(                                                )" wrappingWidth="137.361328125" />
+                        <Text layoutX="496.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(                                                )" wrappingWidth="137.361328125" />
+                        <Text layoutX="496.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(                                                )" wrappingWidth="137.361328125" />
+                        <Label layoutX="189.0" layoutY="165.0" text="Nataphan   Rakvidhyasatra " textAlignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="189.0" layoutY="210.0" text="Chinnawat  Chuabkhwamsuk" textAlignment="CENTER">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="189.0" layoutY="254.0" text="Nattcha  Suaysaard">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button id="back-button" fx:id="backButton" layoutX="14.0" layoutY="426.0" mnemonicParsing="false" onAction="#backButton" text="&lt; Back" />
+                        <Label layoutX="149.0" layoutY="116.0" text="this program is a part of Object Oriented Programming subject" AnchorPane.topAnchor="117.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label id="about_label" layoutX="352.0" layoutY="50.0" text="About Us" AnchorPane.leftAnchor="352.0" AnchorPane.topAnchor="47.0">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="509.0" layoutY="165.0" text="backend dev">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="509.0" layoutY="210.0" text="frontend dev">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="509.0" layoutY="254.0" text="UX/UI design">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <left>
+            <AnchorPane fx:id="LeftPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="81.0" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Pane prefHeight="462.0" prefWidth="83.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
    </children>
 </AnchorPane>
