@@ -80,7 +80,7 @@ public class UserData {
         return username;
     }
 
-    public static String getVaccineDate(int userID) throws IOException{
+    public static String getLastVaccinatedDate(int userID) throws IOException{
         String userInfo = getUserInfo(userID);
         String username = userInfo.split(" ")[6];
         return username;
@@ -251,6 +251,34 @@ public class UserData {
         for (String s : lines) {
             if (s.split(" ")[1].equals(username)) {
                 out.write(s.split(" ")[0] + " " + s.split(" ")[1] + " " + newPassword);
+                out.newLine();
+            } else {
+                out.write(s);
+                out.newLine();
+            }
+        }
+        out.flush();
+        out.close();
+    }
+
+    public static void editProfile(int userID, String firstname ,String lastname ,String gender ,String dose ,String vaccinatedDate, String profileFileName)throws IOException{
+        String username  = getUsername(userID);
+        List<String> lines = new ArrayList<String>();
+        String line = null;
+        File f1 = new File("userData.txt");
+        FileReader fr = new FileReader(f1);
+        BufferedReader br = new BufferedReader(fr);
+        while ((line = br.readLine()) != null) {
+            lines.add(line);
+        }
+        fr.close();
+        br.close();
+
+        FileWriter fw = new FileWriter(f1);
+        BufferedWriter out = new BufferedWriter(fw);
+        for (String s : lines) {
+            if (s.split(" ")[1].equals(username)) {
+                out.write(userID + " " + username + " " + firstname + " " + lastname + " " + gender + " " + dose  + " " + vaccinatedDate + " " + profileFileName );
                 out.newLine();
             } else {
                 out.write(s);

@@ -17,7 +17,6 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -90,8 +89,20 @@ public class EditProfile2Controller implements Initializable{
     private Label warningLabel;
 
     public void initialize(URL url ,ResourceBundle  resourceBundle){
-    
-        
+        try {
+            int userID = LogManager.getUserIDFromLastLog();
+            File imageFile = new File(UserData.getProfilePicture(userID));
+            Image image = new Image(imageFile.toURI().toString());
+            profileImageView.setImage(image);
+            firstnameTextField.setText(UserData.getFirstname(userID));
+            lastnameTextField.setText(UserData.getLastname(userID));
+            genderTextField.setText(UserData.getGender(userID));
+            vaccineDoseTextField.setText(UserData.getVaccineDose(userID));
+            lastVaccinatedDateTextField.setText(UserData.getLastVaccinatedDate(userID));
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     
@@ -176,7 +187,7 @@ public class EditProfile2Controller implements Initializable{
     @FXML
     boolean checkProfileFile() throws IOException {
         if (UserData.isDuplicateFile(fileNameLabel.getText())
-                && !fileNameLabel.getText().equals("justPotato.jpg")) {
+                && !fileNameLabel.getText().equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()))) {
             fileNameWarningLabel.setText("file name is duplicated");
             return false;
         } else {
@@ -204,12 +215,35 @@ public class EditProfile2Controller implements Initializable{
     }
 
     @FXML
-    void BackButton(ActionEvent event) {
-
+    void BackButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("global", "profile");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    void saveProfileButton(ActionEvent event) {
-
+    void saveProfileButton(ActionEvent event) throws IOException {
+        boolean condition1 = checkFirstname();
+        boolean condition2 = checkLastname();
+        boolean condition3 = checkGender();
+        boolean condition4 = checkVaccineDose();
+        boolean condition5 = checkVaccinatedDate();
+        boolean condition6 = checkProfileFile();
+        if(condition1 && condition2 && condition3 && condition4 && condition5 && condition6){
+            UserData.editProfile(LogManager.getUserIDFromLastLog(), firstnameTextField.getText(),
+        lastnameTextField.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
+        lastVaccinatedDateTextField.getText(), fileNameLabel.getText());
+        LogManager.changeScene("global", "profile");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        }
     }
 }

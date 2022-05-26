@@ -65,7 +65,7 @@ public class ProfileController implements Initializable {
     private Label countdownLabel;
 
     @FXML
-    private ImageView profileView;
+    private ImageView profileImageView;
 
     @FXML
     private ImageView ProfileCircleImg;
@@ -128,7 +128,7 @@ public class ProfileController implements Initializable {
     private Label usernameLabel2;
 
     @FXML
-    private Label vaccinatedDate;
+    private Label lastVaccinatedDateLabel;
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -142,7 +142,7 @@ public class ProfileController implements Initializable {
     public String getCountdownVaccinated(int userID) throws IOException {
         try {
             LocalDate date1 = LocalDate.now();
-            LocalDate date2 = LocalDate.parse(UserData.getVaccineDate(userID));
+            LocalDate date2 = LocalDate.parse(UserData.getLastVaccinatedDate(userID));
             int delay = 0;
             int dose = Integer.parseInt(UserData.getVaccineDose(userID));
             if (dose == 0) {
@@ -167,7 +167,7 @@ public class ProfileController implements Initializable {
         try {
             File imageFile = new File(UserData.getProfilePicture(userID));
             Image image = new Image(imageFile.toURI().toString());
-            profileImage.setImage(image);
+            profileImageView.setImage(image);
 
             //usernameLabel1.setText(UserData.getUsername(userID));
             usernameLabel2.setText(UserData.getUsername(userID));
@@ -175,7 +175,7 @@ public class ProfileController implements Initializable {
             lastnameLabel.setText(UserData.getLastname(userID));
             genderLabel.setText(UserData.getGender(userID));
             doseLabel.setText(UserData.getVaccineDose(userID));
-            vaccinatedDate.setText(UserData.getVaccineDate(userID));
+            lastVaccinatedDateLabel.setText(UserData.getLastVaccinatedDate(userID));
             countdownLabel.setText(getCountdownVaccinated(userID));
         } catch (Exception e) {
             e.printStackTrace();
