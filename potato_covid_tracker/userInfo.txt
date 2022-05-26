@@ -1,4 +1,4 @@
-5 f f f f 2 2020-02-02 new Potato-for-Babies-scaled.jpg
+5 f f f f 2 2020-02-02 Potato-for-Babies-scaled.jpg
 4 b b b b 4 2022-01-03 image0.jpg
 3 a a a a 3 2020-01-02 justPotato.jpg
 0 guest 2142412 null null 0 2000-04-02 normalPotato.png

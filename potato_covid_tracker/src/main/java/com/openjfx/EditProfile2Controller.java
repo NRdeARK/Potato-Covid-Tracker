@@ -100,7 +100,7 @@ public class EditProfile2Controller implements Initializable {
             genderTextField.setText(UserData.getGender(userID));
             vaccineDoseTextField.setText(UserData.getVaccineDose(userID));
             lastVaccinatedDateTextField.setText(UserData.getLastVaccinatedDate(userID));
-            fileNameLabel.setText(UserData.getProfilePicture(userID));
+            fileNameLabel.setText(UserData.getProfilePicture(userID).split("/")[1]);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -187,14 +187,17 @@ public class EditProfile2Controller implements Initializable {
 
     @FXML
     public boolean checkProfileFile() throws IOException {
+        System.out.println(UserData.isDuplicateFile(fileNameLabel.getText()));
+        System.out.println(!fileNameLabel.getText().equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1]));
         if (UserData.isDuplicateFile(fileNameLabel.getText())
-                && !fileNameLabel.getText().equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()))) {
+                && !fileNameLabel.getText()
+                        .equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1])) {
             fileNameWarningLabel.setText("file name is duplicated");
             return false;
-        } else if (fileNameLabel.getText().equals("")){
+        } else if (fileNameLabel.getText().equals("")) {
             fileNameWarningLabel.setText("file name is blank");
             return false;
-        }else if(fileNameLabel.getText().contains(" ")) {
+        } else if (fileNameLabel.getText().contains(" ")) {
             fileNameWarningLabel.setText("file name contain \" \"");
             return false;
         } else {
@@ -211,7 +214,7 @@ public class EditProfile2Controller implements Initializable {
                 new FileChooser.ExtensionFilter("png Files", "*.png"),
                 new FileChooser.ExtensionFilter("jpeg Files", "*.jpeg"));
         File selectedFile = fileChooser.showOpenDialog(stage);
-        if (selectedFile.exists() && selectedFile != null) {
+        if  (selectedFile != null && selectedFile.exists()) {
             absolutePath = selectedFile.getAbsolutePath();
             filePath = "profile/" + selectedFile.getName();
             fileNameLabel.setText(selectedFile.getName());
@@ -241,16 +244,21 @@ public class EditProfile2Controller implements Initializable {
         boolean condition5 = checkVaccinatedDate();
         boolean condition6 = checkProfileFile();
         if (condition1 && condition2 && condition3 && condition4 && condition5 && condition6) {
-            File oldProfileFile = new File(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()));
-            oldProfileFile.delete();
-            UserData.editProfile(LogManager.getUserIDFromLastLog(), firstnameTextField.getText(),
-                    lastnameTextField.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
-                    lastVaccinatedDateTextField.getText(), fileNameLabel.getText());
-            if (!fileNameLabel.getText().equals("justPotato.jpg")) {
+            if (!fileNameLabel.getText()
+                    .equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1])) {// not same
+                File oldProfileFile = new File(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()));
+                oldProfileFile.delete();
                 File src = new File(absolutePath);
                 File dest = new File("profile/" + fileNameLabel.getText());
                 Files.copy(src.toPath(), dest.toPath());
             }
+            UserData.editProfile(LogManager.getUserIDFromLastLog(), firstnameTextField.getText(),
+                    lastnameTextField.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
+                    lastVaccinatedDateTextField.getText(), fileNameLabel.getText());
+            // if (!fileNameLabel.getText()
+            //         .equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1])) {//
+
+            // }
             LogManager.changeScene("global", "profile");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
             root = loader.load();

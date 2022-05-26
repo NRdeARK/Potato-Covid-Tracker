@@ -212,7 +212,9 @@ public class UserData {
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         while ((line = br.readLine()) != null) {
+            
             String readFileName = line.split(" ")[7];
+            System.out.println(readFileName);
             if (fileName.equals(readFileName)) {
                 fr.close();
                 br.close();
