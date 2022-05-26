@@ -187,6 +187,8 @@ public class EditProfile2Controller implements Initializable {
 
     @FXML
     public boolean checkProfileFile() throws IOException {
+        System.out.println(UserData.isDuplicateFile(fileNameLabel.getText()));
+        System.out.println(!fileNameLabel.getText().equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1]));
         if (UserData.isDuplicateFile(fileNameLabel.getText())
                 && !fileNameLabel.getText()
                         .equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1])) {
@@ -212,7 +214,7 @@ public class EditProfile2Controller implements Initializable {
                 new FileChooser.ExtensionFilter("png Files", "*.png"),
                 new FileChooser.ExtensionFilter("jpeg Files", "*.jpeg"));
         File selectedFile = fileChooser.showOpenDialog(stage);
-        if (selectedFile.exists() && selectedFile != null) {
+        if  (selectedFile != null && selectedFile.exists()) {
             absolutePath = selectedFile.getAbsolutePath();
             filePath = "profile/" + selectedFile.getName();
             fileNameLabel.setText(selectedFile.getName());
@@ -235,8 +237,6 @@ public class EditProfile2Controller implements Initializable {
 
     @FXML
     public void saveProfileButton(ActionEvent event) throws IOException {
-        System.out.println(!fileNameLabel.getText()
-                .equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1]));
         boolean condition1 = checkFirstname();
         boolean condition2 = checkLastname();
         boolean condition3 = checkGender();

@@ -14,7 +14,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/login/logo.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/ICON.png")));
         stage.setResizable(false);
         stage.setTitle("POTATO COVID TRACKER");
         Parent root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
