@@ -21,8 +21,11 @@ import javafx.scene.shape.Circle;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.javafx.StackedFontIcon;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ResourceBundle;
 
 
@@ -40,10 +43,55 @@ public class ProfileControllerTest implements Initializable {
     private Parent root;
 
     @FXML
-    private Button MenuButton;
+    private Button CityButton;
+
+    @FXML
+    private Button CountryButton;
+
+    @FXML
+    private Button GlobalButton;
+
+    @FXML
+    private Button LogoutButton;
 
     @FXML
     private Button ProfileButton;
+
+    @FXML
+    private Button AboutUsButton;
+
+    @FXML
+    private Button EditProfileButton;
+
+    @FXML
+    private Label countdownLabel;
+
+    @FXML
+    private Label doseLabel;
+
+    @FXML
+    private Label genderLabel;
+
+    @FXML
+    private Label greetingLabel;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private ImageView profileImage;
+
+    @FXML
+    private Label usernameLabel1;
+
+    @FXML
+    private Label usernameLabel2;
+
+    @FXML
+    private Label lastVaccinatedDateLabel;
+
+    @FXML
+    private Button MenuButton;
 
     @FXML
     private Circle ProfileCircle;
@@ -95,28 +143,32 @@ public class ProfileControllerTest implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        Image profileImage = new Image(getClass().getResourceAsStream("images/profile/potato.jpg"));
-
-        profileView.setImage(profileImage);
-        ProfileCircleImg.setImage(profileImage);
-        InnerButtonAnchor.setVisible(false);
-        ProfileAnchor.setVisible(true);
-        ProfileButton.setEffect(new DropShadow(BlurType.GAUSSIAN, Color.color(0.0, 0.0, 0.0, 0.69), 8.45, 0, 0, 6));
-        profileActive = true;
-        menuActive = false;
-    }
-
-    @FXML
-    public void displayUsername() {
         try {
-            // String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
-            // usernameLabel.setText("username: " + username);
-            // System.out.println("display!");
-        } catch (Exception e) {
+            displayProfile(LogManager.getUserIDFromLastLog());
+        } catch (IOException e) {
             e.printStackTrace();
         }
+        // Image profileImage = new Image(getClass().getResourceAsStream("images/profile/potato.jpg"));
+
+        // profileView.setImage(profileImage);
+        // ProfileCircleImg.setImage(profileImage);
+        // InnerButtonAnchor.setVisible(false);
+        // ProfileAnchor.setVisible(true);
+        // ProfileButton.setEffect(new DropShadow(BlurType.GAUSSIAN, Color.color(0.0, 0.0, 0.0, 0.69), 8.45, 0, 0, 6));
+        // profileActive = true;
+        // menuActive = false;
     }
+
+    // @FXML
+    // public void displayUsername() {
+    //     try {
+    //         // String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
+    //         // usernameLabel.setText("username: " + username);
+    //         // System.out.println("display!");
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
     @FXML
     void ProfileButtonHover(MouseEvent event) {
@@ -197,10 +249,123 @@ public class ProfileControllerTest implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-       
-        
-
     }
+
+    public String getCountdownVaccinated(int userID) throws IOException {
+        try {
+            LocalDate date1 = LocalDate.now();
+            LocalDate date2 = LocalDate.parse(UserData.getLastVaccinatedDate(userID));
+            int delay = 0;
+            int dose = Integer.parseInt(UserData.getVaccineDose(userID));
+            if (dose == 0) {
+                delay = 0;
+            } else if (dose == 1) {
+                delay = 90;
+            } else {
+                delay = 180;
+            }
+            date2 = date2.plusDays(delay);
+            Period intervalPeriod = Period.between(date1, date2);
+            int day = intervalPeriod.getDays();
+            int month = intervalPeriod.getMonths();
+            return month + " months " + day + " days until your next vaccine";
+        } catch (Exception e) {
+            return "null";
+        }
+    }
+
+    public void displayProfile(int userID) {
+        try {
+            usernameLabel1.setText(UserData.getUsername(userID));
+
+            File imageFile = new File(UserData.getProfilePicture(userID));
+            Image image = new Image(imageFile.toURI().toString());
+            profileImage.setImage(image);
+
+            usernameLabel2.setText(UserData.getUsername(userID));
+
+            nameLabel.setText(UserData.getFirstname(userID) + " " + UserData.getLastname(userID));
+
+            genderLabel.setText(UserData.getGender(userID));
+
+            doseLabel.setText(UserData.getVaccineDose(userID));
+
+            lastVaccinatedDateLabel.setText(UserData.getLastVaccinatedDate(userID));
+
+            countdownLabel.setText(getCountdownVaccinated(userID));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void editProfileButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "editProfile1");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/editProfile1.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void profileButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "profile");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void globalButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "global");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void countryButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "country");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void cityButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "city");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void aboutUsButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "aboutUs");
+        root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void logoutButton(ActionEvent event) throws IOException {
+        LogManager.changeScene("profile", "logout");
+        root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
 
     // public void globalButton(ActionEvent event) throws IOException {
     //     FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
@@ -240,17 +405,17 @@ public class ProfileControllerTest implements Initializable {
     //     stage.show();
     // }
 
-    public void profileButton(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
-        root = loader.load();
-        ProfileController profileController = loader.getController();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        String css = this.getClass().getResource("styles/profile.css").toExternalForm();
-        scene = new Scene(root);
-        scene.getStylesheets().add(css);
-        stage.setScene(scene);
-        stage.show();
-    }
+    // public void profileButton(ActionEvent event) throws IOException {
+    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+    //     root = loader.load();
+    //     ProfileController profileController = loader.getController();
+    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    //     String css = this.getClass().getResource("styles/profile.css").toExternalForm();
+    //     scene = new Scene(root);
+    //     scene.getStylesheets().add(css);
+    //     stage.setScene(scene);
+    //     stage.show();
+    // }
 
     // public void logoutButton(ActionEvent event) throws IOException {
     //     root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
