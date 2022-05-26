@@ -3,6 +3,7 @@ package com.openjfx;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -17,6 +18,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.JFXProgressBar;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 
 import org.json.simple.JSONArray;
@@ -358,6 +360,7 @@ public class CityController implements Initializable {
         List<String> lines = new ArrayList<String>();
         APIConnector apiConnecter = new APIConnector("https://covid19.ddc.moph.go.th/api/Cases/");
         JSONArray jsonArray = apiConnecter.getJSONArray("today-cases-by-provinces");
+
         for (int i = 0; i < 78; i++) {
             System.out.println("data : " + (i + 1) + "/78");
             JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("today-cases-by-provinces")

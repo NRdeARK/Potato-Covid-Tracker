@@ -18,6 +18,7 @@
             <Circle id="profile-pic1" fill="DODGERBLUE" layoutX="399.0" layoutY="105.0" radius="66.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle id="profile-pic2" fill="DODGERBLUE" layoutX="399.0" layoutY="105.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
             <ImageView fx:id="profileImageView" fitHeight="89.0" fitWidth="80.0" layoutX="365.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
+            <Circle fx:id="profileImage" fill="DODGERBLUE" layoutX="399.0" layoutY="106.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <Button id="edit-profile-button" fx:id="browseButton" layoutX="411.0" layoutY="141.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#browseProfileImage" prefHeight="36.0" prefWidth="39.0">
                <graphic>
                   <FontIcon iconLiteral="fas-edit" iconSize="20" translateX="1.0" wrappingWidth="22.5" />
@@ -69,9 +70,9 @@
             <Label fx:id="genderWarningLabel" layoutX="592.0" layoutY="305.0" prefHeight="17.0" prefWidth="24.0" />
             <Label fx:id="vaccineDoseWarningLabel" layoutX="591.0" layoutY="350.0" prefHeight="17.0" prefWidth="24.0" />
             <Label fx:id="lastVaccinatedDateWarningLabel" layoutX="599.0" layoutY="397.0" prefHeight="17.0" prefWidth="39.0" />
-            <Button id="save-button" fx:id="SaveProfileButton" layoutX="729.0" layoutY="432.0" mnemonicParsing="false" onAction="#saveProfileButton">
+            <Button id="save-button" fx:id="SaveProfileButton" layoutX="729.0" layoutY="430.0" mnemonicParsing="false" onAction="#saveProfileButton">
                <graphic>
-                  <FontIcon iconColor="#ffaa5c" iconLiteral="fas-save" iconSize="32" />
+                  <FontIcon iconColor="#ffaa5c" iconLiteral="fas-save" iconSize="30" />
                </graphic>
             </Button>
             <Label fx:id="fileNameLabel" layoutX="377.0" layoutY="179.0" textFill="WHITE" />

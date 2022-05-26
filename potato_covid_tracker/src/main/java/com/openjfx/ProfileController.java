@@ -1,7 +1,11 @@
 package com.openjfx;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.controls.events.JFXDialogEvent;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 
 import javafx.animation.TranslateTransition;
@@ -9,15 +13,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.javafx.StackedFontIcon;
@@ -27,6 +32,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.util.Duration;
 
@@ -53,6 +60,9 @@ public class ProfileController implements Initializable {
     private ImageView profileImageView;
 
     @FXML
+    private Circle profileImage;
+
+    @FXML
     private JFXDrawer menuDrawer;
 
     @FXML
@@ -71,9 +81,6 @@ public class ProfileController implements Initializable {
     private Label lastnameLabel;
 
     @FXML
-    private ImageView profileImage;
-
-    @FXML
     private Label usernameLabel;
 
     @FXML
@@ -87,6 +94,12 @@ public class ProfileController implements Initializable {
 
     @FXML
     private JFXHamburger Hamberger;
+
+    @FXML
+    private StackPane rootpane;
+
+    @FXML
+    private AnchorPane rootAnchorPane;
 
     private boolean mainMenuActive;
     private boolean subMenuActive;
@@ -102,10 +115,10 @@ public class ProfileController implements Initializable {
             TranslateTransition tt = new TranslateTransition();
             tt.setDuration(Duration.millis(500));
             tt.setNode(Hamberger);
-            
+
             mainMenuActive = false;
             subMenuActive = false;
-            
+
             VBox mainMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menubar.fxml"));
             MainMenuDrawer.setSidePane(mainMenuVbox);
             VBox subMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menuslide.fxml"));
@@ -195,13 +208,48 @@ public class ProfileController implements Initializable {
 
                             case "Exit": {
                                 try {
+                                    // showMaterialDialog();
                                     LogManager.changeScene("profile", "logout");
-                                    root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
-                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
-                                    scene = new Scene(root);
-                                    stage.setScene(scene);
-                                    stage.show();
+                                    JFXButton yesButton = new JFXButton("YES");
+                                    yesButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent ev1) -> {
+                                        try {
+                                            LogManager.changeScene("logout", "launch");
+                                            root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
+                                            stage = (Stage) ((Node) ev1.getSource()).getScene().getWindow();
+                                            scene = new Scene(root);
+                                            stage.setScene(scene);
+                                            stage.show();
+                                        } catch (IOException e1) {
+                                            e1.printStackTrace();
+                                        }
 
+                                        stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                        scene = new Scene(root);
+                                        stage.setScene(scene);
+                                        stage.show();
+
+                                    });
+
+                                    JFXButton noButton = new JFXButton("NO");
+                                    noButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent ev2) -> {
+                                        try {
+                                            root = FXMLLoader.load(getClass()
+                                                    .getResource("fxml/" + LogManager.getSceneFromLastLog() + ".fxml"));
+                                            stage = (Stage) ((Node) ev2.getSource()).getScene().getWindow();
+
+                                            LogManager.changeScene("logout", LogManager.getSceneFromLastLog());
+                                            scene = new Scene(root);
+                                            stage.setScene(scene);
+                                            stage.show();
+
+                                        } catch (IOException e) {
+                                            // TODO: handle exception
+                                        }
+
+                                    });
+
+                                    showMaterialDialog(rootpane, rootAnchorPane, Arrays.asList(yesButton, noButton),
+                                            "Logout Confirmation", "Are you sure you want to log out?");
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -271,7 +319,10 @@ public class ProfileController implements Initializable {
             Period intervalPeriod = Period.between(date1, date2);
             int day = intervalPeriod.getDays();
             int month = intervalPeriod.getMonths();
-            return month + " months " + day + " days until your next vaccine";
+            if(day<0 || month <0)
+            {return month*-1 + " months " + day*-1 + " days pass from schedule";}
+            else
+            {return month + " months " + day + " days until your next vaccine";}
         } catch (Exception e) {
             return "null";
         }
@@ -282,7 +333,8 @@ public class ProfileController implements Initializable {
         try {
             File imageFile = new File(UserData.getProfilePicture(userID));
             Image image = new Image(imageFile.toURI().toString());
-            profileImageView.setImage(image);
+            profileImage.setFill(new ImagePattern(image));
+            //profileImageView.setImage(image);
             usernameLabel.setText(UserData.getUsername(userID));
             firstnameLabel.setText(UserData.getFirstname(userID));
             lastnameLabel.setText(UserData.getLastname(userID));
@@ -305,58 +357,88 @@ public class ProfileController implements Initializable {
         stage.show();
     }
 
+    public static void showMaterialDialog(StackPane root, Node nodeToBeBlurred, List<JFXButton> controls, String header,
+            String body) {
+        BoxBlur blur = new BoxBlur(3, 3, 3);
+        if (controls.isEmpty()) {
+            controls.add(new JFXButton("Okay"));
+        }
+        JFXDialogLayout dialogLayout = new JFXDialogLayout();
+        JFXDialog dialog = new JFXDialog(root, dialogLayout, JFXDialog.DialogTransition.TOP);
+
+        controls.forEach(controlButton -> {
+            controlButton.getStyleClass().add("dialog-button");
+            controlButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseEvent) -> {
+                dialog.close();
+            });
+        });
+
+        dialogLayout.setHeading(new Label(header));
+        dialogLayout.setBody(new Label(body));
+        dialogLayout.setActions(controls);
+        dialog.show();
+        dialog.setOnDialogClosed((JFXDialogEvent event1) -> {
+            nodeToBeBlurred.setEffect(null);
+        });
+        nodeToBeBlurred.setEffect(blur);
+    }
+
     // public void profileButton(ActionEvent event) throws IOException {
-    //     // don't use
+    // // don't use
     // }
 
     // public void globalButton(ActionEvent event) throws IOException {
-    //     LogManager.changeScene("profile", "global");
-    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
-    //     root = loader.load();
-    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    //     scene = new Scene(root);
-    //     stage.setScene(scene);
-    //     stage.show();
+    // LogManager.changeScene("profile", "global");
+    // FXMLLoader loader = new
+    // FXMLLoader(getClass().getResource("fxml/global.fxml"));
+    // root = loader.load();
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // scene = new Scene(root);
+    // stage.setScene(scene);
+    // stage.show();
     // }
 
     // public void countryButton(ActionEvent event) throws IOException {
-    //     LogManager.changeScene("profile", "country");
-    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
-    //     root = loader.load();
-    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    //     scene = new Scene(root);
-    //     stage.setScene(scene);
-    //     stage.show();
+    // LogManager.changeScene("profile", "country");
+    // FXMLLoader loader = new
+    // FXMLLoader(getClass().getResource("fxml/country.fxml"));
+    // root = loader.load();
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // scene = new Scene(root);
+    // stage.setScene(scene);
+    // stage.show();
     // }
 
     // public void cityButton(ActionEvent event) throws IOException {
-    //     LogManager.changeScene("profile", "city");
-    //     FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
-    //     root = loader.load();
-    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    //     scene = new Scene(root);
-    //     stage.setScene(scene);
-    //     stage.show();
+    // LogManager.changeScene("profile", "city");
+    // FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
+    // root = loader.load();
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // scene = new Scene(root);
+    // stage.setScene(scene);
+    // stage.show();
     // }
 
     // public void aboutUsButton(ActionEvent event) throws IOException {
-    //     LogManager.changeScene("profile", "aboutUs");
-    //     root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
-    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    //     String css = this.getClass().getResource("styles/profile.css").toExternalForm();
-    //     scene = new Scene(root);
-    //     scene.getStylesheets().add(css);
-    //     stage.setScene(scene);
-    //     stage.show();
+    // LogManager.changeScene("profile", "aboutUs");
+    // root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // String css =
+    // this.getClass().getResource("styles/profile.css").toExternalForm();
+    // scene = new Scene(root);
+    // scene.getStylesheets().add(css);
+    // stage.setScene(scene);
+    // stage.show();
     // }
 
     // public void logoutButton(ActionEvent event) throws IOException {
-    //     LogManager.changeScene("profile", "logout");
-    //     root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
-    //     stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    //     scene = new Scene(root);
-    //     stage.setScene(scene);
-    //     stage.show();
+    // LogManager.changeScene("profile", "logout");
+    // root =
+    // FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // scene = new Scene(root);
+    // stage.setScene(scene);
+    // stage.show();
     // }
 
 }
