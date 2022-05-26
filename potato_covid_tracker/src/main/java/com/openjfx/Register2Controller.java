@@ -29,8 +29,8 @@ public class Register2Controller implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    String filePath = "profile/justPotato.jpg";
-    String absolutePath = "";
+    private String filePath = "profile/justPotato.jpg";
+    private String absolutePath = "";
 
     @FXML
     private Button createNewAccountButton;
@@ -104,7 +104,7 @@ public class Register2Controller implements Initializable {
     
 
     @FXML
-    boolean checkFirstname() {
+    public boolean checkFirstname() {
         String firstname = firstnameTextField.getText();
         if (firstname.equals("")) {
             firstnameWarningLabel.setText("firstname is blank");
@@ -119,7 +119,7 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkLastname() {
+    public boolean checkLastname() {
         String lastname = lastnameTextField.getText();
         if (lastname.equals("")) {
             lastnameWarningLabel.setText("lastname is blank");
@@ -134,7 +134,7 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkGender() {
+    public boolean checkGender() {
         String gender = genderTextField.getText();
         if (gender.equals("")) {
             genderWarningLabel.setText("gender is blank");
@@ -149,7 +149,7 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkVaccinatedDate() {
+    public boolean checkVaccinatedDate() {
         try {
             String vaccinatedDate = lastVaccinatedDateTextField.getText();
             LocalDate.parse(vaccinatedDate);
@@ -164,7 +164,7 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkVaccineDose() {
+    public boolean checkVaccineDose() {
         try {
             int dose = Integer.parseInt(vaccineDoseTextField.getText());
             if (dose < 0) {
@@ -182,7 +182,7 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
-    boolean checkProfileFile() throws IOException {
+    public boolean checkProfileFile() throws IOException {
         if (UserData.isDuplicateFile(fileNameLabel.getText())
                 && !fileNameLabel.getText().equals("justPotato.jpg")) {
             fileNameWarningLabel.setText("file name is duplicated");
@@ -194,7 +194,7 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
-    void browseProfileImage(ActionEvent event) {
+    public void browseProfileImage(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("jpg Files", "*.jpg"),
@@ -212,7 +212,7 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
-    void BackButton(ActionEvent event) throws IOException {
+    public void BackButton(ActionEvent event) throws IOException {
         UserData.deleteNewUser1();
         LogManager.writeLog(0, "delete unfinished account","register2");
         LogManager.changeScene("register2", "register1");
@@ -225,7 +225,7 @@ public class Register2Controller implements Initializable {
     }
 
     @FXML
-    void createNewAccountButton(ActionEvent event) throws IOException {
+    public void createNewAccountButton(ActionEvent event) throws IOException {
         boolean condition1 = checkFirstname();
         boolean condition2 = checkLastname();
         boolean condition3 = checkGender();
