@@ -100,6 +100,7 @@ public class EditProfile2Controller implements Initializable {
             genderTextField.setText(UserData.getGender(userID));
             vaccineDoseTextField.setText(UserData.getVaccineDose(userID));
             lastVaccinatedDateTextField.setText(UserData.getLastVaccinatedDate(userID));
+            fileNameLabel.setText(UserData.getProfilePicture(userID));
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -190,7 +191,10 @@ public class EditProfile2Controller implements Initializable {
                 && !fileNameLabel.getText().equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()))) {
             fileNameWarningLabel.setText("file name is duplicated");
             return false;
-        } else if (fileNameLabel.getText().contains(" ")) {
+        } else if (fileNameLabel.getText().equals("")){
+            fileNameWarningLabel.setText("file name is blank");
+            return false;
+        }else if(fileNameLabel.getText().contains(" ")) {
             fileNameWarningLabel.setText("file name contain \" \"");
             return false;
         } else {
