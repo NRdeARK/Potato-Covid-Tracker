@@ -265,7 +265,7 @@ public class UserData {
         String username  = getUsername(userID);
         List<String> lines = new ArrayList<String>();
         String line = null;
-        File f1 = new File("userData.txt");
+        File f1 = new File("userInfo.txt");
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         while ((line = br.readLine()) != null) {
