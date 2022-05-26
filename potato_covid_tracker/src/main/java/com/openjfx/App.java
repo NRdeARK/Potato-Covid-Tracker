@@ -17,8 +17,6 @@ public class App extends Application {
         // apiController.updateGlobalData();
         Parent root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
         Scene scene = new Scene(root);
-        String css = this.getClass().getResource("styles/launch.css").toExternalForm();
-        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }

@@ -130,25 +130,25 @@ public class CityController implements Initializable {
     private Button AboutUsButton;
 
     @FXML
-    private Button updateButton;
+    private Button UpdateButton;
 
     @FXML
-    private ComboBox<String> cityComboBox;
+    private ComboBox<String> CityComboBox;
 
     @FXML
-    private Label deathLabel;
+    private Label DeathLabel;
 
     @FXML
-    private Label infectLabel;
+    private Label InfectLabel;
 
     @FXML
-    private Label modeLabel;
+    private Label ModeLabel;
 
     @FXML
-    private Label usernameLabel;
+    private Label UsernameLabel;
 
     @FXML
-    private Label dateLabel;
+    private Label DateLabel;
 
     
 
@@ -157,8 +157,8 @@ public class CityController implements Initializable {
     public void initialize(URL url ,ResourceBundle  resourceBundle){
         displayUsername();
         displayCityData(1);
-        cityComboBox.getItems().addAll(cityList);
-        cityComboBox.setOnAction(event -> {
+        CityComboBox.getItems().addAll(cityList);
+        CityComboBox.setOnAction(event -> {
 			try {
 				chooseCity(event);
 			} catch (IOException e) {
@@ -171,7 +171,7 @@ public class CityController implements Initializable {
     public void displayUsername() {
         try {
             String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
-            usernameLabel.setText("username: " + username);
+            UsernameLabel.setText("username: " + username);
             System.out.println("display!");
         } catch (Exception e) {
             e.printStackTrace();
@@ -183,10 +183,10 @@ public class CityController implements Initializable {
         try {
             APIController api = new APIController();
             String [] cityData = api.getCityDailyData(CityID);
-            modeLabel.setText("city : " + cityData[5]);
-            infectLabel.setText("infected: " + (Integer.parseInt(cityData[1]) - Integer.parseInt(cityData[0]))+ " + " + cityData[0]);
-            deathLabel.setText("death: " + (Integer.parseInt(cityData[3]) - Integer.parseInt(cityData[2]))+ " + " + cityData[2]);
-             dateLabel.setText("date update: " + cityData[4]);
+            ModeLabel.setText("city : " + cityData[5]);
+            InfectLabel.setText("infected: " + (Integer.parseInt(cityData[1]) - Integer.parseInt(cityData[0]))+ " + " + cityData[0]);
+            DeathLabel.setText("death: " + (Integer.parseInt(cityData[3]) - Integer.parseInt(cityData[2]))+ " + " + cityData[2]);
+            DateLabel.setText("date update: " + cityData[4]);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -216,7 +216,7 @@ public class CityController implements Initializable {
     }
 
     public void chooseCity(ActionEvent event) throws IOException{
-        String cityName = cityComboBox.getValue();
+        String cityName = CityComboBox.getValue();
         APIController api = new APIController();
         int cityID = api.getCityIDfromName(cityName);
         displayCityData(cityID);

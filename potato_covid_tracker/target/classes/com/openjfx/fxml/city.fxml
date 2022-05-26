@@ -8,7 +8,7 @@
    <top>
       <AnchorPane prefHeight="28.0" prefWidth="600.0" style="-fx-background-color: #CE9461;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="usernameLabel" layoutX="462.0" layoutY="6.0" text="Label" />
+            <Label fx:id="UsernameLabel" layoutX="462.0" layoutY="6.0" text="Label" />
          </children></AnchorPane>
    </top>
    <left>
@@ -30,24 +30,24 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FCFFE7;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="modeLabel" layoutX="108.0" layoutY="121.0" text="City : ">
+            <Label fx:id="ModeLabel" layoutX="108.0" layoutY="121.0" text="City : ">
                <font>
                   <Font size="38.0" />
                </font></Label>
-            <Label fx:id="infectLabel" layoutX="108.0" layoutY="203.0" text="infect">
+            <Label fx:id="InfectLabel" layoutX="108.0" layoutY="203.0" text="infect">
                <font>
                   <Font size="38.0" />
                </font></Label>
-            <Label fx:id="deathLabel" layoutX="108.0" layoutY="271.0" text="death">
+            <Label fx:id="DeathLabel" layoutX="108.0" layoutY="271.0" text="death">
                <font>
                   <Font size="38.0" />
                </font></Label>
-            <Label fx:id="dateLabel" layoutX="108.0" layoutY="339.0" text="date">
+            <Label fx:id="DateLabel" layoutX="108.0" layoutY="339.0" text="date">
                <font>
                   <Font size="38.0" />
                </font></Label>
-            <ComboBox fx:id="cityComboBox" layoutX="108.0" layoutY="47.0" onAction="#chooseCity" prefHeight="59.0" prefWidth="234.0" promptText="krabi" />
-            <Button fx:id="updateButton" layoutX="637.0" layoutY="354.0" mnemonicParsing="false" onAction="#updateButton" text="update" AnchorPane.topAnchor="344.0" />
+            <ComboBox fx:id="CityComboBox" layoutX="108.0" layoutY="47.0" onAction="#chooseCity" prefHeight="59.0" prefWidth="234.0" promptText="krabi" />
+            <Button fx:id="UpdateButton" layoutX="637.0" layoutY="354.0" mnemonicParsing="false" onAction="#updateButton" text="update" AnchorPane.topAnchor="344.0" />
          </children>
       </AnchorPane>
    </center>

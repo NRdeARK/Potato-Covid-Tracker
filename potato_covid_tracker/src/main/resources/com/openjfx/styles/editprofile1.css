@@ -1,0 +1,20 @@
+#edit-pane{
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-background-radius: 10px;
+}
+
+#label1, #label2{
+    -fx-text-fill: #FFFFFF;
+}
+
+#password-field{
+    -fx-background-radius: 10px;
+}
+
+#next-arrow-button{
+    -fx-background-color:transparent;
+}
+
+#password-warning-label{
+    -fx-text-fill: #FFFFFF;
+}

@@ -49,3 +49,36 @@
   -fx-fill: #fdebda;
   -fx-stroke: null;
 }
+
+#setting-button{
+  -fx-background-color:#FFFFFF;
+  -fx-background-radius:100;
+  -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 5, 0, 0 , 3);
+}
+
+#setting-button:hover{
+  -fx-background-color:#fdebda;
+}
+
+#setting-button:hover .ikonli-font-icon{
+  -fx-icon-color:#FFFFFF;
+}
+
+#setting-button:pressed{
+  -fx-background-color:#FFFFFF;
+}
+
+#setting-button:pressed .ikonli-font-icon{
+  -fx-icon-color:#ffaa5c;
+}
+
+#mainmenudrawer{
+  -fx-background-radius: 5;
+  -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 10, 0.0, 10.0, 8.0);
+}
+
+#submenudrawer{
+  -fx-background-radius: 5;
+  -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 10, 0.0, 10.0, 8.0);
+}
+

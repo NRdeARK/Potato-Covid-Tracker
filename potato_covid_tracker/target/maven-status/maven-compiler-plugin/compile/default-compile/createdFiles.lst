@@ -1,5 +1,6 @@
 com/openjfx/LogManager.class
 com/openjfx/EditProfile1Controller.class
+com/openjfx/ColorAdjust.class
 com/openjfx/GlobalController.class
 com/openjfx/APIController.class
 com/openjfx/AboutUsController.class

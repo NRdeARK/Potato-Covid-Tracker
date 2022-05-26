@@ -17,7 +17,8 @@
 <?import javafx.scene.text.Font?>
 <?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.EditProfile1Controller">
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane id="Bg" fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/profile.css">
          <children>
@@ -90,7 +91,7 @@
                         <Label fx:id="countdownLabel" layoutX="474.0" layoutY="356.0" prefHeight="17.0" prefWidth="90.0" text="vaccinated date countdown" translateY="-12.0" />
                         <Label fx:id="firstnameLabel" layoutX="333.0" layoutY="251.0" text="Label" translateY="-12.0" />
                         <Label fx:id="lastnameLabel" layoutX="488.0" layoutY="251.0" text="Label" translateY="-12.0" />
-                        <Button id="setting-button" fx:id="EditProfileButton" layoutX="736.0" layoutY="440.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="44.0" prefWidth="44.0" translateY="-12.0">
+                        <Button id="setting-button" fx:id="EditProfileButton" layoutX="736.0" layoutY="440.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#editProfileButton" prefHeight="44.0" prefWidth="44.0" translateY="-12.0">
                            <graphic>
                               <FontIcon iconColor="#ffaa5c" iconLiteral="fas-cog" iconSize="35" translateX="5.0" translateY="1.0" wrappingWidth="44.00000000000003" />
                            </graphic>
@@ -105,38 +106,35 @@
                   <Pane prefHeight="462.0" prefWidth="83.0" BorderPane.alignment="CENTER" />
                </right>
             </BorderPane>
-            <JFXHamburger fx:id="Hamberger" disable="true" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="40.0" />
+            <JFXHamburger fx:id="Hamberger" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="40.0" />
          </children>
          <effect>
             <GaussianBlur />
          </effect>
       </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/editprofile1.css">
+      <AnchorPane id="edit-pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="339.0" prefWidth="511.0" stylesheets="@../styles/editprofile1.css">
          <children>
-            <AnchorPane id="edit-pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="339.0" prefWidth="511.0" AnchorPane.leftAnchor="224.0" AnchorPane.topAnchor="94.0">
-               <children>
-                  <Label id="label1" layoutX="71.0" layoutY="46.0" text="Edit" AnchorPane.leftAnchor="52.0">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Label>
-                  <Label id="label2" layoutX="52.0" layoutY="85.0" text="Profile?">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Label>
-                  <PasswordField id="password-field" fx:id="passwordPasswordField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.6" prefWidth="425.0" promptText="PASSWORD" AnchorPane.leftAnchor="39.1" AnchorPane.topAnchor="146.0" />
-                  <Label id="password-warning-label" fx:id="passwordWarningLabel" layoutX="361.0" layoutY="205.0" text="Label" />
-               </children>
-            </AnchorPane>
-            <Button id="next-arrow-button" fx:id="nextButton" layoutX="825.0" layoutY="397.0" mnemonicParsing="false" onAction="#nextButton">
+            <Label id="label1" layoutX="48.0" layoutY="28.0" text="Edit " AnchorPane.leftAnchor="52.0">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label id="label2" layoutX="48.0" layoutY="71.0" text="Profile?" AnchorPane.leftAnchor="52.0">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
+            <Label layoutX="123.0" layoutY="202.0" text="password" textFill="WHITE" />
+            <PasswordField id="password-field" fx:id="passwordPasswordField" layoutX="34.0" layoutY="130.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#passwordWarning" prefHeight="48.6" prefWidth="425.0" promptText="PASSWORD" AnchorPane.leftAnchor="39.134" />
+         </children>
+      </AnchorPane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="960.0" stylesheets="@../styles/editprofile1.css">
+         <children>
+            <Button fx:id="nextButton" layoutX="854.0" layoutY="499.0" mnemonicParsing="false" onAction="#nextButton" text="next" />
+            <Label fx:id="passwordWarningLabel" layoutX="645.0" layoutY="213.0" prefHeight="17.0" />
+            <Button fx:id="backButton" layoutX="211.0" layoutY="96.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#backButton" prefHeight="16.0" prefWidth="14.0">
                <graphic>
-                  <FontIcon iconLiteral="fas-arrow-right" iconSize="27" />
-               </graphic>
-            </Button>
-            <Button id="back-button" fx:id="backButton" layoutX="216.0" layoutY="87.0" mnemonicParsing="false" onAction="#backButton">
-               <graphic>
-                  <FontIcon iconLiteral="fas-times" iconSize="27" />
+                  <FontIcon iconLiteral="16" />
                </graphic>
             </Button>
          </children>

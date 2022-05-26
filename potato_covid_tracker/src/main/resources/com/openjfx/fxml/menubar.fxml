@@ -82,7 +82,7 @@
             </StackedFontIcon>
          </graphic>
       </Button>
-      <Button id="notibutton" fx:id="notificationButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="46.85" prefWidth="46.85" styleClass="menubar-button" translateX="18.0" translateY="114.0">
+      <Button id="notibutton" fx:id="notificationButton" accessibleText="Notification" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="46.85" prefWidth="46.85" styleClass="menubar-button" translateX="18.0" translateY="114.0">
          <graphic>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
@@ -96,7 +96,7 @@
             </StackPane>
          </graphic>
       </Button>
-      <Button id="helpbutton" fx:id="questionButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="46.85" prefWidth="46.85" styleClass="menubar-button" translateX="18.0" translateY="172.0">
+      <Button id="helpbutton" fx:id="questionButton" accessibleText="Help" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="46.85" prefWidth="46.85" styleClass="menubar-button" translateX="18.0" translateY="172.0">
          <VBox.margin>
             <Insets />
          </VBox.margin>
@@ -113,7 +113,7 @@
             </StackPane>
          </graphic>
       </Button>
-      <Button id="exiticon" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="47.0" prefWidth="47.0" styleClass="menubar-button" translateX="19.0" translateY="227.0">
+      <Button id="exiticon" accessibleText="Exit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="47.0" prefWidth="47.0" styleClass="menubar-button" translateX="19.0" translateY="227.0">
          <graphic>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>

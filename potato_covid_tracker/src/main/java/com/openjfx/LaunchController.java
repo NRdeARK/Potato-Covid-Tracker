@@ -47,9 +47,7 @@ public class LaunchController implements Initializable {
         LogManager.changeScene(0, "launch", "welcome");
         root = FXMLLoader.load(getClass().getResource("fxml/welcome.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        String css = this.getClass().getResource("styles/welcome.css").toExternalForm();
         scene = new Scene(root);
-        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }

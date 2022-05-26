@@ -1,10 +1,10 @@
-.button{
+#get-start{
     -fx-background-color: #FBF9CF;
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25),10,0,0,4px)
 }
 
-.button:hover{
+#get-start:hover{
     -fx-font-weight: bolder;
     -fx-background-radius: 10px;
     -fx-border-color: #764627;
@@ -13,7 +13,7 @@
     -fx-border-width: 3;
 }
 
-.button:pressed{
+#get-start:pressed{
     -fx-font-weight: bolder;
     -fx-background-radius: 5;
     -fx-font-size: 10;

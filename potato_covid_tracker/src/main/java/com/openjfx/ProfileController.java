@@ -1,27 +1,26 @@
 package com.openjfx;
 
 import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.Pane;
+
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
+
 import javafx.scene.shape.Circle;
 
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.javafx.StackedFontIcon;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,6 +28,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ResourceBundle;
+import javafx.util.Duration;
 
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -100,9 +100,6 @@ public class ProfileController implements Initializable {
     @FXML
     private JFXDrawer menuDrawer;
 
-    private boolean menuActive;
-    private boolean profileActive;
-
     @FXML
     private Label doseLabel;
 
@@ -122,18 +119,144 @@ public class ProfileController implements Initializable {
     private ImageView profileImage;
 
     @FXML
-    private Label usernameLabel1;
-
-    @FXML
-    private Label usernameLabel2;
+    private Label usernameLabel;
 
     @FXML
     private Label lastVaccinatedDateLabel;
 
     @FXML
+    private JFXDrawer MainMenuDrawer;
+
+    @FXML
+    private JFXDrawer SubMenuDrawer;
+
+    @FXML
+    private JFXHamburger Hamberger;
+
+    @FXML
+    private AnchorPane mainAnchor;
+
+    private boolean mainMenuActive;
+    private boolean subMenuActive;
+
+    @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             displayProfile(LogManager.getUserIDFromLastLog());
+
+            HamburgerBackArrowBasicTransition burgerTask = new HamburgerBackArrowBasicTransition(Hamberger);
+            burgerTask.setRate(-1);
+
+            TranslateTransition tt = new TranslateTransition();
+            tt.setDuration(Duration.millis(500));
+            tt.setNode(Hamberger);
+
+            mainMenuActive = false;
+            subMenuActive = false;
+
+            VBox mainMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menubar.fxml"));
+            MainMenuDrawer.setSidePane(mainMenuVbox);
+            VBox subMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menuslide.fxml"));
+
+            Hamberger.addEventHandler(MouseEvent.MOUSE_CLICKED, (e) -> {
+                burgerTask.setRate(burgerTask.getRate() * -1);
+
+                if (mainMenuActive) {
+                    if (subMenuActive) {
+                        SubMenuDrawer.close();
+                    }
+
+                    tt.setToX(0);
+                    burgerTask.play();
+                    tt.play();
+                    mainMenuActive = false;
+
+                } else {
+                    tt.setToX(80);
+                    burgerTask.play();
+                    tt.play();
+                    mainMenuActive = true;
+
+                }
+
+                if (MainMenuDrawer.isOpened()) {
+                    MainMenuDrawer.close();
+                } else {
+                    MainMenuDrawer.open();
+                }
+
+            });
+
+            for (Node node : mainMenuVbox.getChildren()) {
+                if (node.getAccessibleText() != null) {
+                    node.addEventHandler(MouseEvent.MOUSE_CLICKED, (ev) -> {
+                        switch (node.getAccessibleText()) {
+                            case "Profile": {
+                                try {
+                                    LogManager.changeScene("profile", "profile");
+                                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+                                    root = loader.load();
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
+                            case "Menu": {
+
+                                SubMenuDrawer.setSidePane(subMenuVbox);
+
+                                if (SubMenuDrawer.isOpened()) {
+                                    SubMenuDrawer.close();
+                                    subMenuActive = false;
+                                } else {
+                                    SubMenuDrawer.open();
+                                    subMenuActive = true;
+                                }
+                                break;
+                            }
+
+                            case "Notification": {
+
+                                break;
+                            }
+
+                            case "Help": {
+                                break;
+                            }
+
+                            case "Exit": {
+                                try {
+                                    LogManager.changeScene("profile", "logout");
+                                    root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
+                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                    scene = new Scene(root);
+                                    stage.setScene(scene);
+                                    stage.show();
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                                break;
+                            }
+                        }
+                    });
+                }
+            }
+
+            for (Node node : subMenuVbox.getChildren()) {
+                if (node.getAccessibleText() != null) {
+                    node.addEventHandler(MouseEvent.MOUSE_CLICKED, (ev) -> {
+                        switch (node.getAccessibleText()) {
+
+                        }
+                    });
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -168,9 +291,7 @@ public class ProfileController implements Initializable {
             File imageFile = new File(UserData.getProfilePicture(userID));
             Image image = new Image(imageFile.toURI().toString());
             profileImageView.setImage(image);
-
-            //usernameLabel1.setText(UserData.getUsername(userID));
-            usernameLabel2.setText(UserData.getUsername(userID));
+            usernameLabel.setText(UserData.getUsername(userID));
             firstnameLabel.setText(UserData.getFirstname(userID));
             lastnameLabel.setText(UserData.getLastname(userID));
             genderLabel.setText(UserData.getGender(userID));
@@ -193,13 +314,7 @@ public class ProfileController implements Initializable {
     }
 
     public void profileButton(ActionEvent event) throws IOException {
-        LogManager.changeScene("profile", "profile");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        //don't use
     }
 
     public void globalButton(ActionEvent event) throws IOException {

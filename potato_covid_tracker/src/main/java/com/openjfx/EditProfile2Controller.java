@@ -215,7 +215,7 @@ public class EditProfile2Controller implements Initializable{
     }
 
     @FXML
-    void BackButton(ActionEvent event) throws IOException {
+    void backButton(ActionEvent event) throws IOException {
         LogManager.changeScene("global", "profile");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();

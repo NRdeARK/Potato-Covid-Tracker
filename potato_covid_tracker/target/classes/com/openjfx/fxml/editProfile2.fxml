@@ -9,7 +9,7 @@
       <Button fx:id="SaveProfileButton" layoutX="726.0" layoutY="456.0" mnemonicParsing="false" onAction="#saveProfileButton" text="save profile" />
       <Label fx:id="passwordWarningLabel" layoutX="469.0" layoutY="178.0" />
       <Label fx:id="warningLabel" layoutX="422.0" layoutY="313.0" />
-      <Button fx:id="backButton" layoutX="117.0" layoutY="454.0" mnemonicParsing="false" onAction="#BackButton" text="back" />
+      <Button fx:id="backButton" layoutX="117.0" layoutY="454.0" mnemonicParsing="false" onAction="#backButton" text="back" />
       <Label layoutX="511.0" layoutY="136.0" text="firstname " />
       <Label layoutX="528.0" layoutY="225.0" text="gender" />
       <Label layoutX="513.0" layoutY="263.0" text="vaccine dose" />

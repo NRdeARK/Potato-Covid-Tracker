@@ -18,7 +18,7 @@
             </StackPane>
          </graphic>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" styleClass="country-button" translateX="19.0" translateY="60.0">
+      <Button accessibleText="Country" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" styleClass="country-button" translateX="19.0" translateY="60.0">
          <graphic>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
@@ -28,7 +28,7 @@
             </StackPane>
          </graphic>
       </Button>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" styleClass="city-button" translateX="19.0" translateY="96.0">
+      <Button accessibleText="City" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" styleClass="city-button" translateX="19.0" translateY="96.0">
          <graphic>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
