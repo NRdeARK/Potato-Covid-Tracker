@@ -34,11 +34,11 @@ public class EditProfile1Controller implements Initializable {
     private Label passwordWarningLabel;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        // unsused
     }
 
     @FXML
-    void backButton(ActionEvent event) throws IOException {
+    public void backButton(ActionEvent event) throws IOException {
         LogManager.changeScene("editProfile1", "profile");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
         root = loader.load();
@@ -60,7 +60,7 @@ public class EditProfile1Controller implements Initializable {
     }
 
     @FXML
-    void nextButton(ActionEvent event) throws IOException {
+    public void nextButton(ActionEvent event) throws IOException {
         if (checkPassword()) {
             String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
             String password = passwordPasswordField.getText();
@@ -81,7 +81,7 @@ public class EditProfile1Controller implements Initializable {
     }
 
     @FXML
-    void passwordWarning(ActionEvent event) throws IOException {
+    public void passwordWarning(ActionEvent event) throws IOException {
         if (checkPassword()) {
             String username = UserData.getUsername(LogManager.getUserIDFromLastLog());
             String password = passwordPasswordField.getText();

@@ -15,6 +15,22 @@
     -fx-background-color:transparent;
 }
 
+#next-arrow-button:hover .ikonli-font-icon{
+    -fx-icon-color:#FFAA5C;
+}
+
 #password-warning-label{
     -fx-text-fill: #FFFFFF;
+}
+
+#back-button{
+    -fx-background-color:transparent;
+}
+
+#back-button .ikonli-font-icon{
+    -fx-icon-color:#FFFFFF;
+}
+
+#back-button:hover .ikonli-font-icon{
+    -fx-icon-color:#FFAA5C;
 }

@@ -126,15 +126,15 @@
                      </font>
                   </Label>
                   <PasswordField id="password-field" fx:id="passwordPasswordField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="48.6" prefWidth="425.0" promptText="PASSWORD" AnchorPane.leftAnchor="39.1" AnchorPane.topAnchor="146.0" />
-                  <Label id="password-warning-label" fx:id="passwordWarningLabel" layoutX="361.0" layoutY="205.0" text="Label" />
+                  <Label id="password-warning-label" fx:id="passwordWarningLabel" layoutX="361.0" layoutY="205.0" />
                </children>
             </AnchorPane>
-            <Button id="next-arrow-button" fx:id="nextButton" layoutX="825.0" layoutY="397.0" mnemonicParsing="false" onAction="#nextButton">
+            <Button id="next-arrow-button" fx:id="nextButton" layoutX="815.0" layoutY="397.0" mnemonicParsing="false" onAction="#nextButton" stylesheets="@../styles/editprofile1.css">
                <graphic>
-                  <FontIcon iconLiteral="fas-arrow-right" iconSize="27" />
+                  <FontIcon iconLiteral="fas-arrow-right" iconSize="32" />
                </graphic>
             </Button>
-            <Button id="back-button" fx:id="backButton" layoutX="216.0" layoutY="87.0" mnemonicParsing="false" onAction="#backButton">
+            <Button id="back-button" fx:id="backButton" layoutX="230.0" layoutY="98.0" mnemonicParsing="false" onAction="#backButton" stylesheets="@../styles/editprofile1.css">
                <graphic>
                   <FontIcon iconLiteral="fas-times" iconSize="27" />
                </graphic>
