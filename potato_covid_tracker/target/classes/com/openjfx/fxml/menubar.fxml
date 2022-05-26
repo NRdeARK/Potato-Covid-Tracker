@@ -72,21 +72,7 @@
             </StackedFontIcon>
          </graphic>
       </Button>
-      <Button id="notibutton" fx:id="notificationButton" accessibleText="Notification" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="46.85" prefWidth="46.85" styleClass="menubar-button" translateX="18.0" translateY="114.0">
-         <graphic>
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <children>
-                  <AnchorPane id="noti-hover" maxHeight="56.0" maxWidth="-Infinity" minHeight="56.0" minWidth="-Infinity" prefHeight="56.0" prefWidth="64.0" translateY="13.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </AnchorPane>
-                  <FontIcon iconColor="#ffaa5c" iconLiteral="fas-bell" iconSize="46" text="" wrappingWidth="41.083335876464844" />
-               </children>
-            </StackPane>
-         </graphic>
-      </Button>
-      <Button id="helpbutton" fx:id="questionButton" accessibleText="AboutUs" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="46.85" prefWidth="46.85" styleClass="menubar-button" translateX="18.0" translateY="172.0">
+      <Button id="helpbutton" fx:id="questionButton" accessibleText="AboutUs" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="46.85" prefWidth="46.85" styleClass="menubar-button" translateX="18.0" translateY="235.0">
          <VBox.margin>
             <Insets />
          </VBox.margin>
@@ -103,7 +89,7 @@
             </StackPane>
          </graphic>
       </Button>
-      <Button id="exiticon" accessibleText="Exit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="47.0" prefWidth="47.0" styleClass="menubar-button" translateX="19.0" translateY="227.0">
+      <Button id="exiticon" accessibleText="Exit" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="47.0" prefWidth="47.0" styleClass="menubar-button" translateX="19.0" translateY="273.0">
          <graphic>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>

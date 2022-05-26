@@ -185,11 +185,6 @@ public class ProfileController implements Initializable {
                                 break;
                             }
 
-                            case "Notification": {
-
-                                break;
-                            }
-
                             case "AboutUs": {
                                 try {
                                     LogManager.changeScene("profile", "aboutUs");
@@ -208,7 +203,6 @@ public class ProfileController implements Initializable {
 
                             case "Exit": {
                                 try {
-                                    // showMaterialDialog();
                                     LogManager.changeScene("profile", "logout");
                                     JFXButton yesButton = new JFXButton("YES");
                                     yesButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent ev1) -> {
@@ -367,7 +361,7 @@ public class ProfileController implements Initializable {
         JFXDialog dialog = new JFXDialog(root, dialogLayout, JFXDialog.DialogTransition.TOP);
 
         controls.forEach(controlButton -> {
-            controlButton.getStyleClass().add("dialog-button");
+            controlButton.getStyleClass().add("profile-dialog-button");
             controlButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseEvent) -> {
                 dialog.close();
             });

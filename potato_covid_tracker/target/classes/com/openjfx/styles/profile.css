@@ -88,12 +88,12 @@
   -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 10, 0.0, 10.0, 8.0);
 }
 
-.dialog-button{
+.profile-dialog-button{
   -fx-background-color:#ffaa5c;
   -fx-border-color:black;
 }
 
-.dialog-button:hover{
+.profile-dialog-button:hover{
   -fx-background-color:black;
   -fx-border-color:#ffaa5c;
   -fx-text-fill:white;

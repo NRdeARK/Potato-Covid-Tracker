@@ -19,6 +19,10 @@
     -fx-icon-color:#FFAA5C;
 }
 
+#next-arrow-button:pressed .ikonli-font-icon{
+    -fx-icon-color:black;
+}
+
 #password-warning-label{
     -fx-text-fill: #FFFFFF;
 }
@@ -33,4 +37,8 @@
 
 #back-button:hover .ikonli-font-icon{
     -fx-icon-color:#FFAA5C;
+}
+
+#back-button:pressed .ikonli-font-icon{
+    -fx-icon-color:white;
 }

@@ -1,0 +1,43 @@
+#register-button{
+    -fx-background-color: #FFAA5C;
+}
+
+#login-button{
+    -fx-background-color: #FBF9CF;
+}
+
+#register-button:hover{
+    -fx-background-color: #ffffff;
+    -fx-text-fill:#FFAA5C;
+}
+
+#login-button:hover{
+    -fx-background-color: black;
+    -fx-text-fill: #FBF9CF;
+}
+
+#back-button:hover{
+    -fx-text-fill:#FFAA5C;
+}
+
+#forgot-password-label:hover{
+    -fx-text-fill:white;
+}
+
+#register-button:pressed{
+    -fx-background-color: #FFAA5C;
+    -fx-text-fill: white;
+}
+
+#login-button:pressed{
+    -fx-background-color: #FBF9CF;
+    -fx-text-fill:black;
+}
+
+#back-button:pressed{
+    -fx-text-fill:black;
+}
+
+#forgot-password-label:pressed{
+    -fx-text-fill:black;
+}

@@ -1,13 +1,41 @@
-#Bg{
+#Bg {
     -fx-background-color: linear-gradient(to bottom left, #ffd4ad, #ffffff);
 }
 
-#bg-circle{
+#bg-circle {
     -fx-fill: #D6A980;
     -fx-stroke: null;
 }
 
-#regis-bg{
-    -fx-background-color: rgba(0,0,0,0.2);
-    -fx-background-radius:50px;
+#regis-bg {
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-background-radius: 50px;
+}
+
+#cancel-button {
+    -fx-background-color: #FFAA5C;
+}
+
+#submit-button {
+    -fx-background-color: #FBF9CF;
+}
+
+#cancel-button:hover {
+    -fx-background-color: white;
+    -fx-text-fill: #FFAA5C;
+}
+
+#submit-button:hover {
+    -fx-background-color: black;
+    -fx-text-fill: #FBF9CF;
+}
+
+#cancel-button:pressed {
+    -fx-background-color: #FFAA5C;
+    -fx-text-fill: white;
+}
+
+#submit-button:pressed {
+    -fx-background-color: #FBF9CF;
+    -fx-text-fill: black;
 }

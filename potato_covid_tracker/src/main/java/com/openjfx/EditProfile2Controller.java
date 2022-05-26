@@ -21,6 +21,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.Node;
@@ -89,12 +91,16 @@ public class EditProfile2Controller implements Initializable {
     @FXML
     private Label warningLabel;
 
+    @FXML
+    private Circle profileImage;
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             int userID = LogManager.getUserIDFromLastLog();
             File imageFile = new File(UserData.getProfilePicture(userID));
             Image image = new Image(imageFile.toURI().toString());
-            profileImageView.setImage(image);
+            //profileImageView.setImage(image);
+            profileImage.setFill(new ImagePattern(image));
             firstnameTextField.setText(UserData.getFirstname(userID));
             lastnameTextField.setText(UserData.getLastname(userID));
             genderTextField.setText(UserData.getGender(userID));
@@ -219,8 +225,9 @@ public class EditProfile2Controller implements Initializable {
             filePath = "profile/" + selectedFile.getName();
             fileNameLabel.setText(selectedFile.getName());
             File imageFile = new File(absolutePath);
-            Image profileImage = new Image(imageFile.toURI().toString());
-            profileImageView.setImage(profileImage);
+            Image image = new Image(imageFile.toURI().toString());
+            //profileImageView.setImage(profileImage);
+            profileImage.setFill(new ImagePattern(image));
         }
     }
 

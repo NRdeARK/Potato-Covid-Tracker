@@ -4,7 +4,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 import java.io.BufferedWriter;
@@ -13,12 +16,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDialog;
+import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.controls.JFXProgressBar;
+import com.jfoenix.controls.events.JFXDialogEvent;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 
 import org.json.simple.JSONArray;
@@ -150,6 +158,18 @@ public class CityController implements Initializable {
     @FXML
     private JFXDrawer SubMenuDrawer;
 
+    @FXML
+    private AnchorPane rootAnchorPane;
+
+    @FXML
+    private StackPane rootpane;
+
+    @FXML
+    private Label totalDeath;
+
+    @FXML
+    private Label totalInfected;
+
     private boolean mainMenuActive;
     private boolean subMenuActive;
 
@@ -268,12 +288,46 @@ public class CityController implements Initializable {
                             case "Exit": {
                                 try {
                                     LogManager.changeScene("city", "logout");
-                                    root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
-                                    stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
-                                    scene = new Scene(root);
-                                    stage.setScene(scene);
-                                    stage.show();
+                                    JFXButton yesButton = new JFXButton("YES");
+                                    yesButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent ev1) -> {
+                                        try {
+                                            LogManager.changeScene("logout", "launch");
+                                            root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
+                                            stage = (Stage) ((Node) ev1.getSource()).getScene().getWindow();
+                                            scene = new Scene(root);
+                                            stage.setScene(scene);
+                                            stage.show();
+                                        } catch (IOException e1) {
+                                            e1.printStackTrace();
+                                        }
 
+                                        stage = (Stage) ((Node) ev.getSource()).getScene().getWindow();
+                                        scene = new Scene(root);
+                                        stage.setScene(scene);
+                                        stage.show();
+
+                                    });
+
+                                    JFXButton noButton = new JFXButton("NO");
+                                    noButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent ev2) -> {
+                                        try {
+                                            root = FXMLLoader.load(getClass()
+                                                    .getResource("fxml/" + LogManager.getSceneFromLastLog() + ".fxml"));
+                                            stage = (Stage) ((Node) ev2.getSource()).getScene().getWindow();
+
+                                            LogManager.changeScene("logout", LogManager.getSceneFromLastLog());
+                                            scene = new Scene(root);
+                                            stage.setScene(scene);
+                                            stage.show();
+
+                                        } catch (IOException e) {
+                                            // TODO: handle exception
+                                        }
+
+                                    });
+
+                                    showMaterialDialog(rootpane, rootAnchorPane, Arrays.asList(yesButton, noButton),
+                                            "Logout Confirmation", "Are you sure you want to log out?");
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -343,12 +397,14 @@ public class CityController implements Initializable {
         try {
             APIController api = new APIController();
             String[] cityData = api.getCityDailyData(CityID);
-            ModeLabel.setText("city : " + cityData[5]);
-            InfectLabel.setText("infected: " + (Integer.parseInt(cityData[1]) - Integer.parseInt(cityData[0])) + " + "
-                    + cityData[0]);
-            DeathLabel.setText(
-                    "death: " + (Integer.parseInt(cityData[3]) - Integer.parseInt(cityData[2])) + " + " + cityData[2]);
-            DateLabel.setText("date update: " + cityData[4]);
+            ModeLabel.setText(cityData[5]);
+            InfectLabel.setText("+" + cityData[0]);
+            DeathLabel.setText("+" + cityData[2]);
+            DateLabel.setText("Update date: " + cityData[4]);
+
+            totalInfected.setText(""+(Integer.parseInt(cityData[1])));
+            totalDeath.setText(""+Integer.parseInt(cityData[3]));
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -383,6 +439,32 @@ public class CityController implements Initializable {
         APIController api = new APIController();
         int cityID = api.getCityIDfromName(cityName);
         displayCityData(cityID);
+    }
+
+    public static void showMaterialDialog(StackPane root, Node nodeToBeBlurred, List<JFXButton> controls, String header,
+            String body) {
+        BoxBlur blur = new BoxBlur(3, 3, 3);
+        if (controls.isEmpty()) {
+            controls.add(new JFXButton("Okay"));
+        }
+        JFXDialogLayout dialogLayout = new JFXDialogLayout();
+        JFXDialog dialog = new JFXDialog(root, dialogLayout, JFXDialog.DialogTransition.TOP);
+
+        controls.forEach(controlButton -> {
+            controlButton.getStyleClass().add("city-dialog-button");
+            controlButton.addEventHandler(MouseEvent.MOUSE_CLICKED, (MouseEvent mouseEvent) -> {
+                dialog.close();
+            });
+        });
+
+        dialogLayout.setHeading(new Label(header));
+        dialogLayout.setBody(new Label(body));
+        dialogLayout.setActions(controls);
+        dialog.show();
+        dialog.setOnDialogClosed((JFXDialogEvent event1) -> {
+            nodeToBeBlurred.setEffect(null);
+        });
+        nodeToBeBlurred.setEffect(blur);
     }
 
     // public void profileButton(ActionEvent event) throws IOException {

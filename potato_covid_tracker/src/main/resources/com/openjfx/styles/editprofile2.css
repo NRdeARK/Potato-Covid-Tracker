@@ -75,14 +75,30 @@
   -fx-icon-color: black;
 }
 
+#back-button:pressed .ikonli-font-icon {
+  -fx-icon-color: white;
+}
+
 #save-button:hover {
-  -fx-background-color: #ffd4ad;
+  -fx-background-color: #FFAA5C;
 }
 
 #save-button:hover .ikonli-font-icon{
-  -fx-icon-color: black;
+  -fx-icon-color: white;
+}
+
+#save-button:pressed .ikonli-font-icon{
+  -fx-icon-color: #FFAA5C;
+}
+
+#save-button:pressed {
+  -fx-background-color: white;
 }
 
 #edit-profile-button:hover .ikonli-font-icon {
   -fx-icon-color:#FFAA5C;
+}
+
+#edit-profile-button:pressed .ikonli-font-icon {
+  -fx-icon-color:black;
 }

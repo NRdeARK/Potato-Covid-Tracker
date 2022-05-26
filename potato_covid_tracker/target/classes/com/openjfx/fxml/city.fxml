@@ -11,67 +11,102 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane id="Bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/city.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.CityController">
+<StackPane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/city.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.CityController">
    <children>
-      <ImageView fx:id="BgImage" fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" />
-      <Circle id="BgCircle1" fill="DODGERBLUE" layoutX="295.0" layoutY="286.0" radius="319.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.rightAnchor="350.0" />
-      <Circle id="BgCircle2" fill="DODGERBLUE" layoutX="900.0" layoutY="536.0" radius="153.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="749.0" AnchorPane.topAnchor="297.0" />
-      <BorderPane prefHeight="540.0" prefWidth="960.0">
-         <center>
-            <AnchorPane id="middlePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="797.0" BorderPane.alignment="CENTER">
-               <BorderPane.margin>
-                  <Insets top="78.0" />
-               </BorderPane.margin>
-               <children>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="797.0">
+      <AnchorPane id="Bg" fx:id="rootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/city.css">
+         <children>
+            <ImageView fx:id="BgImage" fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" />
+            <Circle id="BgCircle1" fill="DODGERBLUE" layoutX="295.0" layoutY="286.0" radius="319.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.rightAnchor="350.0" />
+            <Circle id="BgCircle2" fill="DODGERBLUE" layoutX="900.0" layoutY="536.0" radius="153.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="749.0" AnchorPane.topAnchor="297.0" />
+            <BorderPane prefHeight="540.0" prefWidth="960.0">
+               <center>
+                  <AnchorPane id="middlePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="797.0" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets top="78.0" />
+                     </BorderPane.margin>
                      <children>
-                        <Label fx:id="ModeLabel" layoutX="108.0" layoutY="121.0" text="City : ">
-                           <font>
-                              <Font size="38.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="InfectLabel" layoutX="108.0" layoutY="203.0" text="infect">
-                           <font>
-                              <Font size="38.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="DeathLabel" layoutX="108.0" layoutY="271.0" text="death">
-                           <font>
-                              <Font size="38.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="DateLabel" layoutX="108.0" layoutY="339.0" text="date">
-                           <font>
-                              <Font size="38.0" />
-                           </font>
-                        </Label>
-                        <ComboBox fx:id="CityComboBox" layoutX="108.0" layoutY="47.0" onAction="#chooseCity" prefHeight="59.0" prefWidth="234.0" promptText="krabi" />
-                        <Button fx:id="UpdateButton" layoutX="637.0" layoutY="354.0" mnemonicParsing="false" onAction="#updateButton" text="update" AnchorPane.topAnchor="344.0" />
+                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="797.0">
+                           <children>
+                              <Label fx:id="ModeLabel" layoutX="348.0" layoutY="68.0" text="City : ">
+                                 <font>
+                                    <Font size="36.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="DateLabel" layoutX="645.0" layoutY="384.0" text="date">
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox id="combobox" fx:id="CityComboBox" layoutX="50.0" layoutY="88.0" onAction="#chooseCity" prefHeight="26.0" prefWidth="134.0" promptText="krabi" />
+                              <Button id="update-button" fx:id="UpdateButton" layoutX="637.0" layoutY="409.0" mnemonicParsing="false" onAction="#updateButton" prefHeight="27.14" prefWidth="106.0" text="update" AnchorPane.bottomAnchor="58.5" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="409.0" />
+                              <Label layoutX="50.0" layoutY="66.0" text="City" />
+                              <Region id="infect-rect" layoutX="216.0" layoutY="127.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="357.0" />
+                              <Label id="today-label" layoutX="238.0" layoutY="164.0" text="Today Infected" textFill="WHITE">
+                                 <font>
+                                    <Font size="23.0" />
+                                 </font>
+                              </Label>
+                              <Region id="num-infect-rect" layoutX="395.0" layoutY="140.0" prefHeight="106.0" prefWidth="162.0" />
+                              <Label id="num-infect" fx:id="InfectLabel" layoutX="450.0" layoutY="170.0" text="infect">
+                                 <font>
+                                    <Font size="38.0" />
+                                 </font>
+                              </Label>
+                              <Label id="total-infect" fx:id="totalInfected" layoutX="266.0" layoutY="200.0" text="total" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <Region id="today-death-rect" layoutX="216.0" layoutY="285.0" prefHeight="114.0" prefWidth="212.0" />
+                              <Label id="today-death-label" layoutX="221.0" layoutY="310.0" text="Today Death" textFill="WHITE">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                              <Region id="num-death-rect" layoutX="312.0" layoutY="294.0" prefHeight="96.0" prefWidth="104.0" />
+                              <Label id="num-death" fx:id="DeathLabel" layoutX="336.0" layoutY="319.0" text="death">
+                                 <font>
+                                    <Font size="38.0" />
+                                 </font>
+                              </Label>
+                              <Label id="total-death" fx:id="totalDeath" layoutX="242.0" layoutY="337.0" text="Label" textFill="WHITE">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                        <ImageView fitHeight="167.0" fitWidth="514.0" layoutX="142.0" layoutY="-121.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/mainpage/logo.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
-                  <ImageView fitHeight="167.0" fitWidth="514.0" layoutX="142.0" layoutY="-121.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/mainpage/logo.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
-         </center>
-         <left>
-            <AnchorPane fx:id="LeftPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="81.0" BorderPane.alignment="CENTER">
-               <children>
-                  <JFXDrawer id="submenudrawer" fx:id="SubMenuDrawer" defaultDrawerSize="175.0" layoutX="-15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="259.0" prefWidth="80.0" translateX="103.0" translateY="145.0" />
-                  <JFXDrawer id="mainmenudrawer" fx:id="MainMenuDrawer" depthTest="DISABLE" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="517.0" prefWidth="87.0" styleClass="main-menu-drawer" />
-               </children>
-            </AnchorPane>
-         </left>
-         <right>
-            <Pane prefHeight="462.0" prefWidth="83.0" BorderPane.alignment="CENTER" />
-         </right>
-      </BorderPane>
-      <JFXHamburger fx:id="Hamberger" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="40.0" />
+               </center>
+               <left>
+                  <AnchorPane fx:id="LeftPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="81.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXDrawer id="submenudrawer" fx:id="SubMenuDrawer" defaultDrawerSize="175.0" layoutX="-15.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="259.0" prefWidth="80.0" translateX="103.0" translateY="145.0" />
+                        <JFXDrawer id="mainmenudrawer" fx:id="MainMenuDrawer" depthTest="DISABLE" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="517.0" prefWidth="87.0" styleClass="main-menu-drawer" />
+                     </children>
+                  </AnchorPane>
+               </left>
+               <right>
+                  <Pane prefHeight="462.0" prefWidth="83.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <FontIcon id="city-icon" iconColor="#ffaa5c" iconLiteral="fas-city" iconSize="41" layoutX="16.0" layoutY="74.0" />
+                     </children></Pane>
+               </right>
+            </BorderPane>
+            <JFXHamburger fx:id="Hamberger" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="40.0" />
+         </children>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</StackPane>

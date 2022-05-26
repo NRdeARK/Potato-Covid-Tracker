@@ -103,7 +103,15 @@
                   <AnchorPane fx:id="LeftPane" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="81.0" BorderPane.alignment="CENTER" />
                </left>
                <right>
-                  <Pane prefHeight="462.0" prefWidth="83.0" BorderPane.alignment="CENTER" />
+                  <Pane prefHeight="462.0" prefWidth="83.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="52.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true" translateX="-37.0" translateY="476.0">
+                           <image>
+                              <Image url="@../images/login/logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
                </right>
             </BorderPane>
             <JFXHamburger fx:id="Hamberger" AnchorPane.leftAnchor="36.0" AnchorPane.topAnchor="40.0" />

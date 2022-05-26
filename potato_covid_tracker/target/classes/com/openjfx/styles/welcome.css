@@ -26,10 +26,9 @@
 
 #tutorialLabel:hover{
     -fx-text-fill: black;
-
 }
 
 #tutorialLabel:pressed{
-    -fx-text-fill: black;
+    -fx-text-fill: white;
     -fx-font-weight: bolder;
 }

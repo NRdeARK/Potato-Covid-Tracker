@@ -8,21 +8,11 @@
 
 <VBox fx:id="VboxDrawer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="259.0" prefWidth="80.0" styleClass="button-container" stylesheets="@../styles/submenubar.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" styleClass="globe-button" translateX="19.0" translateY="25.0">
-         <graphic>
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <children>
-                  <FontIcon iconColor="#ffd4ad" iconLiteral="fas-globe-americas" iconSize="41" />
-                  <Label styleClass="global-label" text="Global" translateY="34.0" />
-               </children>
-            </StackPane>
-         </graphic>
-      </Button>
       <Button accessibleText="Country" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="41.0" prefWidth="41.0" styleClass="country-button" translateX="19.0" translateY="60.0">
          <graphic>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <FontIcon iconColor="#ffd4ad" iconLiteral="fas-grin-tongue-wink" iconSize="41" />
+                  <FontIcon iconColor="#ffd4ad" iconLiteral="fas-globe-americas" iconSize="41" />
                   <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="45.0" styleClass="country-label" text="Country" translateX="2.0" translateY="34.0" />
                </children>
             </StackPane>

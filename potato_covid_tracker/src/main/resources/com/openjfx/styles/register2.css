@@ -69,6 +69,21 @@
       -fx-text-fill:#FFAA5C;
   }
 
+  #back-button:pressed{
+    -fx-text-fill:black;
+}
+
   #next-button{
+    -fx-background-color:#FBF9CF;
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.5), 15, 0.0, 0, 3.0);
+  }
+
+  #next-button:hover{
+    -fx-background-color:black;
+    -fx-text-fill: #FBF9CF;
+  }
+
+  #next-button:pressed{
+    -fx-background-color:#FBF9CF;
+    -fx-text-fill: black;
   }

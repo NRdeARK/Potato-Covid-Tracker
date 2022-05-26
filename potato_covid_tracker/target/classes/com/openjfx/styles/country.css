@@ -1,20 +1,125 @@
-#Bg{
-    -fx-background-color:#FFD4AD;
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
+#Bg {
+    -fx-background-color: #FFD4AD;
 }
 
-#BgCircle1{
-    -fx-fill:#FFAA5C;
+#BgCircle1 {
+    -fx-fill: #FFAA5C;
 }
 
-#BgCircle2{
-    -fx-fill:#D6A980;
+#BgCircle2 {
+    -fx-fill: #D6A980;
 }
 
-#middlePane{
-    -fx-background-color:#FFFFFF;
+#middlePane {
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 20px;
 }
 
+.country-dialog-button {
+    -fx-background-color: #ffaa5c;
+    -fx-border-color: black;
+}
 
+.country-dialog-button:hover {
+    -fx-background-color: black;
+    -fx-border-color: #ffaa5c;
+    -fx-text-fill: white;
+}
 
+.jfx-layout-actions {
+    -fx-hgap: 8;
+}
 
+#country-icon{
+    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0.0, 4.0);
+}
+
+.combo-box{
+    -fx-background-color:#FFAA5C;
+    -fx-background-radius:8px;
+}
+
+.combo-box .arrow-button{
+    -fx-background-color:#F2D8C0;
+    -fx-background-radius:10px;
+    -fx-tanslate-x:20;
+}
+
+#infect-rect{
+    -fx-background-color:#ED5B5B;
+    -fx-background-radius:20px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 4, 0.0, 0.0, 2.0);
+}
+
+#today-label{
+    -fx-font-family: 'ABeeZee', sans-serif;
+}
+
+#num-infect-rect{
+    -fx-background-color:#FFB5B5;
+    -fx-background-radius:20px;
+}
+
+#num-infect{
+    -fx-font-family: 'ABeeZee', sans-serif;
+}
+
+#today-cure-rect{
+    -fx-background-color:#C7F26A;
+    -fx-background-radius:20px;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 4, 0.0, 0.0, 2.0);
+}
+
+#num-cure-rect{
+    -fx-background-color:#F4FFDC;
+    -fx-background-radius:20px;
+}
+
+#num-cure{
+    -fx-font-family: 'ABeeZee', sans-serif;
+}
+
+#today-death-rect{
+    -fx-background-color:#5E5E5E;
+    -fx-background-radius:20px;
+}
+
+#today-death-label{
+    -fx-font-family: 'ABeeZee', sans-serif;
+}
+
+#num-death-rect{
+    -fx-background-color:#C7C7C7;
+    -fx-background-radius:20px;
+}
+
+#num-death{
+    -fx-font-family: 'ABeeZee', sans-serif;
+}
+
+#total-infect, #total-death, #total-cure{
+    -fx-font-family: 'ABeeZee', sans-serif;
+}
+
+#update-button{
+    -fx-background-color:#FFAA5C;
+    -fx-background-radius:10px;
+    -fx-font-family: 'ABeeZee', sans-serif;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 4, 0.0, 0.0, 2.0);
+}
+
+#num-infect, #num-death{
+    -fx-font-family: 'ABeeZee', sans-serif;
+}
+
+#update-button:hover{
+    -fx-background-color:black;
+    -fx-text-fill:#FFAA5C;
+}
+
+#update-button:pressed{
+    -fx-background-color:#FFAA5C;
+    -fx-text-fill:black;
+}

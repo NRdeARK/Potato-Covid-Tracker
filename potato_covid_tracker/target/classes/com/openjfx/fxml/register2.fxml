@@ -22,9 +22,8 @@
       </ImageView>
       <AnchorPane id="regis-bg" prefHeight="407.0" prefWidth="597.0" AnchorPane.leftAnchor="182.0" AnchorPane.topAnchor="67.0">
          <children>
-            <Button id="next-button" fx:id="createNewAccountButton" layoutX="417.0" layoutY="344.0" mnemonicParsing="false" onAction="#createNewAccountButton" prefHeight="37.0" prefWidth="125.0" style="-fx-background-color: #FBF9CF;" text="SUBMIT" AnchorPane.bottomAnchor="26.0" AnchorPane.rightAnchor="55.0" />
+            <Button id="next-button" fx:id="createNewAccountButton" layoutX="417.0" layoutY="344.0" mnemonicParsing="false" onAction="#createNewAccountButton" prefHeight="37.0" prefWidth="125.0" text="SUBMIT" AnchorPane.bottomAnchor="26.0" AnchorPane.rightAnchor="55.0" />
             <Label fx:id="usernameWarningLabel" layoutX="390.0" layoutY="98.0" textFill="RED" translateX="60.0" />
-            <Label fx:id="passwordWarningLabel" layoutX="390.0" layoutY="168.0" prefHeight="17.0" textFill="RED" translateX="60.0" />
             <Label layoutX="242.0" layoutY="-47.0" text="Register" textFill="WHITE">
                <font>
                   <Font size="32.0" />
@@ -32,11 +31,7 @@
             </Label>
             <Circle id="profile-pic1" fill="DODGERBLUE" layoutX="297.0" layoutY="60.0" radius="52.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle id="profile-pic2" fill="DODGERBLUE" layoutX="297.0" layoutY="60.0" radius="46.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fx:id="profileImageView" fitHeight="79.0" fitWidth="78.0" layoutX="260.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/profile/potato.jpg" />
-               </image>
-            </ImageView>
+            <Circle fx:id="profileImage" fill="DODGERBLUE" layoutX="297.0" layoutY="60.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <Rectangle id="vacc-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="37.0" layoutX="304.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
             <Rectangle id="name-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="133.0" layoutY="185.0" stroke="BLACK" strokeType="INSIDE" width="332.0" />
             <Rectangle id="username-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="133.0" layoutY="140.0" stroke="BLACK" strokeType="INSIDE" width="332.0" />
@@ -52,8 +47,8 @@
                </font>
             </Label>
             <TextField fx:id="lastnameTextField" layoutX="219.0" layoutY="190.0" onAction="#checkLastname" prefHeight="26.0" prefWidth="232.0" promptText="master" />
-            <Label fx:id="firstnameWarningLabel" prefWidth="44.0" />
-            <Label fx:id="lastnameWarningLabel" prefHeight="17.0" prefWidth="39.0" />
+            <Label fx:id="firstnameWarningLabel" layoutX="334.0" layoutY="150.0" />
+            <Label fx:id="lastnameWarningLabel" layoutX="334.0" layoutY="195.0" />
             <Rectangle id="gender-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="37.0" layoutX="133.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
             <Label layoutX="145.0" layoutY="250.0" text="GENDER">
                <font>
@@ -78,11 +73,11 @@
                </font>
             </Label>
             <TextField fx:id="lastVaccinatedDateTextField" layoutX="271.0" layoutY="294.0" onAction="#checkVaccinatedDate" prefHeight="26.0" prefWidth="180.0" promptText="YYYY-MM-DD" />
-            <Label fx:id="warningLabel" prefHeight="17.0" prefWidth="24.0" />
+            <Label fx:id="warningLabel" layoutX="356.0" layoutY="151.0" />
             <Label fx:id="genderWarningLabel" layoutX="256.0" layoutY="250.0" />
             <Label fx:id="vaccineDoseWarningLabel" layoutX="468.0" layoutY="250.0" prefHeight="17.0" prefWidth="24.0" />
             <Label fx:id="lastVaccinatedDateWarningLabel" layoutX="378.0" layoutY="299.0" />
-            <Label fx:id="fileNameLabel" layoutX="272.0" layoutY="120.0" textFill="WHITE" />
+            <Label fx:id="fileNameLabel" layoutX="266.0" layoutY="120.0" textFill="WHITE" />
             <Label fx:id="fileNameWarningLabel" layoutX="361.0" layoutY="90.0" textFill="RED" />
             <Button id="edit-profile-button" fx:id="browseButton" layoutX="315.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#browseProfileImage" prefHeight="36.0" prefWidth="39.0">
                <graphic>

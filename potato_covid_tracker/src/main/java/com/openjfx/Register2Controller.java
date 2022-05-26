@@ -18,6 +18,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.Node;
@@ -88,10 +90,14 @@ public class Register2Controller implements Initializable {
     private Label fileNameWarningLabel;
 
     @FXML
+    private Circle profileImage;
+
+    @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File imageFile = new File("profile/justPotato.jpg");
-        Image profileImage = new Image(imageFile.toURI().toString());
-        profileImageView.setImage(profileImage);
+        Image image = new Image(imageFile.toURI().toString());
+        //profileImageView.setImage(profileImage);
+        profileImage.setFill(new ImagePattern(image));
         fileNameLabel.setText("justPotato.jpg");
     }
 
