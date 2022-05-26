@@ -235,7 +235,6 @@ public class Register2Controller implements Initializable {
                 File dest = new File("profile/" + fileNameLabel.getText());
                 Files.copy(src.toPath(), dest.toPath());
             }
-            
             LogManager.writeLog(LogManager.getUserIDFromLastLog(), "create account successful","register2");
             LogManager.changeScene("register2", "profile");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));

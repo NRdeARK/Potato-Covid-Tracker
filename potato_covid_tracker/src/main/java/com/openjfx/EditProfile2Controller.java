@@ -3,6 +3,7 @@ package com.openjfx;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -24,13 +25,13 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class EditProfile2Controller implements Initializable{
+public class EditProfile2Controller implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
     String filePath = "profile/justPotato.jpg";
     String absolutePath = "";
-    
+
     @FXML
     private Button SaveProfileButton;
 
@@ -88,7 +89,7 @@ public class EditProfile2Controller implements Initializable{
     @FXML
     private Label warningLabel;
 
-    public void initialize(URL url ,ResourceBundle  resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             int userID = LogManager.getUserIDFromLastLog();
             File imageFile = new File(UserData.getProfilePicture(userID));
@@ -105,7 +106,6 @@ public class EditProfile2Controller implements Initializable{
         }
     }
 
-    
     @FXML
     boolean checkFirstname() {
         String firstname = firstnameTextField.getText();
@@ -233,17 +233,24 @@ public class EditProfile2Controller implements Initializable{
         boolean condition4 = checkVaccineDose();
         boolean condition5 = checkVaccinatedDate();
         boolean condition6 = checkProfileFile();
-        if(condition1 && condition2 && condition3 && condition4 && condition5 && condition6){
+        if (condition1 && condition2 && condition3 && condition4 && condition5 && condition6) {
+            File oldProfileFile = new File(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()));
+            oldProfileFile.delete();
             UserData.editProfile(LogManager.getUserIDFromLastLog(), firstnameTextField.getText(),
-        lastnameTextField.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
-        lastVaccinatedDateTextField.getText(), fileNameLabel.getText());
-        LogManager.changeScene("global", "profile");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
-        root = loader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+                    lastnameTextField.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
+                    lastVaccinatedDateTextField.getText(), fileNameLabel.getText());
+            if (!fileNameLabel.getText().equals("justPotato.jpg")) {
+                File src = new File(absolutePath);
+                File dest = new File("profile/" + fileNameLabel.getText());
+                Files.copy(src.toPath(), dest.toPath());
+            }
+            LogManager.changeScene("global", "profile");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+            root = loader.load();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 }
