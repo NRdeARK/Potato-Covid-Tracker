@@ -1,3 +1,6 @@
+TimeStamp=2022-05-27T00:22:43.308973800::UserID=0::Log=change Scene to #country form #profile::Scene=profile
+TimeStamp=2022-05-27T00:22:37.353944::UserID=0::Log=change Scene to #profile form #welcome::Scene=welcome
+TimeStamp=2022-05-27T00:22:36.802961100::UserID=0::Log=change Scene to #welcome form #launch::Scene=launch
 TimeStamp=2022-05-26T23:22:55.980870700::UserID=0::Log=change Scene to #profile form #login::Scene=login
 TimeStamp=2022-05-26T23:22:55.978873::UserID=0::Log=login as guest successful::Scene=login
 TimeStamp=2022-05-26T23:22:44.329346900::UserID=0::Log=change Scene to #welcome form #launch::Scene=launch
