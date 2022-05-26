@@ -43,8 +43,10 @@ public class WelcomeController implements Initializable {
     public void startButton(ActionEvent event) throws IOException {
         LogManager.changeScene("welcome", "profile");
         root = FXMLLoader.load(getClass().getResource("fxml/profile.fxml"));
+        String css = this.getClass().getResource("styles/profile.css").toExternalForm();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
+        scene.getStylesheets().add(css);
         stage.setScene(scene);
         stage.show();
     }

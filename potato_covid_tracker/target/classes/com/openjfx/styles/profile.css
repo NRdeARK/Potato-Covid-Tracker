@@ -1,47 +1,51 @@
-#leftAnchor{
-    -fx-background-color:#FFD4AD;
+#Bg {
+  -fx-background-color: linear-gradient(to bottom, #ffd4ad, #ffffff);
 }
 
-#InnerLeftAnchor{
-    -fx-background-color:#FFFFFF;
-    -fx-background-radius: 10;
+#BgCircle1 {
+  -fx-fill: #ffaa5c;
 }
 
-#MiddleAnchor{
-    -fx-background-color:#FFD4AD;
+#middlePane {
+  -fx-background-color: #ffffff;
+  -fx-background-radius: 20px;
 }
 
-#MenuButton{
-    -fx-background-color: #FFFFFF;
+#profile-pic1 {
+  -fx-fill: #ffaa5c;
+  -fx-stroke-width: 2px;
 }
 
-#notificationButton{
-    -fx-background-color: #FFFFFF;
+#profile-pic2 {
+  -fx-fill: #f9f8f0;
+  -fx-stroke: null;
 }
 
-#questionButton{
-    -fx-background-color: #FFFFFF;
+#username-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
 }
 
-#ProfileButton{
-    -fx-background-color: #F9F8F0;
-    -fx-background-radius: 100;
-    -fx-border-color: #FFAA5C;
-    -fx-border-radius: 100;
-    -fx-border-width: 3px;
+#name-rect{
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
 }
 
-#VBox > .button{
-    -fx-background-color:#DEA057;
+#gender-rect{
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+}
+#vacc-rect{
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
 }
 
-#VBox > .button:hover{
-    -fx-background-color: #F9F8F0;
+#last-vecc-rect{
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
 }
 
-#ProfileCircle{
-    -fx-fill: #F9F8F0;
-    -fx-stroke-width: 10px;
-    -fx-stroke: #FFAA5C;
+#vacc-countdown-rect{
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
 }
-

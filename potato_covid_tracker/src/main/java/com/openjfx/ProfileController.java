@@ -103,6 +103,7 @@ public class ProfileController implements Initializable {
     private boolean menuActive;
     private boolean profileActive;
 
+    @FXML
     private Label doseLabel;
 
     @FXML
@@ -112,7 +113,10 @@ public class ProfileController implements Initializable {
     private Label greetingLabel;
 
     @FXML
-    private Label nameLabel;
+    private Label firstnameLabel;
+
+    @FXML
+    private Label lastnameLabel;
 
     @FXML
     private ImageView profileImage;
@@ -165,9 +169,10 @@ public class ProfileController implements Initializable {
             Image image = new Image(imageFile.toURI().toString());
             profileImage.setImage(image);
 
-            usernameLabel1.setText(UserData.getUsername(userID));
+            //usernameLabel1.setText(UserData.getUsername(userID));
             usernameLabel2.setText(UserData.getUsername(userID));
-            nameLabel.setText(UserData.getFirstname(userID) + " " + UserData.getLastname(userID));
+            firstnameLabel.setText(UserData.getFirstname(userID));
+            lastnameLabel.setText(UserData.getLastname(userID));
             genderLabel.setText(UserData.getGender(userID));
             doseLabel.setText(UserData.getVaccineDose(userID));
             vaccinatedDate.setText(UserData.getVaccineDate(userID));

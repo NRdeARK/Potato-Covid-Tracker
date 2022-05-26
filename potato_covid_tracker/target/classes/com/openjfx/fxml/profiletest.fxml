@@ -11,14 +11,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="Bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/profiletest.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.ProfileControllerTest">
+<AnchorPane id="Bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/profile.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.ProfileController">
    <children>
       <ImageView fx:id="BgImage" fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" />
       <Circle id="BgCircle1" fill="DODGERBLUE" layoutX="295.0" layoutY="318.0" radius="287.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-27.0" translateY="300.0" AnchorPane.rightAnchor="414.0" />
       <BorderPane prefHeight="540.0" prefWidth="960.0">
          <center>
-            <Pane id="middlePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="797.0" stylesheets="@../styles/profiletest.css" BorderPane.alignment="CENTER">
+            <Pane id="middlePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="797.0" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets top="35.0" />
                </BorderPane.margin>
@@ -36,7 +37,50 @@
                   <Rectangle id="vacc-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="407.0" layoutY="292.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
                   <Rectangle id="last-vecc-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="234.0" layoutY="339.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
                   <Rectangle id="vacc-countdown-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="36.97" layoutX="407.0" layoutY="339.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
-                  <Label layoutX="244.0" layoutY="204.0" text="USERNAME" />
+                  <Label layoutX="244.0" layoutY="204.0" text="USERNAME">
+                     <font>
+                        <Font size="12.0" />
+                     </font></Label>
+                  <Label layoutX="246.0" layoutY="252.0" text="FIRSTNAME">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="409.0" layoutY="252.0" text="LASTNAME">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="245.0" layoutY="302.0" text="GENDER">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="443.0" layoutY="294.0" text="VACCINE DOSE">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="245.0" layoutY="346.0" text="LAST VACCINATED">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="345.0" text="VACCINATED">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="415.0" layoutY="356.0" text="COUNTDOWN">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="usernameLabel2" layoutX="333.0" layoutY="204.0" text="username" />
+                  <Label fx:id="genderLabel" layoutX="315.0" layoutY="302.0" text="gender" />
+                  <Label fx:id="doseLabel" layoutX="445.0" layoutY="311.0" text="vacinated dose" />
+                  <Label fx:id="vaccinatedDate" layoutX="261.0" layoutY="358.0" text="last vaccinated date" />
+                  <Label fx:id="countdownLabel" layoutX="474.0" layoutY="356.0" prefHeight="17.0" prefWidth="90.0" text="vaccinated date countdown" />
                </children>
             </Pane>
          </center>
