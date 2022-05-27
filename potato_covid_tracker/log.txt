@@ -1,3 +1,11 @@
+TimeStamp=2022-05-27T14:08:08.849810800::UserID=0::Log=change Scene to #tutorial form #welcome::Scene=welcome
+TimeStamp=2022-05-27T14:08:07.483584600::UserID=0::Log=change Scene to #welcome form #launch::Scene=launch
+TimeStamp=2022-05-27T14:07:10.012891400::UserID=0::Log=change Scene to #tutorial form #welcome::Scene=welcome
+TimeStamp=2022-05-27T14:07:09.485414600::UserID=0::Log=change Scene to #welcome form #launch::Scene=launch
+TimeStamp=2022-05-27T14:07:08.759987600::UserID=0::Log=change Scene to #launch form #login::Scene=login
+TimeStamp=2022-05-27T14:07:07.001400::UserID=0::Log=change Scene to #welcome form #launch::Scene=launch
+TimeStamp=2022-05-27T14:05:53.730677400::UserID=0::Log=change Scene to #tutorial form #welcome::Scene=welcome
+TimeStamp=2022-05-27T14:05:52.449710400::UserID=0::Log=change Scene to #welcome form #launch::Scene=launch
 TimeStamp=2022-05-27T13:49:54.250390::UserID=0::Log=change Scene to #country form #profile::Scene=profile
 TimeStamp=2022-05-27T13:49:50.065691::UserID=0::Log=change Scene to #profile form #global::Scene=global
 TimeStamp=2022-05-27T13:49:40.508172::UserID=0::Log=change Scene to #editProfile2 form #editProfile1::Scene=editProfile1

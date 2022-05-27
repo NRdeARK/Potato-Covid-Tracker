@@ -23,9 +23,17 @@ public class TutorialController implements Initializable {
     private Parent root;
 
     String[] tutorialPath = {
-        "images/tutorial/1pic.png",
-        "images/tutorial/2pic.png",
-        "images/tutorial/3pic.png"
+        "images/tutorial/1.jpg",
+        "images/tutorial/2.jpg",
+        "images/tutorial/3.jpg",
+        "images/tutorial/4.jpg",
+        "images/tutorial/5.jpg",
+        "images/tutorial/6.jpg",
+        "images/tutorial/7.jpg",
+        "images/tutorial/8.jpg",
+        "images/tutorial/10.jpg",
+        "images/tutorial/11.jpg",
+        "images/tutorial/12.jpg"
     };
     int index = 0;
 
