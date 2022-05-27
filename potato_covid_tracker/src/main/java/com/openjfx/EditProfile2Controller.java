@@ -78,9 +78,6 @@ public class EditProfile2Controller implements Initializable {
     private Label passwordWarningLabel;
 
     @FXML
-    private ImageView profileImageView;
-
-    @FXML
     private TextField vaccineDoseTextField;
 
     @FXML
