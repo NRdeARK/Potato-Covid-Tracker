@@ -1,3 +1,15 @@
+TimeStamp=2022-05-27T13:49:54.250390::UserID=0::Log=change Scene to #country form #profile::Scene=profile
+TimeStamp=2022-05-27T13:49:50.065691::UserID=0::Log=change Scene to #profile form #global::Scene=global
+TimeStamp=2022-05-27T13:49:40.508172::UserID=0::Log=change Scene to #editProfile2 form #editProfile1::Scene=editProfile1
+TimeStamp=2022-05-27T13:49:32.892332::UserID=0::Log=change Scene to #editProfile1 form #profile::Scene=profile
+TimeStamp=2022-05-27T13:49:30.106006::UserID=0::Log=change Scene to #profile form #welcome::Scene=welcome
+TimeStamp=2022-05-27T13:49:29.629718::UserID=0::Log=change Scene to #welcome form #launch::Scene=launch
+TimeStamp=2022-05-27T13:47:33.094356::UserID=0::Log=change Scene to #editProfile2 form #editProfile1::Scene=editProfile1
+TimeStamp=2022-05-27T13:47:28.345997::UserID=0::Log=change Scene to #editProfile1 form #profile::Scene=profile
+TimeStamp=2022-05-27T13:47:26.980987::UserID=0::Log=change Scene to #profile form #editProfile1::Scene=editProfile1
+TimeStamp=2022-05-27T13:47:23.541820::UserID=0::Log=change Scene to #editProfile1 form #profile::Scene=profile
+TimeStamp=2022-05-27T13:47:21.044854::UserID=0::Log=change Scene to #profile form #welcome::Scene=welcome
+TimeStamp=2022-05-27T13:47:20.672052::UserID=0::Log=change Scene to #welcome form #launch::Scene=launch
 TimeStamp=2022-05-27T08:46:47.714580700::UserID=0::Log=change Scene to #launch form #logout::Scene=logout
 TimeStamp=2022-05-27T08:46:46.161825300::UserID=0::Log=change Scene to #logout form #city::Scene=city
 TimeStamp=2022-05-27T08:46:22.796327500::UserID=0::Log=change Scene to #city form #country::Scene=country
