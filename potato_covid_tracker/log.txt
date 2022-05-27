@@ -1,3 +1,10 @@
+TimeStamp=2022-05-27T08:46:47.714580700::UserID=0::Log=change Scene to #launch form #logout::Scene=logout
+TimeStamp=2022-05-27T08:46:46.161825300::UserID=0::Log=change Scene to #logout form #city::Scene=city
+TimeStamp=2022-05-27T08:46:22.796327500::UserID=0::Log=change Scene to #city form #country::Scene=country
+TimeStamp=2022-05-27T08:46:07.483820600::UserID=0::Log=change Scene to #country form #profile::Scene=profile
+TimeStamp=2022-05-27T08:46:04.787246::UserID=0::Log=change Scene to #profile form #profile::Scene=profile
+TimeStamp=2022-05-27T08:46:02.236351100::UserID=0::Log=change Scene to #profile form #welcome::Scene=welcome
+TimeStamp=2022-05-27T08:45:58.965226300::UserID=0::Log=change Scene to #welcome form #launch::Scene=launch
 TimeStamp=2022-05-27T05:55:15.295372::UserID=0::Log=change Scene to #country form #profile::Scene=profile
 TimeStamp=2022-05-27T05:55:12.598747::UserID=0::Log=change Scene to #profile form #profile::Scene=profile
 TimeStamp=2022-05-27T05:55:11.113749::UserID=0::Log=change Scene to #profile form #welcome::Scene=welcome

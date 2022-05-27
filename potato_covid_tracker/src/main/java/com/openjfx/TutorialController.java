@@ -59,18 +59,17 @@ public class TutorialController implements Initializable {
     }
 
     @FXML
-    void backButton(ActionEvent event) {
+    public void backButton(ActionEvent event) {
         index--;
         if(index == -1){
             index=0;
         }
         Image tutorialImage = new Image(getClass().getResourceAsStream(tutorialPath[index]));
         tutorialImageView.setImage(tutorialImage);
-
     }
 
     @FXML
-    void nextButton(ActionEvent event) {
+    public void nextButton(ActionEvent event) {
         index++;
         if(index == tutorialPath.length){
             index=tutorialPath.length-1;
