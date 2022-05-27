@@ -409,7 +409,6 @@ public class CityController implements Initializable {
     @FXML
     public void updateButton(ActionEvent event) throws IOException {
         System.out.println("start update city data");
-        UpdateButton.setText();
         List<String> lines = new ArrayList<String>();
         APIConnector apiConnecter = new APIConnector("https://covid19.ddc.moph.go.th/api/Cases/");
         JSONArray jsonArray = apiConnecter.getJSONArray("today-cases-by-provinces");
