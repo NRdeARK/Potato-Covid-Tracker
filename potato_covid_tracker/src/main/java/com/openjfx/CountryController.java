@@ -129,7 +129,7 @@ public class CountryController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        displayUsername();
+        // displayUsername();
         modeLabel.setText("Country");
         displayDailyData();
         
@@ -367,7 +367,7 @@ public class CountryController implements Initializable {
         int totalDead = Integer.parseInt(monthlyData[0][3]);
         int cure = Integer.parseInt(monthlyData[0][4]);
         int totalCure = Integer.parseInt(monthlyData[0][5]);
-        String updateDate = monthlyData[0][6];
+        String updateDate = monthlyData[0][6].split(" ")[0].replace("\"", "");
         dailyInfect.setText("+" + String.valueOf(inf));
         dailyDeath.setText("+" + String.valueOf(dead));
         dailyCure.setText("+" + String.valueOf(cure));

@@ -173,7 +173,7 @@ public class CityController implements Initializable {
 
     @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        displayUsername();
+        // displayUsername();
         displayCityData(1);
         CityComboBox.getItems().addAll(cityList);
         CityComboBox.setOnAction(event -> {
@@ -412,7 +412,6 @@ public class CityController implements Initializable {
         List<String> lines = new ArrayList<String>();
         APIConnector apiConnecter = new APIConnector("https://covid19.ddc.moph.go.th/api/Cases/");
         JSONArray jsonArray = apiConnecter.getJSONArray("today-cases-by-provinces");
-
         for (int i = 0; i < 78; i++) {
             System.out.println("data : " + (i + 1) + "/78");
             JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("today-cases-by-provinces")
