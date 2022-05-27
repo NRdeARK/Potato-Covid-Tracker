@@ -204,8 +204,8 @@ public class Register2Controller implements Initializable {
             filePath = "profile/" + selectedFile.getName();
             fileNameLabel.setText(selectedFile.getName());
             File imageFile = new File(absolutePath);
-            Image profileImage = new Image(imageFile.toURI().toString());
-            profileImageView.setImage(profileImage);
+            Image image = new Image(imageFile.toURI().toString());
+            profileImage.setFill(new ImagePattern(image));
         }
     }
 

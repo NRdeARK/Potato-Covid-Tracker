@@ -47,8 +47,8 @@
                </font>
             </Label>
             <TextField fx:id="lastnameTextField" layoutX="219.0" layoutY="190.0" onAction="#checkLastname" prefHeight="26.0" prefWidth="232.0" promptText="master" />
-            <Label fx:id="firstnameWarningLabel" layoutX="334.0" layoutY="150.0" />
-            <Label fx:id="lastnameWarningLabel" layoutX="334.0" layoutY="195.0" />
+            <Label fx:id="firstnameWarningLabel" layoutX="476.0" layoutY="151.0" textFill="RED" />
+            <Label fx:id="lastnameWarningLabel" layoutX="473.0" layoutY="195.0" textFill="RED" />
             <Rectangle id="gender-rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="37.0" layoutX="133.0" layoutY="239.0" stroke="BLACK" strokeType="INSIDE" width="161.0" />
             <Label layoutX="145.0" layoutY="250.0" text="GENDER">
                <font>
@@ -73,10 +73,10 @@
                </font>
             </Label>
             <TextField fx:id="lastVaccinatedDateTextField" layoutX="271.0" layoutY="294.0" onAction="#checkVaccinatedDate" prefHeight="26.0" prefWidth="180.0" promptText="YYYY-MM-DD" />
-            <Label fx:id="warningLabel" layoutX="356.0" layoutY="151.0" />
-            <Label fx:id="genderWarningLabel" layoutX="256.0" layoutY="250.0" />
-            <Label fx:id="vaccineDoseWarningLabel" layoutX="468.0" layoutY="250.0" prefHeight="17.0" prefWidth="24.0" />
-            <Label fx:id="lastVaccinatedDateWarningLabel" layoutX="378.0" layoutY="299.0" />
+            <Label fx:id="warningLabel" layoutX="472.0" layoutY="151.0" />
+            <Label fx:id="genderWarningLabel" layoutX="256.0" layoutY="250.0" textFill="RED" />
+            <Label fx:id="vaccineDoseWarningLabel" layoutX="468.0" layoutY="250.0" textFill="RED" />
+            <Label fx:id="lastVaccinatedDateWarningLabel" layoutX="473.0" layoutY="299.0" textFill="RED" />
             <Label fx:id="fileNameLabel" layoutX="266.0" layoutY="120.0" textFill="WHITE" />
             <Label fx:id="fileNameWarningLabel" layoutX="361.0" layoutY="90.0" textFill="RED" />
             <Button id="edit-profile-button" fx:id="browseButton" layoutX="315.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#browseProfileImage" prefHeight="36.0" prefWidth="39.0">
