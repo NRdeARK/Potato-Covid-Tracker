@@ -132,7 +132,7 @@ public class CountryController implements Initializable {
         // displayUsername();
         modeLabel.setText("Country");
         displayDailyData();
-        
+
         countryChart.setTitle("Covid-19 30 days");
         countryChart.getData().add(seriesInfect);
         countryChart.getData().add(seriesCure);
@@ -147,7 +147,7 @@ public class CountryController implements Initializable {
 
         modeComboBox.setOnAction(event -> {
             try {
-                
+
                 chooseGraph(event);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -162,10 +162,10 @@ public class CountryController implements Initializable {
             TranslateTransition tt = new TranslateTransition();
             tt.setDuration(Duration.millis(500));
             tt.setNode(Hamberger);
-            
+
             mainMenuActive = false;
             subMenuActive = false;
-            
+
             VBox mainMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menubar.fxml"));
             MainMenuDrawer.setSidePane(mainMenuVbox);
             VBox subMenuVbox = FXMLLoader.load(getClass().getResource("fxml/menuslide.fxml"));
@@ -388,7 +388,6 @@ public class CountryController implements Initializable {
 
         // countryChart = new StackedAreaChart<Number,Number>(xAxis,yAxis);
 
-        
         System.out.println("call api");
         // String [][] month = api.getCountryMonthlyData();
         System.out.println("finish call api");
@@ -407,8 +406,6 @@ public class CountryController implements Initializable {
             // seriesDeath.getData().add(new XYChart.Data<Number, Number>(i,i));
         }
 
-       
-
         // System.out.println(seriesDeath.getData().toString());
         // countryChart.getData().add(seriesInfect);
         // countryChart.getData().add(seriesCure);
@@ -426,7 +423,6 @@ public class CountryController implements Initializable {
 
         // countryChart = new StackedAreaChart<Number,Number>(xAxis,yAxis);
 
-        
         System.out.println("call api");
         // String [][] month = api.getCountryMonthlyData();
         System.out.println("finish call api");
@@ -445,7 +441,7 @@ public class CountryController implements Initializable {
             if (mode.equals("infected")) {
                 seriesInfect.getData()
                         .add(new XYChart.Data<Number, Number>(i + 1, Integer.parseInt(monthlyData[29 - i][1])));
-                
+
             }
             if (mode.equals("cured")) {
                 seriesCure.getData()
@@ -462,22 +458,22 @@ public class CountryController implements Initializable {
         }
 
         // System.out.println(seriesDeath.getData().toString());
-        
+
         // if (mode.equals("all")) {
-        //     countryChart.getData().add(seriesInfect);
-        //     countryChart.getData().add(seriesCure);
-        //     countryChart.getData().add(seriesDeath);
+        // countryChart.getData().add(seriesInfect);
+        // countryChart.getData().add(seriesCure);
+        // countryChart.getData().add(seriesDeath);
         // }
         // if (mode.equals("infected")) {
-        //     countryChart.getData().add(seriesInfect);
+        // countryChart.getData().add(seriesInfect);
 
         // }
         // if (mode.equals("cured")) {
-        //     countryChart.getData().add(seriesCure);
+        // countryChart.getData().add(seriesCure);
 
         // }
         // if (mode.equals("death")) {
-        //     countryChart.getData().add(seriesDeath);
+        // countryChart.getData().add(seriesDeath);
         // }
     }
 
@@ -530,62 +526,66 @@ public class CountryController implements Initializable {
         nodeToBeBlurred.setEffect(blur);
     }
 
-//     public void profileButton(ActionEvent event) throws IOException {
-//         LogManager.changeScene("country", "profile");
-//         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
-//         root = loader.load();
-//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//         scene = new Scene(root);
-//         stage.setScene(scene);
-//         stage.show();
-//     }
+    // public void profileButton(ActionEvent event) throws IOException {
+    // LogManager.changeScene("country", "profile");
+    // FXMLLoader loader = new
+    // FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+    // root = loader.load();
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // scene = new Scene(root);
+    // stage.setScene(scene);
+    // stage.show();
+    // }
 
-//     public void globalButton(ActionEvent event) throws IOException {
-//         LogManager.changeScene("country", "global");
-//         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/global.fxml"));
-//         root = loader.load();
-//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//         scene = new Scene(root);
-//         stage.setScene(scene);
-//         stage.show();
-//     }
+    // public void globalButton(ActionEvent event) throws IOException {
+    // LogManager.changeScene("country", "global");
+    // FXMLLoader loader = new
+    // FXMLLoader(getClass().getResource("fxml/global.fxml"));
+    // root = loader.load();
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // scene = new Scene(root);
+    // stage.setScene(scene);
+    // stage.show();
+    // }
 
-//     public void countryButton(ActionEvent event) throws IOException {
-//         LogManager.changeScene("country", "country");
-//         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/country.fxml"));
-//         root = loader.load();
-//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//         scene = new Scene(root);
-//         stage.setScene(scene);
-//         stage.show();
-//     }
+    // public void countryButton(ActionEvent event) throws IOException {
+    // LogManager.changeScene("country", "country");
+    // FXMLLoader loader = new
+    // FXMLLoader(getClass().getResource("fxml/country.fxml"));
+    // root = loader.load();
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // scene = new Scene(root);
+    // stage.setScene(scene);
+    // stage.show();
+    // }
 
-//     public void cityButton(ActionEvent event) throws IOException {
-//         LogManager.changeScene("country", "city");
-//         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
-//         root = loader.load();
-//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//         scene = new Scene(root);
-//         stage.setScene(scene);
-//         stage.show();
-//     }
+    // public void cityButton(ActionEvent event) throws IOException {
+    // LogManager.changeScene("country", "city");
+    // FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/city.fxml"));
+    // root = loader.load();
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // scene = new Scene(root);
+    // stage.setScene(scene);
+    // stage.show();
+    // }
 
-//     public void logoutButton(ActionEvent event) throws IOException {
-//         LogManager.changeScene("country", "logoutConfirmation");
-//         root = FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
-//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//         scene = new Scene(root);
-//         stage.setScene(scene);
-//         stage.show();
-//     }
+    // public void logoutButton(ActionEvent event) throws IOException {
+    // LogManager.changeScene("country", "logoutConfirmation");
+    // root =
+    // FXMLLoader.load(getClass().getResource("fxml/logoutConfirmation.fxml"));
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // scene = new Scene(root);
+    // stage.setScene(scene);
+    // stage.show();
+    // }
 
-//     public void aboutUsButton(ActionEvent event) throws IOException {
-//         LogManager.changeScene("country", "aboutUs");
-//         root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
-//         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-//         scene = new Scene(root);
-//         stage.setScene(scene);
-//         stage.show();
-//     }
+    // public void aboutUsButton(ActionEvent event) throws IOException {
+    // LogManager.changeScene("country", "aboutUs");
+    // root = FXMLLoader.load(getClass().getResource("fxml/aboutUs.fxml"));
+    // stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // scene = new Scene(root);
+    // stage.setScene(scene);
+    // stage.show();
+    // }
 
 }

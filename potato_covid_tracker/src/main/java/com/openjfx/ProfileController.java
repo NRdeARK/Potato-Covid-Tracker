@@ -313,10 +313,11 @@ public class ProfileController implements Initializable {
             Period intervalPeriod = Period.between(date1, date2);
             int day = intervalPeriod.getDays();
             int month = intervalPeriod.getMonths();
-            if(day<0 || month <0)
-            {return month*-1 + " months " + day*-1 + " days pass from schedule";}
-            else
-            {return month + " months " + day + " days until your next vaccine";}
+            if (day < 0 || month < 0) {
+                return month * -1 + " months " + day * -1 + " days pass from schedule";
+            } else {
+                return month + " months " + day + " days until your next vaccine";
+            }
         } catch (Exception e) {
             return "null";
         }
@@ -328,7 +329,7 @@ public class ProfileController implements Initializable {
             File imageFile = new File(UserData.getProfilePicture(userID));
             Image image = new Image(imageFile.toURI().toString());
             profileImage.setFill(new ImagePattern(image));
-            //profileImageView.setImage(image);
+            // profileImageView.setImage(image);
             usernameLabel.setText(UserData.getUsername(userID));
             firstnameLabel.setText(UserData.getFirstname(userID));
             lastnameLabel.setText(UserData.getLastname(userID));

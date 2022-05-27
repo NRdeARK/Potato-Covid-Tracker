@@ -97,7 +97,7 @@ public class EditProfile2Controller implements Initializable {
             int userID = LogManager.getUserIDFromLastLog();
             File imageFile = new File(UserData.getProfilePicture(userID));
             Image image = new Image(imageFile.toURI().toString());
-            //profileImageView.setImage(image);
+            // profileImageView.setImage(image);
             profileImage.setFill(new ImagePattern(image));
             firstnameTextField.setText(UserData.getFirstname(userID));
             lastnameTextField.setText(UserData.getLastname(userID));
@@ -192,7 +192,8 @@ public class EditProfile2Controller implements Initializable {
     @FXML
     public boolean checkProfileFile() throws IOException {
         System.out.println(UserData.isDuplicateFile(fileNameLabel.getText()));
-        System.out.println(!fileNameLabel.getText().equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1]));
+        System.out.println(!fileNameLabel.getText()
+                .equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1]));
         if (UserData.isDuplicateFile(fileNameLabel.getText())
                 && !fileNameLabel.getText()
                         .equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1])) {
@@ -218,13 +219,13 @@ public class EditProfile2Controller implements Initializable {
                 new FileChooser.ExtensionFilter("png Files", "*.png"),
                 new FileChooser.ExtensionFilter("jpeg Files", "*.jpeg"));
         File selectedFile = fileChooser.showOpenDialog(stage);
-        if  (selectedFile != null && selectedFile.exists()) {
+        if (selectedFile != null && selectedFile.exists()) {
             absolutePath = selectedFile.getAbsolutePath();
             filePath = "profile/" + selectedFile.getName();
             fileNameLabel.setText(selectedFile.getName());
             File imageFile = new File(absolutePath);
             Image image = new Image(imageFile.toURI().toString());
-            //profileImageView.setImage(profileImage);
+            // profileImageView.setImage(profileImage);
             profileImage.setFill(new ImagePattern(image));
         }
     }
@@ -261,7 +262,8 @@ public class EditProfile2Controller implements Initializable {
                     lastnameTextField.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
                     lastVaccinatedDateTextField.getText(), fileNameLabel.getText());
             // if (!fileNameLabel.getText()
-            //         .equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1])) {//
+            // .equals(UserData.getProfilePicture(LogManager.getUserIDFromLastLog()).split("/")[1]))
+            // {//
 
             // }
             LogManager.changeScene("global", "profile");

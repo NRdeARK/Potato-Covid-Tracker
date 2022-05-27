@@ -23,17 +23,17 @@ public class TutorialController implements Initializable {
     private Parent root;
 
     String[] tutorialPath = {
-        "images/tutorial/1.jpg",
-        "images/tutorial/2.jpg",
-        "images/tutorial/3.jpg",
-        "images/tutorial/4.jpg",
-        "images/tutorial/5.jpg",
-        "images/tutorial/6.jpg",
-        "images/tutorial/7.jpg",
-        "images/tutorial/8.jpg",
-        "images/tutorial/10.jpg",
-        "images/tutorial/11.jpg",
-        "images/tutorial/12.jpg"
+            "images/tutorial/1.jpg",
+            "images/tutorial/2.jpg",
+            "images/tutorial/3.jpg",
+            "images/tutorial/4.jpg",
+            "images/tutorial/5.jpg",
+            "images/tutorial/6.jpg",
+            "images/tutorial/7.jpg",
+            "images/tutorial/8.jpg",
+            "images/tutorial/10.jpg",
+            "images/tutorial/11.jpg",
+            "images/tutorial/12.jpg"
     };
     int index = 0;
 
@@ -48,7 +48,6 @@ public class TutorialController implements Initializable {
 
     @FXML
     private ImageView tutorialImageView;
-    
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Image tutorialImage = new Image(getClass().getResourceAsStream(tutorialPath[index]));
@@ -69,8 +68,8 @@ public class TutorialController implements Initializable {
     @FXML
     public void backButton(ActionEvent event) {
         index--;
-        if(index == -1){
-            index=0;
+        if (index == -1) {
+            index = 0;
         }
         Image tutorialImage = new Image(getClass().getResourceAsStream(tutorialPath[index]));
         tutorialImageView.setImage(tutorialImage);
@@ -79,8 +78,8 @@ public class TutorialController implements Initializable {
     @FXML
     public void nextButton(ActionEvent event) {
         index++;
-        if(index == tutorialPath.length){
-            index=tutorialPath.length-1;
+        if (index == tutorialPath.length) {
+            index = tutorialPath.length - 1;
         }
         Image tutorialImage = new Image(getClass().getResourceAsStream(tutorialPath[index]));
         tutorialImageView.setImage(tutorialImage);

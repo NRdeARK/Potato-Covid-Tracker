@@ -15,20 +15,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class AboutUsController implements Initializable{
+public class AboutUsController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    
+
     @FXML
     private Button backButton;
 
-    public void initialize(URL url ,ResourceBundle  resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
     @FXML
     public void backButton(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("fxml/"+ LogManager.getSceneFromLastLog() +".fxml"));
+        root = FXMLLoader.load(getClass().getResource("fxml/" + LogManager.getSceneFromLastLog() + ".fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

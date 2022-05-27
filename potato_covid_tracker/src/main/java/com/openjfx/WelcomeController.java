@@ -52,7 +52,7 @@ public class WelcomeController implements Initializable {
     }
 
     public void openTutorial() throws IOException {
-        LogManager.changeScene("welcome","tutorial");
+        LogManager.changeScene("welcome", "tutorial");
         root = FXMLLoader.load(getClass().getResource("fxml/tutorial.fxml"));
         scene = new Scene(root);
         stage = (Stage) tutorialLabel.getParent().getScene().getWindow();

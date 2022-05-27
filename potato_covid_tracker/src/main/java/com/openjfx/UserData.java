@@ -212,7 +212,7 @@ public class UserData {
         FileReader fr = new FileReader(f1);
         BufferedReader br = new BufferedReader(fr);
         while ((line = br.readLine()) != null) {
-            
+
             String readFileName = line.split(" ")[7];
             System.out.println(readFileName);
             if (fileName.equals(readFileName)) {
@@ -265,7 +265,8 @@ public class UserData {
         out.close();
     }
 
-    public static void editProfile(int userID, String firstname, String lastname, String gender, String dose, String vaccinatedDate, String profileFileName) throws IOException {
+    public static void editProfile(int userID, String firstname, String lastname, String gender, String dose,
+            String vaccinatedDate, String profileFileName) throws IOException {
         String username = getUsername(userID);
         List<String> lines = new ArrayList<String>();
         String line = null;

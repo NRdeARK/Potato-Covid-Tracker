@@ -96,12 +96,10 @@ public class Register2Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         File imageFile = new File("profile/justPotato.jpg");
         Image image = new Image(imageFile.toURI().toString());
-        //profileImageView.setImage(profileImage);
+        // profileImageView.setImage(profileImage);
         profileImage.setFill(new ImagePattern(image));
         fileNameLabel.setText("justPotato.jpg");
     }
-
-    
 
     @FXML
     public boolean checkFirstname() {
@@ -214,7 +212,7 @@ public class Register2Controller implements Initializable {
     @FXML
     public void BackButton(ActionEvent event) throws IOException {
         UserData.deleteNewUser1();
-        LogManager.writeLog(0, "delete unfinished account","register2");
+        LogManager.writeLog(0, "delete unfinished account", "register2");
         LogManager.changeScene("register2", "register1");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/register1.fxml"));
         root = loader.load();
@@ -236,12 +234,12 @@ public class Register2Controller implements Initializable {
             UserData.createNewUser2(LogManager.getUserIDFromLastLog(), firstnameTextField.getText(),
                     lastnameTextField.getText(), genderTextField.getText(), vaccineDoseTextField.getText(),
                     lastVaccinatedDateTextField.getText(), fileNameLabel.getText());
-            if(!fileNameLabel.getText().equals("justPotato.jpg")){
+            if (!fileNameLabel.getText().equals("justPotato.jpg")) {
                 File src = new File(absolutePath);
                 File dest = new File("profile/" + fileNameLabel.getText());
                 Files.copy(src.toPath(), dest.toPath());
             }
-            LogManager.writeLog(LogManager.getUserIDFromLastLog(), "create account successful","register2");
+            LogManager.writeLog(LogManager.getUserIDFromLastLog(), "create account successful", "register2");
             LogManager.changeScene("register2", "profile");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
             root = loader.load();
@@ -251,6 +249,5 @@ public class Register2Controller implements Initializable {
             stage.show();
         }
     }
-
 
 }

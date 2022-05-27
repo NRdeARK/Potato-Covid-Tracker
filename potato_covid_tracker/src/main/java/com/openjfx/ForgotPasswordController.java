@@ -17,12 +17,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class ForgotPasswordController implements Initializable{
+public class ForgotPasswordController implements Initializable {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
-    
+
     @FXML
     private Button backButton;
 
@@ -49,14 +49,14 @@ public class ForgotPasswordController implements Initializable{
 
     @FXML
     private Label usernameWarningLabel;
-    
+
     @FXML
     private Label firstnameWarningLabel;
 
     @FXML
     private Label lastnameWarningLabel;
 
-    public void initialize(URL url ,ResourceBundle  resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
@@ -121,15 +121,16 @@ public class ForgotPasswordController implements Initializable{
         }
     }
 
-    private boolean verifyResetPassword() throws IOException{
+    private boolean verifyResetPassword() throws IOException {
         String username = usernameTextField.getText();
         String firstname = firstnameTextField.getText();
         String lastname = lastnameTextField.getText();
         int userID = UserData.getUserID(username);
-        if(userID == -1 ){
+        if (userID == -1) {
             usernameWarningLabel.setText("don't have this user in system");
             return false;
-        } else if (!(firstname.equals(UserData.getFirstname(userID)) && lastname.equals(UserData.getLastname(userID)))){
+        } else if (!(firstname.equals(UserData.getFirstname(userID))
+                && lastname.equals(UserData.getLastname(userID)))) {
             usernameWarningLabel.setText("something wrong");
             return false;
         } else {
@@ -137,11 +138,11 @@ public class ForgotPasswordController implements Initializable{
         }
     }
 
-    public void backButton(ActionEvent event) throws IOException{
+    public void backButton(ActionEvent event) throws IOException {
         LogManager.changeScene("forgotPassword", "login");
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));	
-		root = loader.load();
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));
+        root = loader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -152,14 +153,14 @@ public class ForgotPasswordController implements Initializable{
         boolean condition2 = checkFirstname();
         boolean condition3 = checkLastname();
         boolean condition4 = checkPassword();
-        if(condition1 && condition2 && condition3 && condition4){
+        if (condition1 && condition2 && condition3 && condition4) {
             boolean condition5 = verifyResetPassword();
-            if(condition5){
+            if (condition5) {
                 LogManager.changeScene("forgotPassword", "login");
                 UserData.resetPassword(usernameTextField.getText(), passwordPasswordField.getText());
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));	
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/login.fxml"));
                 root = loader.load();
-                stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();

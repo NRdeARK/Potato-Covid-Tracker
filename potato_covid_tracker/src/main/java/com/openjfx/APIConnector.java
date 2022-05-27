@@ -9,17 +9,15 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Scanner;
 
-
 public class APIConnector {
 
     private final String urlString;
-
 
     public APIConnector(String urlString) throws MalformedURLException {
         this.urlString = urlString;
     }
 
-    public JSONArray getJSONArray(String query){
+    public JSONArray getJSONArray(String query) {
         try {
             URL url = new URL(urlString + query);
 
@@ -27,7 +25,7 @@ public class APIConnector {
             conn.setRequestMethod("GET");
             conn.connect();
 
-            //Check if connect is made
+            // Check if connect is made
             int responseCode = conn.getResponseCode();
 
             if (responseCode != 200) {
@@ -46,13 +44,13 @@ public class APIConnector {
 
                 return (JSONArray) parse.parse(String.valueOf(informationString));
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public JSONObject getJSONObject(String query){
+    public JSONObject getJSONObject(String query) {
         try {
             URL url = new URL(urlString + query);
 
@@ -60,7 +58,7 @@ public class APIConnector {
             conn.setRequestMethod("GET");
             conn.connect();
 
-            //Check if connect is made
+            // Check if connect is made
             int responseCode = conn.getResponseCode();
 
             if (responseCode != 200) {
@@ -79,7 +77,7 @@ public class APIConnector {
 
                 return (JSONObject) parse.parse(String.valueOf(informationString));
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;

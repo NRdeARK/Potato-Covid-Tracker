@@ -15,13 +15,12 @@ import java.util.List;
 
 import java.io.IOException;
 
-
 public class APIController {
 
     private final String countryAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
 
     private final String cityAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
-    
+
     public boolean updateCountryData() throws IOException {
         System.out.println("start update country data");
         List<String> lines = new ArrayList<String>();
@@ -157,10 +156,10 @@ public class APIController {
                 monthlyData[i][5] = arr[6].split(":")[1];
                 // date
                 monthlyData[i][6] = arr[8].split(":")[1];
-                //System.out.println("case " + monthlyData[i][0] + " : " + monthlyData[i][1]);
-                //System.out.println("death " + monthlyData[i][2] + " : " + monthlyData[i][3]);
-                //System.out.println("cure " + monthlyData[i][4] + " : " + monthlyData[i][5]);
-                //System.out.println("date " + monthlyData[i][6]);
+                // System.out.println("case " + monthlyData[i][0] + " : " + monthlyData[i][1]);
+                // System.out.println("death " + monthlyData[i][2] + " : " + monthlyData[i][3]);
+                // System.out.println("cure " + monthlyData[i][4] + " : " + monthlyData[i][5]);
+                // System.out.println("date " + monthlyData[i][6]);
             }
             br.close();
         } catch (Exception e) {

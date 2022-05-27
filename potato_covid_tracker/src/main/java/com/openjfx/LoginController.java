@@ -19,7 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
-public class LoginController implements Initializable{
+public class LoginController implements Initializable {
 
     private Stage stage;
     private Scene scene;
@@ -46,7 +46,7 @@ public class LoginController implements Initializable{
     @FXML
     private Label backLabel;
 
-    public void initialize(URL url ,ResourceBundle  resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         Image logoImage = new Image(getClass().getResourceAsStream("images/login/logo.png"));
         logoImageView.setImage(logoImage);
         Image backgroundImage = new Image(getClass().getResourceAsStream("images/login/background.png"));
@@ -58,16 +58,15 @@ public class LoginController implements Initializable{
         String username = usernameTextField.getText();
         String password = passwordPasswordField.getText();
         int userID = UserData.verifyLogin(username, password);
-        if(userID == -1){
+        if (userID == -1) {
             cautionLabel.setText("username or password are invalid");
-            LogManager.writeLog(0,"login as " + username + " unsuccessful","login");         
-        }
-        else{
-            LogManager.writeLog(0,"login as "+ UserData.getUsername(userID)+" successful","login");
+            LogManager.writeLog(0, "login as " + username + " unsuccessful", "login");
+        } else {
+            LogManager.writeLog(0, "login as " + UserData.getUsername(userID) + " successful", "login");
             LogManager.changeScene(userID, "login", "profile");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));	
-		    root = loader.load();
-            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/profile.fxml"));
+            root = loader.load();
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
@@ -85,7 +84,7 @@ public class LoginController implements Initializable{
     }
 
     @FXML
-    public void forgotPasswordLabel() throws IOException{
+    public void forgotPasswordLabel() throws IOException {
         LogManager.changeScene(0, "login", "forgotPassword");
         root = FXMLLoader.load(getClass().getResource("fxml/forgotPassword.fxml"));
         scene = new Scene(root);
@@ -95,8 +94,8 @@ public class LoginController implements Initializable{
     }
 
     @FXML
-    public void backButton() throws IOException{
-        LogManager.changeScene(0,"login","launch");
+    public void backButton() throws IOException {
+        LogManager.changeScene(0, "login", "launch");
         root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
         scene = new Scene(root);
         stage = (Stage) backLabel.getParent().getScene().getWindow();

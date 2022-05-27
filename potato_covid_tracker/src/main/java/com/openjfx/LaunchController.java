@@ -22,8 +22,6 @@ public class LaunchController implements Initializable {
     private Scene scene;
     private Parent root;
 
-
-
     @FXML
     private Button loginAsGuestButton;
 
@@ -53,7 +51,7 @@ public class LaunchController implements Initializable {
     }
 
     public void loginAsPotatoButton(ActionEvent event) throws IOException {
-        LogManager.changeScene(0,"launch","welcome");
+        LogManager.changeScene(0, "launch", "welcome");
         root = FXMLLoader.load(getClass().getResource("fxml/login.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
