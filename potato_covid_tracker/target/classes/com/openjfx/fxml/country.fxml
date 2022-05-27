@@ -56,7 +56,7 @@
                               <Label fx:id="dateUpdateLabel" layoutX="567.0" layoutY="34.0" text="date update" />
                               <ComboBox id="combobox" fx:id="modeComboBox" layoutX="54.0" layoutY="29.0" onAction="#chooseGraph" prefWidth="150.0" promptText="all" />
                               <Region id="infect-rect" layoutX="352.0" layoutY="63.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="146.0" prefWidth="398.0" />
-                              <Label id="today-label" layoutX="374.0" layoutY="100.0" text="Today Infected" textFill="WHITE">
+                              <Label id="today-label" layoutX="374.0" layoutY="100.0" text="Total Infected" textFill="WHITE">
                                  <font>
                                     <Font size="23.0" />
                                  </font>
@@ -74,12 +74,12 @@
                                     <Font size="36.0" />
                                  </font>
                               </Label>
-                              <Label id="today-cure-label" layoutX="373.0" layoutY="260.0" text="Today Cure">
+                              <Label id="today-cure-label" layoutX="373.0" layoutY="260.0" text="Total Cure">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <Label id="today-death-label" layoutX="631.0" layoutY="241.0" text="Today Death" textFill="WHITE">
+                              <Label id="today-death-label" layoutX="631.0" layoutY="241.0" text="Total Death" textFill="WHITE">
                                  <font>
                                     <Font size="15.0" />
                                  </font>

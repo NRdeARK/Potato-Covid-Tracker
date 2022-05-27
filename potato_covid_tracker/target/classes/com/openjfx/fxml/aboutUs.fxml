@@ -31,46 +31,55 @@
                   </ImageView>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="797.0">
                      <children>
-                        <Text layoutX="496.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(                                                )" wrappingWidth="137.361328125" />
-                        <Text layoutX="496.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(                                                )" wrappingWidth="137.361328125" />
-                        <Text layoutX="496.0" layoutY="272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(                                                )" wrappingWidth="137.361328125" />
-                        <Label layoutX="189.0" layoutY="165.0" text="Nataphan   Rakvidhyasatra " textAlignment="CENTER">
+                        <Text layoutX="492.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(                                  )" wrappingWidth="225.361328125">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Text layoutX="492.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(                                  )" wrappingWidth="258.361328125">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Text layoutX="493.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(                                 )" wrappingWidth="220.361328125">
+                           <font>
+                              <Font size="20.0" />
+                           </font></Text>
+                        <Label id="name-label" layoutX="189.0" layoutY="165.0" text="Nataphan   Rakvidhyasatra " textAlignment="CENTER">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="189.0" layoutY="210.0" text="Chinnawat  Chuabkhwamsuk" textAlignment="CENTER">
+                        <Label id="name-label" layoutX="189.0" layoutY="210.0" text="Chinnawat  Chuabkhwamsuk" textAlignment="CENTER">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="189.0" layoutY="254.0" text="Natcha  Suaysaard">
+                        <Label id="name-label" layoutX="189.0" layoutY="254.0" text="Natcha  Suaysaard">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
                         <Button id="back-button" fx:id="backButton" layoutX="14.0" layoutY="426.0" mnemonicParsing="false" onAction="#backButton" text="&lt; Back" />
-                        <Label layoutX="149.0" layoutY="116.0" text="this program is a part of Object Oriented Programming subject" AnchorPane.topAnchor="117.0">
+                        <Label id="body-label" layoutX="100.0" layoutY="118.0" text="This program is a part of Object Oriented Programming subject" AnchorPane.topAnchor="118.0">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label id="about_label" layoutX="352.0" layoutY="50.0" text="About Us" AnchorPane.leftAnchor="352.0" AnchorPane.topAnchor="47.0">
+                        <Label id="about_label" layoutX="340.0" layoutY="48.0" styleClass="about-label" text="About Us" AnchorPane.leftAnchor="340.0" AnchorPane.topAnchor="48.0">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label layoutX="509.0" layoutY="165.0" text="backend dev">
+                        <Label id="role-label" layoutX="509.0" layoutY="165.0" text="backend dev" textFill="#ffaa5c">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="509.0" layoutY="210.0" text="frontend dev">
+                        <Label id="role-label" layoutX="509.0" layoutY="210.0" text="frontend dev" textFill="#ffaa5c">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="509.0" layoutY="254.0" text="UX/UI design">
+                        <Label id="role-label" layoutX="509.0" layoutY="254.0" text="UX/UI design" textFill="#ffaa5c">
                            <font>
                               <Font size="20.0" />
                            </font>

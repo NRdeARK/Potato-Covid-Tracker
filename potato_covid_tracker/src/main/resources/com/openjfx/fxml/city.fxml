@@ -47,7 +47,7 @@
                               <Button id="update-button" fx:id="UpdateButton" layoutX="637.0" layoutY="409.0" mnemonicParsing="false" onAction="#updateButton" prefHeight="27.14" prefWidth="106.0" text="update" AnchorPane.bottomAnchor="58.5" AnchorPane.rightAnchor="46.0" AnchorPane.topAnchor="409.0" />
                               <Label layoutX="50.0" layoutY="66.0" text="City" />
                               <Region id="infect-rect" layoutX="216.0" layoutY="127.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="357.0" />
-                              <Label id="today-label" layoutX="238.0" layoutY="164.0" text="Today Infected" textFill="WHITE">
+                              <Label id="today-label" layoutX="238.0" layoutY="154.0" text="Total Infected" textFill="WHITE">
                                  <font>
                                     <Font size="23.0" />
                                  </font>
@@ -58,13 +58,13 @@
                                     <Font size="38.0" />
                                  </font>
                               </Label>
-                              <Label id="total-infect" fx:id="totalInfected" layoutX="266.0" layoutY="200.0" text="total" textFill="WHITE">
+                              <Label id="total-infect" fx:id="totalInfected" layoutX="266.0" layoutY="193.0" text="total" textFill="WHITE">
                                  <font>
                                     <Font size="30.0" />
                                  </font>
                               </Label>
                               <Region id="today-death-rect" layoutX="216.0" layoutY="285.0" prefHeight="114.0" prefWidth="212.0" />
-                              <Label id="today-death-label" layoutX="221.0" layoutY="310.0" text="Today Death" textFill="WHITE">
+                              <Label id="today-death-label" layoutX="221.0" layoutY="310.0" text="Total Death" textFill="WHITE">
                                  <font>
                                     <Font size="15.0" />
                                  </font>

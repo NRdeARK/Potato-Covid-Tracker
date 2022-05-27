@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
 #Bg{
     -fx-background-color:#FFD4AD;
 }
@@ -25,4 +29,18 @@
 
 #back-button:pressed{
     -fx-text-fill:black;
+}
+
+#about_label{
+    -fx-font-family: 'Slackey', cursive;
+    -fx-text-fill:#FFAA5C;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 5, 0, 0 , 3);
+}
+
+#body-label{
+    -fx-font-family: 'ABeeZee', sans-serif;
+}
+
+#name-label, #role-label{
+    -fx-font-family: 'ABeeZee', sans-serif;
 }
