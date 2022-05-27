@@ -7,7 +7,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/tutorial.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.TutorialController">
    <children>
-      <ImageView fx:id="tutorialImageView" fitHeight="314.0" fitWidth="463.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="tutorialImageView" fitHeight="540.0" fitWidth="960.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" />
       <Button id="finish-button" fx:id="FinishButton" layoutX="849.0" layoutY="486.0" mnemonicParsing="false" onAction="#finishButton" prefHeight="35.0" prefWidth="80.0" text="Finish" />
       <Button id="back-button" fx:id="BackButton" layoutX="14.0" layoutY="252.0" mnemonicParsing="false" onAction="#backButton">
          <graphic>
