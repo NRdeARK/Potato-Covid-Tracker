@@ -1,7 +1,5 @@
 package com.openjfx;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -10,56 +8,19 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.InputStreamReader;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import java.io.IOException;
+
+
 public class APIController {
-    // @FXML
-    // private Label cured;
-
-    // @FXML
-    // private Label dead;
-
-    // @FXML
-    // private Label infect;
-
-    // private final String globalAPI =  "https://api.covid19api.com/";
 
     private final String countryAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
 
     private final String cityAPI = "https://covid19.ddc.moph.go.th/api/Cases/";
-
-    // public void api() throws MalformedURLException {
-    //     APIConnector apiConnecter = new APIConnector(countryAPI);
-    //     JSONArray jsonArray = apiConnecter.getJSONArray("timeline-cases-all");
-    //     JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("timeline-cases-all").get(jsonArray.size() - 1));
-    //     //System.out.println(jsonData.toString());
-    // }
-
-    // public boolean updateGlobalData() throws IOException {
-    //     System.out.println("start update country data");
-    //     List<String> lines = new ArrayList<String>();
-    //     APIConnector apiConnecter = new APIConnector(globalAPI);
-    //     JSONArray jsonArray = apiConnecter.getJSONArray("summary");
-    //     for (int i = 0; i < 3; i++) {
-    //         System.out.println("data : " + (i + 1) + "/3");
-    //         JSONObject jsonData = (JSONObject) (apiConnecter.getJSONArray("summary")
-    //                 .get(jsonArray.size() - 1 - i));
-    //         lines.add(jsonData.toString());
-    //     }
-    //     File f1 = new File("globalData.txt");
-    //     FileWriter fw = new FileWriter(f1);
-    //     BufferedWriter out = new BufferedWriter(fw);
-    //     for (String s : lines) {
-    //         out.write(s);
-    //         out.newLine();
-    //     }
-    //     out.flush();
-    //     out.close();
-    //     return true;
-    // }
     
     public boolean updateCountryData() throws IOException {
         System.out.println("start update country data");

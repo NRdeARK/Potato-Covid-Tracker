@@ -3,7 +3,6 @@ package com.openjfx;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -25,7 +24,6 @@ import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
-import com.jfoenix.controls.JFXProgressBar;
 import com.jfoenix.controls.events.JFXDialogEvent;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
 
@@ -401,10 +399,8 @@ public class CityController implements Initializable {
             InfectLabel.setText("+" + cityData[0]);
             DeathLabel.setText("+" + cityData[2]);
             DateLabel.setText("Update date: " + cityData[4]);
-
             totalInfected.setText(""+(Integer.parseInt(cityData[1])));
             totalDeath.setText(""+Integer.parseInt(cityData[3]));
-
         } catch (Exception e) {
             e.printStackTrace();
         }
