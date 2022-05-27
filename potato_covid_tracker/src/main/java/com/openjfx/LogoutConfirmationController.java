@@ -25,7 +25,7 @@ public class LogoutConfirmationController implements Initializable{
     }
     
     @FXML
-    void noButton(MouseEvent event) throws IOException {
+    public void noButton(MouseEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/"+LogManager.getSceneFromLastLog()+".fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -35,7 +35,7 @@ public class LogoutConfirmationController implements Initializable{
     }
 
     @FXML
-    void yesButton(MouseEvent event) throws IOException {
+    public void yesButton(MouseEvent event) throws IOException {
         LogManager.changeScene("logout", "launch");
         root = FXMLLoader.load(getClass().getResource("fxml/launch.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -27,7 +27,7 @@ public class AboutUsController implements Initializable{
     }
 
     @FXML
-    void backButton(ActionEvent event) throws IOException {
+    public void backButton(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("fxml/"+ LogManager.getSceneFromLastLog() +".fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
