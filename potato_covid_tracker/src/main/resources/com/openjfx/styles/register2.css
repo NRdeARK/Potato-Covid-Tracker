@@ -1,89 +1,89 @@
 #profile-pic1 {
-    -fx-fill: #ffaa5c;
-    -fx-stroke-width: 2px;
+  -fx-fill: #ffaa5c;
+  -fx-stroke-width: 2px;
 }
 
 #profile-pic2 {
-    -fx-fill: #f9f8f0;
-    -fx-stroke: null;
+  -fx-fill: #f9f8f0;
+  -fx-stroke: null;
 }
 
 #Bg {
-    -fx-background-color: linear-gradient(to bottom left, #ffd4ad, #ffffff);
+  -fx-background-color: linear-gradient(to bottom left, #ffd4ad, #ffffff);
 }
 
 #bg-circle {
-    -fx-fill: #D6A980;
-    -fx-stroke: null;
+  -fx-fill: #D6A980;
+  -fx-stroke: null;
 }
 
 #regis-bg {
-    -fx-background-color: rgba(0, 0, 0, 0.2);
-    -fx-background-radius: 50px;
+  -fx-background-color: rgba(0, 0, 0, 0.2);
+  -fx-background-radius: 50px;
 }
 
 #username-rect {
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 3, 0, -1, -1);
-  }
-  
-  #name-rect {
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 3, 0, -1, -1);
-  }
-  
-  #gender-rect {
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 3, 0, -1, -1);
-  }
-  
-  #vacc-rect {
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 3, 0, -1, -1);
-  }
-  
-  #last-vecc-rect {
-    -fx-fill: #fdebda;
-    -fx-stroke: null;
-    -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 3, 0, -1, -1);
-  }
-
-  #edit-profile-button {
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius: 100;
-  }
-
-  #edit-profile-button:hover .ikonli-font-icon {
-    -fx-icon-color:#FFAA5C;
-  }
-
-  #back-button {
-    -fx-background-color: transparent;
-  }
-
-  #back-button:hover{
-      -fx-text-fill:#FFAA5C;
-  }
-
-  #back-button:pressed{
-    -fx-text-fill:black;
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 3, 0, -1, -1);
 }
 
-  #next-button{
-    -fx-background-color:#FBF9CF;
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.5), 15, 0.0, 0, 3.0);
-  }
+#name-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 3, 0, -1, -1);
+}
 
-  #next-button:hover{
-    -fx-background-color:black;
-    -fx-text-fill: #FBF9CF;
-  }
+#gender-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 3, 0, -1, -1);
+}
 
-  #next-button:pressed{
-    -fx-background-color:#FBF9CF;
-    -fx-text-fill: black;
-  }
+#vacc-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 3, 0, -1, -1);
+}
+
+#last-vecc-rect {
+  -fx-fill: #fdebda;
+  -fx-stroke: null;
+  -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.4), 3, 0, -1, -1);
+}
+
+#edit-profile-button {
+  -fx-background-color: #FFFFFF;
+  -fx-background-radius: 100;
+}
+
+#edit-profile-button:hover .ikonli-font-icon {
+  -fx-icon-color: #FFAA5C;
+}
+
+#back-button {
+  -fx-background-color: transparent;
+}
+
+#back-button:hover {
+  -fx-text-fill: #FFAA5C;
+}
+
+#back-button:pressed {
+  -fx-text-fill: black;
+}
+
+#next-button {
+  -fx-background-color: #FBF9CF;
+  -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.5), 15, 0.0, 0, 3.0);
+}
+
+#next-button:hover {
+  -fx-background-color: black;
+  -fx-text-fill: #FBF9CF;
+}
+
+#next-button:pressed {
+  -fx-background-color: #FBF9CF;
+  -fx-text-fill: black;
+}

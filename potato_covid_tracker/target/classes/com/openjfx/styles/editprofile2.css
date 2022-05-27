@@ -60,7 +60,7 @@
 #save-button {
   -fx-background-color: #FFFFFF;
   -fx-background-radius: 100;
-  -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 5, 0, 0 , 3);
+  -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 5, 0, 0, 3);
 }
 
 #edit-profile-button {
@@ -84,11 +84,11 @@
   -fx-background-color: #FFAA5C;
 }
 
-#save-button:hover .ikonli-font-icon{
+#save-button:hover .ikonli-font-icon {
   -fx-icon-color: white;
 }
 
-#save-button:pressed .ikonli-font-icon{
+#save-button:pressed .ikonli-font-icon {
   -fx-icon-color: #FFAA5C;
 }
 
@@ -97,9 +97,9 @@
 }
 
 #edit-profile-button:hover .ikonli-font-icon {
-  -fx-icon-color:#FFAA5C;
+  -fx-icon-color: #FFAA5C;
 }
 
 #edit-profile-button:pressed .ikonli-font-icon {
-  -fx-icon-color:black;
+  -fx-icon-color: black;
 }

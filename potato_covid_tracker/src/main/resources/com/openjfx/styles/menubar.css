@@ -1,64 +1,59 @@
-
-
-#vbox{
+#vbox {
     -fx-background-radius: 5;
 }
 
-.menubar-button{
+.menubar-button {
     -fx-background-color: transparent;
 }
 
 
-#menuslidebutton #InnerButtonAnchor{
-    -fx-background-color:transparent;
+#menuslidebutton #InnerButtonAnchor {
+    -fx-background-color: transparent;
 }
 
-#menuslidebutton:hover #InnerButtonAnchor{
-    -fx-background-color:#6C5D4F;
-    -fx-background-radius:8;
+#menuslidebutton:hover #InnerButtonAnchor {
+    -fx-background-color: #6C5D4F;
+    -fx-background-radius: 8;
 }
 
-#menuslidebutton:hover .ikonli-font-icon{
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0 , 8);
+#menuslidebutton:hover .ikonli-font-icon {
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0, 8);
 }
 
-#profile-button{
+#profile-button {}
+
+#profile-button:hover #profile-hover {
+    -fx-background-color: #6C5D4F;
+    -fx-background-radius: 8;
 }
 
-#profile-button:hover #profile-hover{
-    -fx-background-color:#6C5D4F;
-    -fx-background-radius:8;
+#profile-button:hover .ikonli-font-icon {
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0, 8);
 }
 
-#profile-button:hover .ikonli-font-icon{
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0 , 8);
+#notibutton:hover #noti-hover {
+    -fx-background-color: #6C5D4F;
+    -fx-background-radius: 8;
 }
 
-#notibutton:hover #noti-hover{
-    -fx-background-color:#6C5D4F;
-    -fx-background-radius:8;
+#notibutton:hover .ikonli-font-icon {
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0, 8);
 }
 
-#notibutton:hover .ikonli-font-icon{
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0 , 8);    
+#helpbutton:hover #help-hover {
+    -fx-background-color: #6C5D4F;
+    -fx-background-radius: 8;
 }
 
-#helpbutton:hover #help-hover{
-    -fx-background-color:#6C5D4F;
-    -fx-background-radius:8;
+#helpbutton:hover .ikonli-font-icon {
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0, 8);
 }
 
-#helpbutton:hover .ikonli-font-icon{
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0 , 8);    
+#exiticon:hover #exit-hover {
+    -fx-background-color: #6C5D4F;
+    -fx-background-radius: 8;
 }
 
-#exiticon:hover #exit-hover{
-    -fx-background-color:#6C5D4F;
-    -fx-background-radius:8;
+#exiticon:hover .ikonli-font-icon {
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0, 8);
 }
-
-#exiticon:hover .ikonli-font-icon{
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.69), 5, 0, 0 , 8);    
-}
-
-

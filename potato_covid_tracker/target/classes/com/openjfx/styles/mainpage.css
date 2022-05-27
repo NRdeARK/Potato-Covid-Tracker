@@ -1,27 +1,27 @@
-
-#BgCircle1{
-    -fx-fill:#FFAA5C;
+#BgCircle1 {
+    -fx-fill: #FFAA5C;
 }
 
-#BgCircle2{
-    -fx-fill:#D6A980;
+#BgCircle2 {
+    -fx-fill: #D6A980;
 }
 
-#mainmenudrawer{
+#mainmenudrawer {
     -fx-background-radius: 5;
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 10, 0.0, 10.0, 8.0);
 }
 
-#submenudrawer{
+#submenudrawer {
     -fx-background-radius: 5;
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 10, 0.0, 10.0, 8.0);
 }
+
 /* #InnerLeftPane{
     -fx-background-color:#FFFFFF;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0.0, 10.0, 8.0);
 } */
 
-#middlePane{
-    -fx-background-color:#FFFFFF;
+#middlePane {
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 20px;
 }

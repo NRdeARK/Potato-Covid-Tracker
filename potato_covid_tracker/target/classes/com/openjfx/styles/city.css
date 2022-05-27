@@ -30,63 +30,63 @@
     -fx-hgap: 8;
 }
 
-#city-icon{
+#city-icon {
     -fx-effect: innershadow(gaussian, rgba(0, 0, 0, 0.6), 10, 0, 0.0, 4.0);
 }
 
-.combo-box{
-    -fx-background-color:#FFAA5C;
-    -fx-background-radius:8px;
+.combo-box {
+    -fx-background-color: #FFAA5C;
+    -fx-background-radius: 8px;
 }
 
-.combo-box .arrow-button{
-    -fx-background-color:#F2D8C0;
-    -fx-background-radius:10px;
-    -fx-tanslate-x:20;
+.combo-box .arrow-button {
+    -fx-background-color: #F2D8C0;
+    -fx-background-radius: 10px;
+    -fx-tanslate-x: 20;
 }
 
-#infect-rect{
-    -fx-background-color:#ED5B5B;
-    -fx-background-radius:20px;
+#infect-rect {
+    -fx-background-color: #ED5B5B;
+    -fx-background-radius: 20px;
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 4, 0.0, 0.0, 2.0);
 }
 
-#today-label{
+#today-label {
     -fx-font-family: 'ABeeZee', sans-serif;
 }
 
-#num-infect-rect{
-    -fx-background-color:#FFB5B5;
-    -fx-background-radius:20px;
+#num-infect-rect {
+    -fx-background-color: #FFB5B5;
+    -fx-background-radius: 20px;
 }
 
-#today-death-rect{
-    -fx-background-color:#5E5E5E;
-    -fx-background-radius:20px;
+#today-death-rect {
+    -fx-background-color: #5E5E5E;
+    -fx-background-radius: 20px;
 }
 
-#today-death-label{
+#today-death-label {
     -fx-font-family: 'ABeeZee', sans-serif;
 }
 
-#num-death-rect{
-    -fx-background-color:#C7C7C7;
-    -fx-background-radius:20px;
+#num-death-rect {
+    -fx-background-color: #C7C7C7;
+    -fx-background-radius: 20px;
 }
 
-#update-button{
-    -fx-background-color:#FFAA5C;
-    -fx-background-radius:10px;
+#update-button {
+    -fx-background-color: #FFAA5C;
+    -fx-background-radius: 10px;
     -fx-font-family: 'ABeeZee', sans-serif;
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 4, 0.0, 0.0, 2.0);
 }
 
-#update-button:hover{
-    -fx-background-color:black;
-    -fx-text-fill:#FFAA5C;
+#update-button:hover {
+    -fx-background-color: black;
+    -fx-text-fill: #FFAA5C;
 }
 
-#update-button:pressed{
-    -fx-background-color:#FFAA5C;
-    -fx-text-fill:black;
+#update-button:pressed {
+    -fx-background-color: #FFAA5C;
+    -fx-text-fill: black;
 }

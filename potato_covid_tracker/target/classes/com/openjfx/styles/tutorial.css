@@ -1,41 +1,42 @@
-#back-button{
-    -fx-background-color:transparent;
+#back-button {
+    -fx-background-color: transparent;
 }
 
-#next-button{
-    -fx-background-color:transparent;
+#next-button {
+    -fx-background-color: transparent;
 }
 
-#finish-button{
-    -fx-background-color:#FFAA5C;
-    -fx-background-radius:10px;
+#finish-button {
+    -fx-background-color: #FFAA5C;
+    -fx-background-radius: 10px;
     -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.25), 4, 0.0, 0.0, 2.0);
 }
 
 
-#back-button:hover .ikonli-font-icon{
-    -fx-icon-color:#FFAA5C;
+#back-button:hover .ikonli-font-icon {
+    -fx-icon-color: #FFAA5C;
 }
 
-#next-button:hover .ikonli-font-icon{
-    -fx-icon-color:#FFAA5C;
+#next-button:hover .ikonli-font-icon {
+    -fx-icon-color: #FFAA5C;
 }
 
-#back-button:pressed .ikonli-font-icon{
-    -fx-icon-color:black;
+#back-button:pressed .ikonli-font-icon {
+    -fx-icon-color: black;
 }
 
-#next-button:pressed .ikonli-font-icon{
-    -fx-icon-color:black;
+#next-button:pressed .ikonli-font-icon {
+    -fx-icon-color: black;
 }
 
-#finish-button:hover{
-    -fx-background-color:black;
-    -fx-text-fill:#FFAA5C;;
+#finish-button:hover {
+    -fx-background-color: black;
+    -fx-text-fill: #FFAA5C;
+    ;
 }
 
-#finish-button:pressed{
-    -fx-background-color:#FFAA5C;;
-    -fx-text-fill:black;
+#finish-button:pressed {
+    -fx-background-color: #FFAA5C;
+    ;
+    -fx-text-fill: black;
 }
-

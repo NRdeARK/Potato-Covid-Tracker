@@ -2,45 +2,46 @@
 
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
 
-#Bg{
-    -fx-background-color:#FFD4AD;
+#Bg {
+    -fx-background-color: #FFD4AD;
 }
 
-#BgCircle1{
-    -fx-fill:#FFAA5C;
+#BgCircle1 {
+    -fx-fill: #FFAA5C;
 }
 
-#BgCircle2{
-    -fx-fill:#D6A980;
+#BgCircle2 {
+    -fx-fill: #D6A980;
 }
 
-#middlePane{
-    -fx-background-color:#FFFFFF;
+#middlePane {
+    -fx-background-color: #FFFFFF;
     -fx-background-radius: 20px;
 }
 
-#back-button{
-    -fx-background-color:transparent;
+#back-button {
+    -fx-background-color: transparent;
 }
 
-#back-button:hover{
-    -fx-text-fill:#FFAA5C;
+#back-button:hover {
+    -fx-text-fill: #FFAA5C;
 }
 
-#back-button:pressed{
-    -fx-text-fill:black;
+#back-button:pressed {
+    -fx-text-fill: black;
 }
 
-#about_label{
+#about_label {
     -fx-font-family: 'Slackey', cursive;
-    -fx-text-fill:#FFAA5C;
-    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 5, 0, 0 , 3);
+    -fx-text-fill: #FFAA5C;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.3), 5, 0, 0, 3);
 }
 
-#body-label{
+#body-label {
     -fx-font-family: 'ABeeZee', sans-serif;
 }
 
-#name-label, #role-label{
+#name-label,
+#role-label {
     -fx-font-family: 'ABeeZee', sans-serif;
 }

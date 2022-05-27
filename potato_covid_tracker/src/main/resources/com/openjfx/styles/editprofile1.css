@@ -1,44 +1,45 @@
-#edit-pane{
+#edit-pane {
     -fx-background-color: rgba(0, 0, 0, 0.7);
     -fx-background-radius: 10px;
 }
 
-#label1, #label2{
+#label1,
+#label2 {
     -fx-text-fill: #FFFFFF;
 }
 
-#password-field{
+#password-field {
     -fx-background-radius: 10px;
 }
 
-#next-arrow-button{
-    -fx-background-color:transparent;
+#next-arrow-button {
+    -fx-background-color: transparent;
 }
 
-#next-arrow-button:hover .ikonli-font-icon{
-    -fx-icon-color:#FFAA5C;
+#next-arrow-button:hover .ikonli-font-icon {
+    -fx-icon-color: #FFAA5C;
 }
 
-#next-arrow-button:pressed .ikonli-font-icon{
-    -fx-icon-color:black;
+#next-arrow-button:pressed .ikonli-font-icon {
+    -fx-icon-color: black;
 }
 
-#password-warning-label{
+#password-warning-label {
     -fx-text-fill: #FFFFFF;
 }
 
-#back-button{
-    -fx-background-color:transparent;
+#back-button {
+    -fx-background-color: transparent;
 }
 
-#back-button .ikonli-font-icon{
-    -fx-icon-color:#FFFFFF;
+#back-button .ikonli-font-icon {
+    -fx-icon-color: #FFFFFF;
 }
 
-#back-button:hover .ikonli-font-icon{
-    -fx-icon-color:#FFAA5C;
+#back-button:hover .ikonli-font-icon {
+    -fx-icon-color: #FFAA5C;
 }
 
-#back-button:pressed .ikonli-font-icon{
-    -fx-icon-color:white;
+#back-button:pressed .ikonli-font-icon {
+    -fx-icon-color: white;
 }

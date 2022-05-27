@@ -1,18 +1,17 @@
-
-.button{
+.button {
     -fx-background-radius: 10px;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25),10,0,0,4px)
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.25), 10, 0, 0, 4px)
 }
 
-#loginAsGuestButton{
+#loginAsGuestButton {
     -fx-background-color: #FFAA5C;
 }
 
-#loginAsPotatoButton{
+#loginAsPotatoButton {
     -fx-background-color: #FBF9CF;
 }
 
-.button:hover{
+.button:hover {
     -fx-font-weight: bolder;
     -fx-background-radius: 10px;
     -fx-border-color: #764627;
@@ -21,7 +20,7 @@
     -fx-border-width: 3;
 }
 
-.button:pressed{
+.button:pressed {
     -fx-font-weight: bold;
     -fx-background-radius: 5;
     -fx-font-size: 10;
@@ -29,9 +28,9 @@
     -fx-border-color: #764627;
     -fx-border-radius: 5;
     -fx-border-width: 3;
-    
+
 }
 
-#launch{
+#launch {
     -fx-background-color: #E0D8B0;
 }
