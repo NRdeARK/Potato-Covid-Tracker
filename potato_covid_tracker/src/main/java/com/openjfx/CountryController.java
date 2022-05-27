@@ -492,6 +492,7 @@ public class CountryController implements Initializable {
                     .get(jsonArray.size() - 1 - i));
             lines.add(jsonData.toString());
         }
+
         File f1 = new File("countryData.txt");
         FileWriter fw = new FileWriter(f1);
         BufferedWriter out = new BufferedWriter(fw);
