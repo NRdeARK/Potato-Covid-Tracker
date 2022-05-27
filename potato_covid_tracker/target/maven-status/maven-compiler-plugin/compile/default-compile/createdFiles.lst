@@ -14,6 +14,5 @@ com/openjfx/App.class
 com/openjfx/APIConnector.class
 com/openjfx/UserData.class
 com/openjfx/LoginController.class
-com/openjfx/LogoutConfirmationController.class
 com/openjfx/ProfileController.class
 com/openjfx/CountryController.class

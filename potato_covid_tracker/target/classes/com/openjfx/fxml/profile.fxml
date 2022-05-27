@@ -18,7 +18,7 @@
 
 <StackPane fx:id="rootpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/profile.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.openjfx.ProfileController">
    <children>
-      <AnchorPane id="Bg" fx:id="mainAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/profile.css">
+      <AnchorPane id="profile-bg" fx:id="rootAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" stylesheets="@../styles/profile.css">
          <children>
             <ImageView fitHeight="540.0" fitWidth="960.0" pickOnBounds="true" preserveRatio="true" />
             <Circle id="BgCircle1" fill="DODGERBLUE" layoutX="295.0" layoutY="318.0" radius="287.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateX="-27.0" translateY="300.0" AnchorPane.rightAnchor="414.0" />
