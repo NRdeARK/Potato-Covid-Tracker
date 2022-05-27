@@ -18,7 +18,6 @@
          <children>
             <Circle id="profile-pic1" fill="DODGERBLUE" layoutX="399.0" layoutY="105.0" radius="66.0" stroke="BLACK" strokeType="INSIDE" />
             <Circle id="profile-pic2" fill="DODGERBLUE" layoutX="399.0" layoutY="105.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" />
-            <ImageView fx:id="profileImageView" fitHeight="89.0" fitWidth="80.0" layoutX="365.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
             <Circle fx:id="profileImage" fill="DODGERBLUE" layoutX="399.0" layoutY="106.0" radius="54.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <Button id="edit-profile-button" fx:id="browseButton" layoutX="411.0" layoutY="141.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#browseProfileImage" prefHeight="36.0" prefWidth="39.0">
                <graphic>
