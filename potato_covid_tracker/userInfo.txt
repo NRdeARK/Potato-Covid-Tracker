@@ -1,7 +1,7 @@
 5 f f f f 2 2020-02-02 Potato-for-Babies-scaled.jpg
 4 b b b b 4 2022-01-03 image0.jpg
 3 a a a a 3 2020-01-02 justPotato.jpg
-0 guest 2142412 null null 0 2000-04-02 normalPotato.png
+0 guest guest null null 0 2000-04-02 normalPotato.png
 1 pinkkkkk_zy pink sudsuay female 2 2022-05-10 potatoGirl.png
 2 harward_Guiii doctor sapiens male 47 2022-05-20 doctorPotato.png
 999 holidayz_|theIF| santa goldcloth santa Tak's_Father 0000-00-00 potatoSanta.png
